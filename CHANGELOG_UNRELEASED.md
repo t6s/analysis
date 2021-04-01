@@ -52,6 +52,11 @@
   + instance `invr_nngnum`
 - in `posnum.v`:
   + instance `posnum_nngnum`
+- file `csum.v`:
+  + lemma `ub_ereal_sup_adherent2`
+  + definition `csum`, lemmas `csum0`, `csum_ge0`, `csum_fset`,
+    `csum_countable`, `csum_nat_lim`, `csum_csum`
+- file `cardinality.v`
 
 ### Changed
 
