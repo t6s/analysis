@@ -82,7 +82,7 @@ Arguments real_of_er {R}.
 
 Notation "+oo" := (@ERPInf _) : ereal_scope.
 Notation "-oo" := (@ERNInf _) : ereal_scope.
-Notation "x %:E" := (@ERFin _ x) (at level 2, format "x %:E").
+Notation "x %:E" := (@ERFin _ x%R) (at level 2, format "x %:E").
 
 Notation "{ 'ereal' R }" := (er R) (format "{ 'ereal'  R }").
 
@@ -317,29 +317,29 @@ Notation "`| x |" := (abse x) : ereal_scope.
 Notation "f \+ g" := (fun x => f x + g x)%E : ereal_scope.
 
 Notation "\sum_ ( i <- r | P ) F" :=
-  (\big[+%E/0%:E]_(i <- r | P%B) F%R) : ereal_scope.
+  (\big[+%E/0%:E]_(i <- r | P%B) F%E) : ereal_scope.
 Notation "\sum_ ( i <- r ) F" :=
-  (\big[+%E/0%:E]_(i <- r) F%R) : ereal_scope.
+  (\big[+%E/0%:E]_(i <- r) F%E) : ereal_scope.
 Notation "\sum_ ( m <= i < n | P ) F" :=
-  (\big[+%E/0%:E]_(m <= i < n | P%B) F%R) : ereal_scope.
+  (\big[+%E/0%:E]_(m <= i < n | P%B) F%E) : ereal_scope.
 Notation "\sum_ ( m <= i < n ) F" :=
-  (\big[+%E/0%:E]_(m <= i < n) F%R) : ereal_scope.
+  (\big[+%E/0%:E]_(m <= i < n) F%E) : ereal_scope.
 Notation "\sum_ ( i | P ) F" :=
-  (\big[+%E/0%:E]_(i | P%B) F%R) : ereal_scope.
+  (\big[+%E/0%:E]_(i | P%B) F%E) : ereal_scope.
 Notation "\sum_ i F" :=
-  (\big[+%E/0%:E]_i F%R) : ereal_scope.
+  (\big[+%E/0%:E]_i F%E) : ereal_scope.
 Notation "\sum_ ( i : t | P ) F" :=
-  (\big[+%E/0%:E]_(i : t | P%B) F%R) (only parsing) : ereal_scope.
+  (\big[+%E/0%:E]_(i : t | P%B) F%E) (only parsing) : ereal_scope.
 Notation "\sum_ ( i : t ) F" :=
-  (\big[+%E/0%:E]_(i : t) F%R) (only parsing) : ereal_scope.
+  (\big[+%E/0%:E]_(i : t) F%E) (only parsing) : ereal_scope.
 Notation "\sum_ ( i < n | P ) F" :=
-  (\big[+%E/0%:E]_(i < n | P%B) F%R) : ereal_scope.
+  (\big[+%E/0%:E]_(i < n | P%B) F%E) : ereal_scope.
 Notation "\sum_ ( i < n ) F" :=
-  (\big[+%E/0%:E]_(i < n) F%R) : ereal_scope.
+  (\big[+%E/0%:E]_(i < n) F%E) : ereal_scope.
 Notation "\sum_ ( i 'in' A | P ) F" :=
-  (\big[+%E/0%:E]_(i in A | P%B) F%R) : ereal_scope.
+  (\big[+%E/0%:E]_(i in A | P%B) F%E) : ereal_scope.
 Notation "\sum_ ( i 'in' A ) F" :=
-  (\big[+%E/0%:E]_(i in A) F%R) : ereal_scope.
+  (\big[+%E/0%:E]_(i in A) F%E) : ereal_scope.
 
 Section ERealOrderTheory.
 Context {R : numDomainType}.
@@ -387,19 +387,19 @@ Context {R : numDomainType}.
 
 Implicit Types x y z : {ereal R}.
 
-Lemma NERFin (x : R) : (- x)%R%:E = (- x%:E). Proof. by []. Qed.
+Lemma NERFin (x : R) : (- x)%:E = (- x%:E). Proof. by []. Qed.
 
 Lemma real_of_erN x : real_of_er (- x) = (- real_of_er x)%R.
 Proof. by case: x => //=; rewrite oppr0. Qed.
 
-Lemma addERFin (r r' : R) : (r + r')%R%:E = r%:E + r'%:E.
+Lemma addERFin (r r' : R) : (r + r')%:E = r%:E + r'%:E.
 Proof. by []. Qed.
 
 Lemma sumERFin I r P (F : I -> R) :
-  \sum_(i <- r | P i) (F i)%:E = (\sum_(i <- r | P i) F i)%R%:E.
+  \sum_(i <- r | P i) (F i)%:E = (\sum_(i <- r | P i) F i)%:E.
 Proof. by rewrite (big_morph _ addERFin erefl). Qed.
 
-Lemma subERFin (r r' : R) : (r - r')%R%:E = r%:E - r'%:E.
+Lemma subERFin (r r' : R) : (r - r')%:E = r%:E - r'%:E.
 Proof. by []. Qed.
 
 Definition adde_undef x y :=
@@ -995,7 +995,7 @@ case=> [x||].
   move=> P Q lP lQ; exact: xI.
   by move=> P Q PQ /xS; apply => y /PQ.
 - apply Build_ProperFilter.
-    move=> P [x [xr xP]] //; exists (x + 1)%R%:E; apply xP => /=.
+    move=> P [x [xr xP]] //; exists (x + 1)%:E; apply xP => /=.
     by rewrite lte_fin ltr_addl.
   split=> /= [|P Q [MP [MPr gtMP]] [MQ [MQr gtMQ]] |P Q sPQ [M [Mr gtM]]].
   + by exists 0; rewrite real0.
@@ -1021,7 +1021,7 @@ case=> [x||].
     * by move=> _; split; [apply/gtMP | apply/gtMQ].
   + by exists M; split => // ? /gtM /sPQ.
 - apply Build_ProperFilter.
-  + move=> P [M [Mr ltMP]]; exists (M - 1)%R%:E.
+  + move=> P [M [Mr ltMP]]; exists (M - 1)%:E.
     by apply: ltMP; rewrite lte_fin gtr_addl oppr_lt0.
   + split=> /= [|P Q [MP [MPr ltMP]] [MQ [MQr ltMQ]] |P Q sPQ [M [Mr ltM]]].
     * by exists 0; rewrite real0.
@@ -1905,7 +1905,7 @@ Qed.
 
 Definition ereal_loc_seq (R : numDomainType) (x : {ereal R}) (n : nat) :=
   match x with
-    | x%:E => (x + (n%:R + 1)^-1)%R%:E
+    | x%:E => (x + (n%:R + 1)^-1)%:E
     | +oo => n%:R%:E
     | -oo => - n%:R%:E
   end.

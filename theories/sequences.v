@@ -759,9 +759,9 @@ Qed.
 Section sequences_of_extended_real_numbers.
 
 Lemma ereal_cvgN (R : realFieldType) (f : {ereal R} ^nat) (a : {ereal R}) :
-  f --> a -> (fun n => - (f n))%E --> (- a)%E.
+  f --> a -> (fun n => - f n)%E --> (- a)%E.
 Proof.
-rewrite (_ : (fun n => - (f n))%E = -%E \o f) // => /cvg_comp; apply.
+rewrite (_ : (fun n => - f n) = -%E \o f)%E // => /cvg_comp; apply.
 exact: oppe_continuous.
 Qed.
 
@@ -969,7 +969,7 @@ Qed.
 
 Lemma is_cvg_ereal_nneg_series_cond (R : realType) (u_ : {ereal R} ^nat)
   (P : pred nat) : (forall n, P n -> (0%:E <= u_ n)%E) ->
-  cvg (fun n => (\sum_(i < n | P i) u_ i)%E).
+  cvg (fun n => \sum_(i < n | P i) u_ i)%E.
 Proof.
 move/lee_sum_nneg_ord/nondecreasing_seq_ereal_cvg => cu.
 by apply/cvg_ex; eexists; exact: cu.
@@ -977,7 +977,7 @@ Qed.
 
 Lemma is_cvg_ereal_nneg_series (R : realType) (u_ : {ereal R} ^nat)
   (P : pred nat) : (forall n, P n -> (0%:E <= u_ n)%E) ->
-  cvg (fun n => (\sum_(i < n | P i) u_ i)%E).
+  cvg (fun n => \sum_(i < n | P i) u_ i)%E.
 Proof. by move=> ?; exact: is_cvg_ereal_nneg_series_cond. Qed.
 
 Lemma ereal_nneg_series_lim_ge0 (R : realType) (u_ : {ereal R} ^nat)
@@ -1004,7 +1004,7 @@ Lemma ereal_cvgPpinfty (R : realFieldType) (u_ : {ereal R} ^nat) :
   u_ --> +oo%E <-> (forall A : R, 0 < A -> \forall n \near \oo, (A%:E <= u_ n)%E).
 Proof.
 split => [u_cvg _/posnumP[A]|u_ge X [A [Ar AX]]].
-  rewrite -(near_map u_ \oo (fun x => (A%:num%:E <= x))%E).
+  rewrite -(near_map u_ \oo (fun x => A%:num%:E <= x))%E.
   by apply: u_cvg; apply: ereal_nbhs_pinfty_ge.
 rewrite !near_simpl [\near u_, X _](near_map u_ \oo); near=> x.
 apply: AX.
@@ -1017,7 +1017,7 @@ Lemma ereal_cvgPninfty (R : realFieldType) (u_ : {ereal R} ^nat) :
   u_ --> -oo%E <-> (forall A : R, A < 0 -> \forall n \near \oo, (u_ n <= A%:E)%E).
 Proof.
 split => [u_cvg A A0|u_le X [A [Ar AX]]].
-  rewrite -(near_map u_ \oo (fun x => (x <= A%:E))%E).
+  rewrite -(near_map u_ \oo (fun x => x <= A%:E)%E).
   by apply: u_cvg; apply: ereal_nbhs_ninfty_le.
 rewrite !near_simpl [\near u_, X _](near_map u_ \oo); near=> x.
 apply: AX.
