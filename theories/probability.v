@@ -65,6 +65,85 @@ Set Implicit Arguments.
 Unset Strict Implicit.
 Unset Printing Implicit Defensive.
 
+
+Lemma neqEeqN_bool b1 b2 : (b1 != b2) = (b1 == ~~ b2).
+Proof. by case: b1; case: b2. Qed.
+
+Lemma fdisjointIl (K : choiceType) (A B C : {fset K}) :
+  [disjoint B & C]%fset -> [disjoint A `&` B & A `&` C]%fset.
+Proof. by move/fdisjointP=> H; apply/fdisjointP=> x /[!inE] /andP [] -> /H ->. Qed.
+
+Lemma fdisjointID (K : choiceType) (A B : {fset K}) : [disjoint A `&` B & A `\` B]%fset.
+Proof. by apply/fdisjointP=> x /[!inE] /andP [] -> ->. Qed.
+
+Lemma cardfsSnP (K : choiceType) (A : {fset K}) :
+  (exists x : K, x \in A) <-> (exists n, #|` A| == n.+1).
+Proof.
+split.
+  case=> x xA; exists (size A).-1; rewrite prednK //.
+  by rewrite cardfs_gt0; apply/fset0Pn; exists x.
+case=> n Hn; apply/fset0Pn.
+by apply/negP; move: Hn=> /[swap] /eqP-> /=.
+Qed.
+
+Lemma fsubset2 (K : choiceType) (A : {fset K}) (a b : K) :
+  (A `<=` [fset a; b] =
+     [|| (A == fset0)
+       , (A == [fset a])
+       , (A == [fset b])
+       | (A == [fset a; b])])%fset.
+Proof.
+rewrite !orbA.
+have[->|Aneqab]:= eqVneq A [fset a; b]%fset.
+ by rewrite fsubset_refl orbT.
+rewrite orbF -[X in X || _ || _]orbb.
+rewrite (orbAC (A == fset0)) (orbC (A == fset0)) -fsubset1.
+rewrite -!orbA (orbC (A == fset0)) -fsubset1.
+have[->|ab]:= eqVneq a b; first by rewrite fsetUid orbb.
+have: a \notin [fset b]%fset by rewrite inE.
+move/fsetU1K/esym=> bE.
+have: b \notin [fset a]%fset by rewrite inE eq_sym.
+move/fsetU1K/esym; rewrite fsetUC=> aE.
+rewrite [in X in X || _]aE [in X in _ || X]bE.
+rewrite !fsubsetD1 -andb_orr -negb_and -[LHS]andbT.
+apply: andb_id2l => Asubab; apply/esym.
+rewrite -/(is_true _) -!fsub1set andbC.
+apply/andP=> /fsubUsetP /(conj Asubab) /andP.
+by rewrite -eqEfsubset (negPf Aneqab).
+Qed.
+
+(*
+Lemma set_fset2: forall {T : choiceType} (x y : T), [set` [fset x; y]%fset] = [set x; y].
+Admitted.
+*)
+
+Import Monoid.Theory.
+
+Lemma big_disjoint_fsetU (R : Type) (idx : R) (op : Monoid.com_law idx) (I : choiceType)
+  (A B : {fset I}) (F : I -> R) :
+  [disjoint A & B]%fset ->
+  \big[op/idx]_(i <- (A `|` B)%fset) F i =
+    op (\big[op/idx]_(i <- A) F i) (\big[op/idx]_(i <- B) F i).
+Proof.
+pose Q := size A.
+have: size A = Q by reflexivity.
+move: A Q => /[swap].
+elim=> [A | n IHn A].
+  move/eqP; rewrite cardfs_eq0=> /eqP -> _.
+  by rewrite fset0U big_seq_fset0 Monoid.op1m.
+move=> An1.
+have/fset0Pn: A != fset0 by apply/negP; move: An1=> /[swap] /eqP ->.
+case=> x xA /[dup] /fdisjointP AdisjB /[1!fdisjoint_sym] /fdisjointP BdisjA.
+have xAB: x \in (A `|` B)%fset by rewrite in_fsetU xA.
+rewrite -(fsetD1K xA) -fsetUA big_fsetU1; last by rewrite !inE eqxx /=; apply: AdisjB.
+rewrite big_fsetU1; last by rewrite !inE eqxx.
+rewrite -mulmA; congr (op (F x) _).
+apply: IHn.
+  by apply: succn_inj; rewrite -[LHS]add1n -An1 [RHS](cardfsD1 x) xA.
+rewrite fdisjoint_sym; apply/fdisjointP=> y /BdisjA => yA.
+by rewrite !inE (negPf yA) andbF.
+Qed.
+
 Import Order.TTheory GRing.Theory Num.Def Num.Theory.
 Import numFieldTopology.Exports.
 
@@ -1435,19 +1514,46 @@ Definition mutually_independent (I : choiceType) (A : I -> set T) :=
 End independent_events.
 
 (* independent class of events, klenke def 2.11, p.59 *)
-Section independent_class.
+Section independent_classes.
 Context {R : realType} d {T : measurableType d}.
 Variable P : probability T R.
 Local Open Scope ereal_scope.
 
-Definition independent_class (I : choiceType) (C : I -> set (set T)) :=
+Definition independent_classes (I : choiceType) (C : I -> set (set T)) :=
   (forall i, C i `<=` @measurable _ T) /\
   forall J : {fset I},
     forall E : I -> set T,
       (forall i : I, i \in J -> E i \in C i) ->
         P (\big[setI/setT]_(j <- J) E j) = \prod_(j <- J) P (E j).
 
-End independent_class.
+Lemma independent_classes_split (I : choiceType) (C : I -> set (set T))
+  (J : {fset I}) (E : I -> set T) (X Y : {fset I}) :
+  independent_classes C ->
+  (forall i : I, i \in J -> i \in (X `|` Y)%fset -> E i \in C i) ->
+  fdisjoint X Y -> 
+  P (\big[setI/setT]_(j <- (J `&` X `|` J `&` Y)%fset) E j) =
+    \prod_(j <- (J `&` X)%fset) P (E j) * \prod_(j <- (J `&` Y)%fset) P (E j).
+Proof.
+case=> ? H EC XY.
+rewrite (H (J `&` X `|` J `&` Y)%fset); last first.
+  by move=> i; rewrite -fsetIUr inE=> /andP [] /EC.
+by rewrite big_disjoint_fsetU ?fdisjointIl.
+Qed.
+
+Lemma independent_classesID (I : choiceType) (C : I -> set (set T))
+  (J : {fset I}) (E : I -> set T) (X : {fset I}) :
+  independent_classes C ->
+  (forall i : I, i \in J -> E i \in C i) ->
+  P (\big[setI/setT]_(j <- (J `&` X `|` J `\` X)%fset) E j) =
+    \prod_(j <- (J `&` X)%fset) P (E j) * \prod_(j <- (J `\` X)%fset) P (E j).
+Proof.
+move=> H EC.
+have JX:= fdisjointID J X.
+have:= independent_classes_split H _ JX => /(_ J E).
+by rewrite fsetIA fsetIDA fsetIid => -> // i /EC.
+Qed.
+
+End independent_classes.
 
 Section independent_RV.
 Context {R : realType} d (T : measurableType d).
@@ -1457,28 +1563,239 @@ Definition generated_salgebra (X : {RV P >-> R}) : set (set T) :=
   preimage_class setT X (@measurable _ R).
 
 Definition independent_RV (I : choiceType) (X : I -> {RV P >-> R}) :=
-  independent_class P (fun i : I => generated_salgebra (X i)).
+  independent_classes P (fun i : I => generated_salgebra (X i)).
 
 Definition independent_RV_tuple n (X : n.-tuple {RV P >-> R}) :=
-  independent_class P (fun i => generated_salgebra (X `_ i)).
+  independent_classes P (fun i => generated_salgebra (X `_ i)).
+
+Lemma hoge1 (n : nat) (X : n.-tuple {RV P >-> R})
+  (J : {fset nat}) (E : nat -> set T) :
+  (forall i : nat, i \in J -> E i \in generated_salgebra X`_i) ->
+  P (\big[setI/setT]_(j <- J) E j) = (\prod_(j <- J) P (E j))%E.
+Proof.
+move=> sE.
+set lhs:= LHS; rewrite [LHS]lock.
+rewrite big_seq.
+under eq_bigr=> /= i iJ.
+  have:= sE _ iJ => /[!inE] -[] Q mQ <-.
+  rewrite setTI.
+Abort.
+
+Lemma hoge2 (n : nat) (X : n.-tuple {RV P >-> R})
+  (J : {fset nat}) (E : nat -> set T) :
+  (forall i : nat, i \in J -> E i \in generated_salgebra X`_i) ->
+  P (\big[setI/setT]_(j <- J) E j) = (\prod_(j <- J) P (E j))%E.
+Proof.
+move=> sE.
+set rhs:= RHS; rewrite [RHS]lock. 
+rewrite big_seq.
+under eq_bigr=> /= i iJ.
+  have:= sE _ iJ=> /[!inE] -[] Q mQ <-.
+  rewrite setTI.
+Abort.
+
+Lemma generated_salgebra0 (E : set T) :
+  generated_salgebra 0 E -> E = [set: T] \/ E = set0.
+Proof.
+rewrite /generated_salgebra /preimage_class /= => -[] S _.
+rewrite setTI preimage_cst.
+by case: (0 \in S) => <-; [left|right].
+Qed.
 
 Lemma independent_RV_tuple_thead_prod_behead n (X : n.+1.-tuple {RV P >-> R}) :
   independent_RV_tuple X ->
   independent_RV_tuple [tuple thead X; (\prod_(j <- behead X) j)%R].
 Proof.
+move=> /[dup]indepX [] /= measX indepX'.
+split=> /=.
+  case=> /=.
+    by rewrite /thead (tnth_nth 0); exact: measX.
+  case; last first.
+    move=> ?; rewrite nth_seq1 /=.
+    by apply/subsetP=> ? /[!inE] /generated_salgebra0 [] ->.
+  apply/subsetP=> S /[!inE].
+  rewrite /generated_salgebra /preimage_class /=.
+  case=> Q mQ <-.
+  suff: measurable_fun [set: T] (\prod_(j <- behead X) j) by exact.
+  by apply big_ind. (* NB: `exact: big_ind` does not work. Why? *)
+move=> J E sE.
+case/boolP: (has (fun i => E i == set0) J).
+  case/hasP=> i iJ /eqP Ei0.
+  by rewrite !(bigD1_seq i) ?fset_uniq //= Ei0 set0I measure0 mul0e.
+move/hasPn=> /= Eneq0.
+have E2E (i : nat) : i \in J -> (1 < i)%N -> E i = [set: T].
+  move=> iJ i1.
+  have i22: i = (i - 2).+2 by rewrite -addn2 subnK.
+  have:= sE i iJ.
+  rewrite [in X in _ \in X]i22 -2!nth_behead /= nth_nil inE.
+  case/generated_salgebra0=> //.
+  by have:=Eneq0 i iJ => /[swap] /eqP ->.
+rewrite [in LHS](big_fsetID _ (fun n => (1 < n)%N) J) /=.
+rewrite [X in P (X `&` _)]big_seq.
+under [X in P (X `&` _)]eq_bigr=> i.
+  rewrite !inE /= => /andP [] iJ i1.
+  rewrite E2E //.
+  over.
+rewrite -big_seq big1_eq setTI.
+rewrite [RHS](big_fsetID _ (fun n => (1 < n)%N) J) /=.
+rewrite [X in (X * _)%E]big_seq.
+under [X in (X * _)%E]eq_bigr=> i.
+  rewrite !inE /= => /andP [] iJ i1.
+  rewrite E2E // probability_setT.
+  over.
+rewrite -big_seq big1_eq mul1e.
+set Jle1 := [fset x | x in J & ~~ (1 < x)%N]%fset.
+have: (Jle1 `<=` [fset O; S O])%fset.
+  apply/fsubsetP=> x; rewrite !inE=> /andP [] _.
+  by rewrite -leqNgt leq_eqVlt ltnS leqn0 orbC.
+rewrite fsubset2.
+move/orP=> [/eqP->|].
+  by rewrite !big_seq_fset0 probability_setT.
+move/orP=> [/eqP->|].
+  by rewrite !big_seq_fset1.
+move/orP=> [/eqP->|].
+  by rewrite !big_seq_fset1.
+move=> /[dup] + /eqP ->.
+rewrite eqEfsubset=> /andP [] _ /fsubsetP Jle1ge01.
+have/fsubsetP J01: ([fset 0%N; 1%N] `<=` J)%fset.
+  apply/fsubsetP=> /= i.
+  rewrite !inE=> /orP [] /eqP ->.
+    by have:= Jle1ge01 0%N; rewrite !inE eqxx=> /(_ erefl) /andP [].
+  by have:=Jle1ge01 1%N; rewrite !inE eqxx orbT=> /(_ erefl) /andP [].
+rewrite {Jle1 Jle1ge01}.
+rewrite !big_disjoint_fsetU /= ?[X in is_true X]fdisjointX1 ?inE //.
+rewrite !big_seq_fset1.           
+have:= J01=> /(_ 1%N) /[!inE] /(_ erefl) /(sE _).
+rewrite inE=> -[] Q mQ <-.
+rewrite setTI /=.
+pose JJ : {fset nat} := seq_fset tt [seq val i | i <- behead (enum 'I_n.+1)].
+(*pose JJ : {fset nat} := [fset val i | i in 'I_n.+1 & (0 < i)%N]%fset.*)
+pose EE (i : nat) := X`_i @^-1` Q.
+have bXE: behead X = [seq X`_(val i) | i <- behead (enum 'I_n.+1)].
+  rewrite [in LHS](tuple_map_ord X) behead_map /=.
+  by apply: eq_map=> i; rewrite (tnth_nth 0).
+
+STOP
+
+rewrite [in LHS]bXE.
+rewrite [in LHS]bXE; under [in LHS]eq_preimage do rewrite big_map.
+have sEE (i : nat) : i \in JJ -> EE i \in generated_salgebra X`_i.
+  by move=> _; rewrite inE; exists Q=> //; rewrite setTI.
+have:= indepX' JJ EE sEE.
+rewrite /EE.
+
+have:= seq_fsetE tt [seq \val i | i <- behead (enum 'I_n.+1)].
+move/(eq_fbigl _).
+rewrite (eq_fbigl _ (seq_fsetE [seq \val i | i <- behead (enum 'I_n.+1)])).
+rewrite -big_filter.
+rewrite /JJ /EE.
+
+under [in RHS]eq_preimage do rewrite big_map.
+rewrite /preimage.
+under eq_set=> t.
+  rewrite big_map.
+  under eq_bigr=> Y do change Y with (idfun Y).
+  rewrite (big_image _ _ (fun i => X`_(\val i)) xpredT idfun).
+
+have->: (\prod_(j <- behead X) j)%R @^-1` Q = \big[setI/[set: T]]_(j <- JJ) EE j.
+
+
+have sEE (i : nat) : i \in JJ -> EE i \in generated_salgebra X`_i.
+  by move=> _; rewrite inE; exists Q=> //; rewrite setTI.
+have:= indepX' JJ EE sEE.
+
+(*
+rewrite (big_fsetID _ (fun n => n \in [fset O; S O]%fset) J) /=.
+rewrite (big_fsetID _ (fun n => n \in [fset O; S O]%fset) J) /=.
+*)
+rewrite -[in LHS](fsetID [fset O; S O]%fset J) -[in RHS](fsetID [fset O; S O]%fset J).
+have:= independent_classesID [fset O; S O]%fset indepX.
+move/(_ J E)->.
+  rewrite big_disjoint_fsetU ?fdisjointID //.
+move=> /=.
+case; first by move/sE; rewrite !inE [in X in X -> _]nth0 /= /thead (tnth_nth 0).
+case; last first.
+  rewrite /generated_salgebra /preimage_class.
+  move=> i i2J; have: (1 < i.+2)%N by rewrite ltnS ltn0Sn.
+  move=> /E2E => /(_ i2J) [] ->.
+    by rewrite inE /=; exists [set: R] => //; rewrite setTI preimage_setT.
+  by rewrite inE /=; exists set0=> //; rewrite setTI preimage_set0.
+move=> J1; have:= sE _ J1 => /=.
+rewrite /generated_salgebra /preimage_class !inE.
+
+case=> Q measQ <- /=.
+
+under [X in ex2 _ X]eq_fun do rewrite !setTI.
+exists (X`_1 @`((\prod_(j <- behead X) j) @^-1` Q)).
+  admit.
+rewrite eqEsubset; split; last admit.
+move=> t /= [] u /=.
+(* Q ((\prod_(j <- behead X) j) u) -> X`_2 u = X`_1 t -> Q ((\prod_(j <- behead X) j) t) *)
+
+(*
+under [X in ex2 _ X]eq_fun do rewrite setTI.
+have: [set: T] = [set t | X`_1 t = 0] `|` [set t | X`_1 t != 0 /\ ].
+set S := (\prod_(j <- behead X) j) @^-1` Q.
+rewrite -(setTI S).
+have:= S = 
+*)
+
+exists (X`_2 @`((\prod_(j <- behead X) j) @^-1` Q)).
+  admit.
+rewrite eqEsubset; split; last admit.
+move=> t /= [] u /=.
+(* Q ((\prod_(j <- behead X) j) u) -> X`_2 u = X`_1 t -> Q ((\prod_(j <- behead X) j) t) *)
+
+exists (X`_1 @`((\prod_(j <- behead X) j) @^-1` Q)).
+  admit.
+rewrite eqEsubset; split; last exact: preimage_image.
+move=> t /= [] u /=.
+(* Q ((\prod_(j <- behead X) j) u) -> X`_1 u = X`_1 t -> Q ((\prod_(j <- behead X) j) t) *)
+
+exists [set (\prod_(j <- behead X) j x) | x in X`_1 @^-1` Q].
+  admit.
+rewrite eqEsubset; split.
+  move=> t /= [] u ?.
+(* \prod_(j <- behead X) j u = X`_1 t -> Q ((\prod_(j <- behead X) j) t) *)
+
+exists Q.
+  admit.
+apply/seteqP; split=> t /=.
+(* Q (X`_1 t) -> Q ((\prod_(j <- behead X) j) t) *)
+
+
+exists Q.
+  admit.
+rewrite setTI.  
+apply/seteqP; split=> t /=.
+
+
+exists [set x / (\prod_(j <- behead X) j x) | x in Q].
+  admit.
+rewrite setTI.
+apply/seteqP; split=> t /=.
+  case=> x Qx.
+  move/(congr1 ( *%R^~ (\prod_(j <- drop 2 X) x))).
+  rewrite -mulrA mulVr ?mulr1; last first.
+    admit.
+  have->: X`_1 t * \prod_(j <- drop 2 X) = (\prod_(j <- behead X) j)
+  rewrite -big_cons.
+  
+
 move: X; elim: n => [X [h1 h2]|].
-  have -> : behead X = nil. admit.
+  have -> : behead X = nil by rewrite -drop1 drop_oversize // size_tuple.
   rewrite big_nil.
   rewrite /independent_RV_tuple/independent_class/=.
   split.
     case => //=.
       by move: (h1 0); rewrite {1}(tuple_eta X).
     case => //=.
-      rewrite /generated_salgebra /preimage_class.
       admit.
     case => /= [|_].
       admit.
     admit.
+  move=> J E sE.
+  
   admit.
 (*rewrite /independent_RV_tuple/independent_class/= => [[h1 h2]].
 split.
