@@ -16,14 +16,14 @@
 
 ### Changed
 
-- in `topology_structure.v`:
-  + lemma `closureC`
-
 ### Renamed
 
 ### Generalized
 
 ### Deprecated
+
+- in `topology_structure.v`:
+  + lemma `closureC`
 
 ### Removed
 
