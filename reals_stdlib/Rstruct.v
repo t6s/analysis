@@ -744,30 +744,31 @@ End bigmaxr.
 
 End ssreal_struct_contd.
 
-Module exp1E.
+Module RexpE.
 Import functions filter topology separation_axioms.
 Import normedtype sequences.
+Import Order.TTheory GRing.Theory Num.Def Num.Theory.
+Import numFieldTopology.Exports numFieldNormedType.Exports.
+Local Open Scope classical_set_scope.
 
-Lemma exp1E : Rtrigo_def.exp 1 = expR 1.
+Lemma RexpE (x : R) : Rtrigo_def.exp x = expR x.
 Proof.
+move: x; change R with R^o; move=> z.
 apply/esym.
 rewrite /exp /exist_exp.
-case: Alembert_C3=> x /=.
+case: Alembert_C3; change R with R^o; move=> x /=.
 rewrite /Pser /infinite_sum /=.
 move=> Hexp.
 rewrite /expR /exp_coeff.
 rewrite /series /mk_sequence.
-Local Open Scope classical_set_scope.
-Import Order.TTheory GRing.Theory Num.Def Num.Theory.
-Import numFieldTopology.Exports numFieldNormedType.Exports.
 apply: (@cvg_lim R^o _ nat \oo _ _ x)=> //.
-suff: \sum_(0 <= k < n.+1) 1 ^+ k / k`!%:R @[n --> \oo] --> (x : R^o).
-  set f' : nat -> R := (f in fmap f); move=> H.
-  set f : nat -> R := (f in fmap f); move: H.
+suff: \sum_(0 <= k < n.+1) z ^+ k / k`!%:R @[n --> \oo] --> (x : R^o).
+  set f' : nat -> R^o := (f in fmap f); move=> H.
+  set f : nat -> R^o := (f in fmap f); move: H.
   have->: f' = fun n=> f n.+1 by [].
   clear f'; move=> fx.
-  have:= (cvgB fx (cvg_exp_coeff 1)).
-  have->: (fun n : nat => f n.+1) - exp_coeff 1 = f.
+  have:= (cvgB fx (cvg_exp_coeff z)).
+  have->: (fun n : nat => f n.+1) - exp_coeff z = f.
     apply: funext=> n.
     rewrite /GRing.add/= /f big_nat_recr//=.
     by rewrite -addrA subrr addr0.
@@ -782,12 +783,12 @@ exists i=> // n /= /ssrnat.leP ni.
 apply: xyA=> /=.
 move: Hexp=> /(_ n ni) /[!RdistE] /RltP /=.
 rewrite distrC.
-suff->: sum_f_R0 (fun n0 : nat => (/ INR (fact n0) * 1 ^ n0)%R) n =
-        \sum_(0 <= k < n.+1) 1 ^+ k / k`!%:R by [].
+suff->: sum_f_R0 (fun n0 : nat => (/ INR (fact n0) * z ^ n0)%R) n =
+        \sum_(0 <= k < n.+1) z ^+ k / k`!%:R by [].
 rewrite sum_f_R0E.
 apply: eq_bigr=> k _.
-by rewrite RinvE pow1 mulr1 factE expr1n div1r INRE.
+by rewrite RinvE RpowE mulrC factE INRE.
 Qed.
-End exp1E.
+End RexpE.
 
-Definition exp1E := exp1E.exp1E.
+Definition RexpE := RexpE.RexpE.

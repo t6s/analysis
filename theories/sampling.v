@@ -1187,7 +1187,7 @@ rewrite exp.expRD -RmultE.
 rewrite (_ : 8 = 8%R); last first.
   by rewrite !mulrS -!RplusE Rplus_0_r !RplusA !IZRposE/=.
 rewrite (_ : 1 = INR 1%N)//=.
-rewrite -exp1E.
+rewrite -RexpE.
 apply/RleP.
 by interval.
 Qed.
