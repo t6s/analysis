@@ -25,6 +25,23 @@ Import numFieldTopology.Exports numFieldNormedType.Exports.
 Local Open Scope classical_set_scope.
 Local Open Scope ring_scope.
 
+Section product_probability2.
+Local Open Scope ereal_scope.
+Lemma product_probability2_setT :
+  forall (d1 d2 : measure_display) (T1 : measurableType d1) (T2 : measurableType d2) (R : realType) (P1 : probability T1 R) (P2 : probability T2 R), (P1 \x^ P2) setT = 1%E.
+Proof.
+move=> ? ? ? ? ? P1 P2.
+rewrite -setXTT product_measure2E// -[RHS]mul1e.
+congr mule.
+all: rewrite -[LHS]fineK ?fin_num_measure//.
+all: congr EFin=> /=.
+all: by rewrite probability_setT.
+Qed.
+
+HB.instance Definition _ (d1 d2 : measure_display) (T1 : measurableType d1) (T2 : measurableType d2) (R : realType) (P1 : probability T1 R) (P2 : probability T2 R):=
+  Measure_isProbability.Build _ _ _ (P1 \x^ P2) (product_probability2_setT P1 P2).
+End product_probability2.
+
 Section independent_events.
 Context d (T : measurableType d) (R : realType) (P : probability T R).
 Local Open Scope ereal_scope.
@@ -1564,6 +1581,20 @@ congr EFin.
 by rewrite [in RHS](tuple_eta X) tnthS.
 Qed.
 
+Section fset.
+Local Open Scope fset_scope.
+Lemma fset_bool : forall B : {fset bool},
+    [\/ B == [fset true], B == [fset false], B == fset0 | B == [fset true; false]].
+Proof.
+move=> B.
+have:= set_bool [set` B].
+rewrite -!set_fset1 -set_fset0.
+rewrite (_ : [set: bool] = [set` [fset true; false]]); last first.
+  by apply/seteqP; split=> -[]; rewrite /= !inE eqxx.
+by case=> /eqP /(congr1 (@fset_set _)) /[!set_fsetK] /eqP H;
+   [apply: Or41|apply: Or42|apply: Or43|apply: Or44].
+Qed.
+End fset.
 
 Lemma expectation_prod_independent_RVs n (X : n.-tuple {RV P >-> R}) :
     independent_RVs P [set: 'I_n] (tnth X) ->
@@ -1599,7 +1630,23 @@ rewrite [X in 'E__[X]](_ : _ = (Y2 \* Y1)%R)//.
 simpl in Y1, Y2.
 
 rewrite expectation_prod; last 3 first.
-- admit. (* HARD *)
+- split.
+    move=> i /= _ A.
+    case: ifP=> Hi /=.
+      by case=> B mB <-; exact: (mX1).
+    by case=> B mB <-; exact: (mX2).
+  move=> /= J ? E Ei.
+  case: (fset_bool J)=> /eqP HJ; rewrite -> HJ in * |- *; clear J HJ.
+  + by rewrite !big_seq_fset1.
+  + by rewrite !big_seq_fset1.
+  + rewrite !big_seq_fset0.
+    suff-> : [set (thead x, [tuple of behead x]) | x in [set: mtuple n.+1 T]] = setT.
+      by rewrite probability_setT.
+    apply/seteqP; split=> -[t1 t2] //= _.
+    exists [tuple of t1 :: t2] => //=.
+    by rewrite theadE; congr pair; exact/val_inj.
+  + rewrite !big_fsetU1 ?inE//= !big_seq_fset1.
+    admit. (* HARD *)
 - admit.
 - admit.
 rewrite big_ord_recl.
