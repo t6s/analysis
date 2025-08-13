@@ -542,6 +542,22 @@ Lemma seriesZ (R : ringType) (V : lmodType R) (f : V ^nat) k :
   series (k *: f) = k *: series f.
 Proof. by rewrite funeqE => n; rewrite /series /= -scaler_sumr. Qed.
 
+Lemma series_comp_addn (V : zmodType) (u_ : (V) ^nat) (m : nat) :
+  series (u_ \o addn m) = (series u_) \o (addn m) - (fun=> series u_ m).
+Proof.
+have->: (series u_ \o addn m) = (series u_ \o addn^~ m).
+  by apply: funext=> ? /=; rewrite addnC.
+apply: funext=> k /=.
+apply/eqP.
+rewrite eq_sym subr_eq.
+simpl.
+rewrite series_addn addrC.
+apply/eqP; congr +%R.
+have->: (u_ \o addn m) = (u_ \o addn^~ m) by apply: funext=> ? /=; rewrite addnC.
+rewrite /series/=.
+by rewrite big_nat_addnr add0n.
+Qed.
+
 Section partial_sum_numFieldType.
 Variables V : numFieldType.
 Implicit Types f g : V ^nat.
@@ -575,6 +591,27 @@ Proof. by move=> cf cg; apply: is_cvg_seriesD; rewrite ?is_cvg_seriesN. Qed.
 Lemma lim_seriesB f g : cvg (series f @ \oo) -> cvg (series g @ \oo) ->
   limn (series (f - g)) = limn (series f) - limn (series g).
 Proof. by move=> Cf Cg; rewrite lim_seriesD ?is_cvg_seriesN// lim_seriesN. Qed.
+
+Lemma cvgn_series_comp_addn (m : nat) f :
+  cvgn (series (f \o addn m)) = cvgn (series f).
+Proof.
+rewrite series_comp_addn.
+rewrite is_cvgDlE ?cvgn_addn//.
+exact: is_cvg_cst.
+Qed.
+
+Lemma limn_series_split (m : nat) f :
+  cvgn (series f) ->
+  limn (series f) = (\sum_(0 <= k < m) f k) + limn (series (f \o (addn m))).
+Proof.
+move=> csf.
+set X := bigop.body _ _ _.
+rewrite (_ : X = limn (fun=> X)); last by rewrite lim_cst.
+rewrite -limD//; last 2 first.
+- exact: is_cvg_cst.
+- by rewrite cvgn_series_comp_addn.
+by rewrite /X series_comp_addn subrKC limn_addn.
+Qed.
 
 End partial_sum_numFieldType.
 

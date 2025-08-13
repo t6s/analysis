@@ -607,6 +607,84 @@ Qed.
 Canonical expR_inum (i : Itv.t) (x : Itv.def (@Itv.num_sem R) i) :=
   Itv.mk (num_spec_expR x).
 
+Lemma expR2_lt8 : expR 2 < 8 :> R.
+Proof.
+rewrite /expR /exp_coeff.
+have n12: normr (2^-1) < 1 :> R.
+  rewrite -div1r normrM normr1 mul1r normfV invf_lt1 ?normr_gt0//.
+  by rewrite -(mul1r 2) mulr_natr normrMn normr1 (_ : 1 = 1%:R)// ltr_nat.
+rewrite -[ltRHS](_ : limn (series (geometric (4:R) 2^-1)) = 8); last first.
+  suff-> : 8 = 4 / (1 - 2^-1) :> R.
+    by apply: cvg_lim=> //; exact: cvg_geometric_series.
+  rewrite (_ : 1 - 2^-1 = 2^-1) ?invrK// -?natrM//.
+  by apply/eqP; rewrite subr_eq -mulr2n -(mulr_natr 2^-1) mulVf.
+rewrite [ltLHS](limn_series_split 5); last exact: is_cvg_series_exp_coeff.
+rewrite [ltRHS](limn_series_split 3); last exact: is_cvg_geometric_series.
+apply: ler_ltD. (* first goal: 1 + 2 + 2 + 4/3 + 2/3 <= 4 + 2 + 1 *)
+  rewrite le_eqVlt; apply/orP; left; apply/eqP. (* 1 + 2 + 2 + 4/3 + 2/3 = 4 + 2 + 1 *)
+  rewrite !big_nat_recl//= !big_mkord !big_ord0.
+  rewrite !(expr0,expr1,expr2,factS,fact0,muln1,divr1,mulr1,mul1r,addr0,exprS,expr0).
+  rewrite !(natrM,natrD,invfM,invr1).
+  rewrite -(mulrA 2) divff// mulr1.
+  rewrite mulrACA -!mulrA divff// mulr1.
+  rewrite -!(addrCA 2) addrA; congr GRing.add; first by rewrite -!natrD.
+  rewrite -!(mulrCA 3^-1) -mulrDr.
+  have->: 4 = 2 * 2 :> R by rewrite -!natrM.
+  rewrite !invfM -!mulrA.
+  repeat rewrite (mulrA 2 2^-1) divff// mul1r.
+  rewrite divff// mulr1.
+  have->: 2 * 2 + 2 = 3 * 2 :> R by rewrite -!(natrD,natrM).
+  by rewrite mulrCA mulrA divff// mul1r addrC.
+rewrite [ltLHS](limn_series_split 1); last first.
+  rewrite cvgn_series_comp_addn.
+  exact: is_cvg_series_exp_coeff.
+rewrite [ltRHS](limn_series_split 1); last first.
+  rewrite cvgn_series_comp_addn.
+  exact: is_cvg_geometric_series.
+apply: ltr_leD. (* first goal: 4 / 15 < 4 / 8 *)
+  rewrite !big_nat_recl//= !big_mkord !big_ord0.
+  rewrite !(exprS,expr0,addn0,addr0,factS,fact0,muln1,div1r,mulr1,natrM).
+  have->: 4 = 2 * 2 :> R by rewrite -!natrM.
+  rewrite !invfM// -!mulrA.
+  rewrite (mulrC _ 2^-1) -!(mulrCA 2^-1) -!(mulrCA 2).
+  rewrite [ltRHS]lock; set X := locked _.
+  repeat rewrite (mulrA 2 2^-1) divff// mul1r.
+  rewrite /X -lock -!invfM// !mulrA ltr_pM2l// ltf_pV2 ?posrE//.
+  by rewrite -!natrM ltr_nat.
+apply: lim_series_le.
+- rewrite !cvgn_series_comp_addn.
+  exact: is_cvg_series_exp_coeff.
+- rewrite !cvgn_series_comp_addn.
+  exact: is_cvg_geometric_series.
+rewrite addnE/=.
+elim=> /= [|n IHn]; last first.
+  rewrite [in leLHS]exprS factS natrM invfM mulrA (mulrAC 2) -(mulrA (_ / _)).
+  rewrite [in leRHS]exprS [in leRHS]mulrCA.
+  rewrite ler_pM// ler_pdivrMr// ler_pdivlMl//.
+  by rewrite -natrM ler_nat -addn4 leq_addl.
+rewrite !exprS !expr0 !mulr1.
+rewrite factS natrM invfM !mulrA -!mulrA.
+rewrite -!(mulrCA 6^-1) (mulrA 6^-1) [in leRHS](mulrCA 4).
+rewrite ler_pM//.
+  rewrite (_ : 6 = 3 * 2) -?natrM// natrM invfM -mulrA mulVf// mulr1.
+  by rewrite lef_pV2 ?posrE// ler_nat.
+rewrite [in leRHS](mulrA 4) (_ : 4 / 2 = 2) ?ler_pM2l//; last first.
+  by rewrite (_ : 4 = 2 * 2) -?natrM// natrM -mulrA divff// mulr1.
+rewrite factS natrM invfM !mulrA -!mulrA.
+rewrite -!(mulrCA 5^-1) (mulrA 5^-1).
+rewrite ler_pM//.
+  by rewrite mulrC -ler_pdivlMl// -invfM lef_pV2// ?posrE// -natrM ler_nat.
+rewrite factS natrM invfM !mulrA -!mulrA.
+rewrite -!(mulrCA 4^-1) (mulrA 4^-1).
+rewrite (_ : 4^-1 * 2 = 2^-1) ?ger_pMr//; last first.
+  suff: 4^-1 * 2 * 2 = 2 ^-1 * 2 :> R by move/mulIf; apply.
+  by rewrite -mulrA -(natrM _ 2%N) !mulVf.
+rewrite factS natrM invfM !mulrA -!mulrA.
+rewrite -!(mulrCA 3^-1) (mulrA 3^-1).
+rewrite !factS fact0 !muln1 divff// mulr1.
+by rewrite ler_pdivrMl// mulr1 ler_nat.
+Qed.
+
 End expR.
 
 Section expeR.
