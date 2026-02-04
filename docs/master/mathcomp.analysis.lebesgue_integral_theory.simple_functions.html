@@ -93,6 +93,7 @@
 <li><a href="mathcomp.analysis.topology_theory.connected.html">connected</a></li>
 <li><a href="mathcomp.analysis.topology_theory.discrete_topology.html">discrete_topology</a></li>
 <li><a href="mathcomp.analysis.topology_theory.matrix_topology.html">matrix_topology</a></li>
+<li><a href="mathcomp.analysis.topology_theory.metric_structure.html">metric_structure</a></li>
 <li><a href="mathcomp.analysis.topology_theory.nat_topology.html">nat_topology</a></li>
 <li><a href="mathcomp.analysis.topology_theory.num_topology.html">num_topology</a></li>
 <li><a href="mathcomp.analysis.topology_theory.one_point_compactification.html">one_point_compactification</a></li>
@@ -310,7 +311,7 @@ forall {d : measure_display} {aT : sigmaRingType d} {rT : realType},
 {pred aT -> rT}
 
 sfun is not universe polymorphic
-Arguments sfun {d}%measure_display_scope {aT rT} _
+Arguments sfun {d}%_measure_display_scope {aT rT} _
 sfun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sfun
@@ -322,7 +323,7 @@ forall {d : measure_display} {aT : sigmaRingType d} {rT : realType},
 pred_key (T:=aT -> rT) sfun
 
 sfun_key is not universe polymorphic
-Arguments sfun_key {d}%measure_display_scope {aT rT}
+Arguments sfun_key {d}%_measure_display_scope {aT rT}
 sfun_key is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sfun_key
@@ -338,7 +339,7 @@ forall {d : measure_display} {aT : sigmaRingType d} {rT : realType},
 keyed_pred sfun_key
 
 sfun_keyed is not universe polymorphic
-Arguments sfun_keyed {d}%measure_display_scope {aT rT}
+Arguments sfun_keyed {d}%_measure_display_scope {aT rT}
 sfun_keyed is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sfun_keyed
@@ -356,7 +357,7 @@ forall {d : measure_display} {aT : sigmaRingType d}
   {rT : realType} [x : aT -> rT],
 x \in sfun -> (x \in mfun) = true
 
-Arguments sub_sfun_mfun {d}%measure_display_scope {aT rT} [x] _
+Arguments sub_sfun_mfun {d}%_measure_display_scope {aT rT} [x] _
 sub_sfun_mfun is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sub_sfun_mfun
@@ -378,7 +379,7 @@ forall {d : measure_display} {aT : sigmaRingType d}
   {rT : realType} [x : aT -> rT],
 x \in sfun -> (x \in fimfun) = true
 
-Arguments sub_sfun_fimfun {d}%measure_display_scope {aT rT} [x] _
+Arguments sub_sfun_fimfun {d}%_measure_display_scope {aT rT} [x] _
 sub_sfun_fimfun is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sub_sfun_fimfun
@@ -403,8 +404,8 @@ forall {d : measure_display} {aT : measurableType d}
 f \in sfun -> isMeasurableFun.axioms_ d default_measure_display aT rT f
 
 sfun_Sub1_subproof is not universe polymorphic
-Arguments sfun_Sub1_subproof {d}%measure_display_scope 
-  {aT rT} [f]%function_scope fP
+Arguments sfun_Sub1_subproof {d}%_measure_display_scope 
+  {aT rT} [f]%_function_scope fP
 sfun_Sub1_subproof is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sfun_Sub1_subproof
@@ -420,7 +421,7 @@ f \in sfun ->
 
 simple_functions_f__canonical__measurable_function_MeasurableFun is not universe polymorphic
 Arguments simple_functions_f__canonical__measurable_function_MeasurableFun
-  {d}%measure_display_scope {aT rT} [f]%function_scope 
+  {d}%_measure_display_scope {aT rT} [f]%_function_scope 
   fP
 simple_functions_f__canonical__measurable_function_MeasurableFun is transparent
 Expands to: Constant
@@ -435,7 +436,7 @@ f \in sfun ->
 
 simple_functions_f__canonical__measurable_function_MeasurableFun is not universe polymorphic
 Arguments simple_functions_f__canonical__measurable_function_MeasurableFun
-  {d}%measure_display_scope {aT rT} [f]%function_scope 
+  {d}%_measure_display_scope {aT rT} [f]%_function_scope 
   fP
 simple_functions_f__canonical__measurable_function_MeasurableFun is transparent
 Expands to: Constant
@@ -450,7 +451,7 @@ f \in sfun ->
 
 simple_functions_f__canonical__measurable_function_MeasurableFun is not universe polymorphic
 Arguments simple_functions_f__canonical__measurable_function_MeasurableFun
-  {d}%measure_display_scope {aT rT} [f]%function_scope 
+  {d}%_measure_display_scope {aT rT} [f]%_function_scope 
   fP
 simple_functions_f__canonical__measurable_function_MeasurableFun is transparent
 Expands to: Constant
@@ -465,7 +466,7 @@ f \in sfun ->
 
 simple_functions_f__canonical__measurable_function_MeasurableFun is not universe polymorphic
 Arguments simple_functions_f__canonical__measurable_function_MeasurableFun
-  {d}%measure_display_scope {aT rT} [f]%function_scope 
+  {d}%_measure_display_scope {aT rT} [f]%_function_scope 
   fP
 simple_functions_f__canonical__measurable_function_MeasurableFun is transparent
 Expands to: Constant
@@ -480,7 +481,7 @@ f \in sfun ->
 
 simple_functions_f__canonical__measurable_function_MeasurableFun is not universe polymorphic
 Arguments simple_functions_f__canonical__measurable_function_MeasurableFun
-  {d}%measure_display_scope {aT rT} [f]%function_scope 
+  {d}%_measure_display_scope {aT rT} [f]%_function_scope 
   fP
 simple_functions_f__canonical__measurable_function_MeasurableFun is transparent
 Expands to: Constant
@@ -495,7 +496,7 @@ f \in sfun ->
 
 simple_functions_f__canonical__measurable_function_MeasurableFun is not universe polymorphic
 Arguments simple_functions_f__canonical__measurable_function_MeasurableFun
-  {d}%measure_display_scope {aT rT} [f]%function_scope 
+  {d}%_measure_display_scope {aT rT} [f]%_function_scope 
   fP
 simple_functions_f__canonical__measurable_function_MeasurableFun is transparent
 Expands to: Constant
@@ -509,8 +510,8 @@ forall {d : measure_display} {aT : measurableType d}
 f \in sfun -> FiniteImage.axioms_ aT rT f
 
 sfun_Sub2_subproof is not universe polymorphic
-Arguments sfun_Sub2_subproof {d}%measure_display_scope 
-  {aT rT} [f]%function_scope fP
+Arguments sfun_Sub2_subproof {d}%_measure_display_scope 
+  {aT rT} [f]%_function_scope fP
 sfun_Sub2_subproof is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sfun_Sub2_subproof
@@ -528,7 +529,7 @@ f \in sfun -> {sfun aT >-> rT}
 
 simple_functions_f__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments simple_functions_f__canonical__HBSimple_SimpleFun
-  {d}%measure_display_scope {aT rT} [f]%function_scope 
+  {d}%_measure_display_scope {aT rT} [f]%_function_scope 
   fP
 simple_functions_f__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
@@ -542,7 +543,7 @@ f \in sfun -> {sfun aT >-> rT}
 
 simple_functions_f__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments simple_functions_f__canonical__HBSimple_SimpleFun
-  {d}%measure_display_scope {aT rT} [f]%function_scope 
+  {d}%_measure_display_scope {aT rT} [f]%_function_scope 
   fP
 simple_functions_f__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
@@ -556,7 +557,7 @@ f \in sfun -> {sfun aT >-> rT}
 
 simple_functions_f__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments simple_functions_f__canonical__HBSimple_SimpleFun
-  {d}%measure_display_scope {aT rT} [f]%function_scope 
+  {d}%_measure_display_scope {aT rT} [f]%_function_scope 
   fP
 simple_functions_f__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
@@ -570,7 +571,7 @@ f \in sfun -> {sfun aT >-> rT}
 
 simple_functions_f__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments simple_functions_f__canonical__HBSimple_SimpleFun
-  {d}%measure_display_scope {aT rT} [f]%function_scope 
+  {d}%_measure_display_scope {aT rT} [f]%_function_scope 
   fP
 simple_functions_f__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
@@ -584,7 +585,7 @@ f \in sfun -> {sfun aT >-> rT}
 
 simple_functions_f__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments simple_functions_f__canonical__HBSimple_SimpleFun
-  {d}%measure_display_scope {aT rT} [f]%function_scope 
+  {d}%_measure_display_scope {aT rT} [f]%_function_scope 
   fP
 simple_functions_f__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
@@ -598,7 +599,7 @@ f \in sfun -> {sfun aT >-> rT}
 
 simple_functions_f__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments simple_functions_f__canonical__HBSimple_SimpleFun
-  {d}%measure_display_scope {aT rT} [f]%function_scope 
+  {d}%_measure_display_scope {aT rT} [f]%_function_scope 
   fP
 simple_functions_f__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
@@ -612,7 +613,7 @@ forall {d : measure_display} {aT : measurableType d}
 f \in sfun -> {sfun aT >-> rT}
 
 sfun_Sub is not universe polymorphic
-Arguments sfun_Sub {d}%measure_display_scope {aT rT} [f]%function_scope fP
+Arguments sfun_Sub {d}%_measure_display_scope {aT rT} [f]%_function_scope fP
 sfun_Sub is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sfun_Sub
@@ -628,8 +629,8 @@ forall {d : measure_display} {aT : measurableType d}
 forall u : {sfun aT >-> rT}, K u
 
 sfun_rect is not universe polymorphic
-Arguments sfun_rect {d}%measure_display_scope {aT rT} 
-  [K]%function_scope _%function_scope u
+Arguments sfun_rect {d}%_measure_display_scope {aT rT} 
+  [K]%_function_scope _%_function_scope u
 sfun_rect is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sfun_rect
@@ -654,7 +655,7 @@ forall {d : measure_display} {aT : measurableType d}
 sfun_Sub (f:=f) Pf = f
 
 sfun_valP is not universe polymorphic
-Arguments sfun_valP {d}%measure_display_scope {aT rT} [f]%function_scope Pf
+Arguments sfun_valP {d}%_measure_display_scope {aT rT} [f]%_function_scope Pf
 sfun_valP is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sfun_valP
@@ -671,8 +672,8 @@ forall {d : measure_display} {aT : measurableType d} {rT : realType},
 subType (T:=aT -> rT) (in_mem^~ (mem sfun))
 
 SimpleFun_type__canonical__eqtype_SubType is not universe polymorphic
-Arguments SimpleFun_type__canonical__eqtype_SubType 
-  {d}%measure_display_scope {aT rT}
+Arguments SimpleFun_type__canonical__eqtype_SubType
+  {d}%_measure_display_scope {aT rT}
 SimpleFun_type__canonical__eqtype_SubType is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.SimpleFun_type__canonical__eqtype_SubType
@@ -683,8 +684,8 @@ forall {d : measure_display} {aT : measurableType d} {rT : realType},
 subType (T:=aT -> rT) (in_mem^~ (mem sfun))
 
 SimpleFun_type__canonical__eqtype_SubType is not universe polymorphic
-Arguments SimpleFun_type__canonical__eqtype_SubType 
-  {d}%measure_display_scope {aT rT}
+Arguments SimpleFun_type__canonical__eqtype_SubType
+  {d}%_measure_display_scope {aT rT}
 SimpleFun_type__canonical__eqtype_SubType is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.SimpleFun_type__canonical__eqtype_SubType
@@ -695,8 +696,8 @@ forall {d : measure_display} {aT : measurableType d} {rT : realType},
 subType (T:=aT -> rT) (in_mem^~ (mem sfun))
 
 SimpleFun_type__canonical__eqtype_SubType is not universe polymorphic
-Arguments SimpleFun_type__canonical__eqtype_SubType 
-  {d}%measure_display_scope {aT rT}
+Arguments SimpleFun_type__canonical__eqtype_SubType
+  {d}%_measure_display_scope {aT rT}
 SimpleFun_type__canonical__eqtype_SubType is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.SimpleFun_type__canonical__eqtype_SubType
@@ -707,8 +708,8 @@ forall {d : measure_display} {aT : measurableType d} {rT : realType},
 subType (T:=aT -> rT) (in_mem^~ (mem sfun))
 
 SimpleFun_type__canonical__eqtype_SubType is not universe polymorphic
-Arguments SimpleFun_type__canonical__eqtype_SubType 
-  {d}%measure_display_scope {aT rT}
+Arguments SimpleFun_type__canonical__eqtype_SubType
+  {d}%_measure_display_scope {aT rT}
 SimpleFun_type__canonical__eqtype_SubType is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.SimpleFun_type__canonical__eqtype_SubType
@@ -719,8 +720,8 @@ forall {d : measure_display} {aT : measurableType d} {rT : realType},
 subType (T:=aT -> rT) (in_mem^~ (mem sfun))
 
 SimpleFun_type__canonical__eqtype_SubType is not universe polymorphic
-Arguments SimpleFun_type__canonical__eqtype_SubType 
-  {d}%measure_display_scope {aT rT}
+Arguments SimpleFun_type__canonical__eqtype_SubType
+  {d}%_measure_display_scope {aT rT}
 SimpleFun_type__canonical__eqtype_SubType is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.SimpleFun_type__canonical__eqtype_SubType
@@ -734,7 +735,7 @@ forall {d : measure_display} {aT : measurableType d}
 f = g <-> f =1 g
 
 sfuneqP is not universe polymorphic
-Arguments sfuneqP {d}%measure_display_scope {aT rT} f g
+Arguments sfuneqP {d}%_measure_display_scope {aT rT} f g
 sfuneqP is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sfuneqP
@@ -752,7 +753,7 @@ subChoiceType (T:=aT -> rT) (in_mem^~ (mem sfun))
 
 SimpleFun_type__canonical__choice_SubChoice is not universe polymorphic
 Arguments SimpleFun_type__canonical__choice_SubChoice
-  {d}%measure_display_scope {aT rT}
+  {d}%_measure_display_scope {aT rT}
 SimpleFun_type__canonical__choice_SubChoice is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.SimpleFun_type__canonical__choice_SubChoice
@@ -764,7 +765,7 @@ subChoiceType (T:=aT -> rT) (in_mem^~ (mem sfun))
 
 SimpleFun_type__canonical__choice_SubChoice is not universe polymorphic
 Arguments SimpleFun_type__canonical__choice_SubChoice
-  {d}%measure_display_scope {aT rT}
+  {d}%_measure_display_scope {aT rT}
 SimpleFun_type__canonical__choice_SubChoice is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.SimpleFun_type__canonical__choice_SubChoice
@@ -776,7 +777,7 @@ subChoiceType (T:=aT -> rT) (in_mem^~ (mem sfun))
 
 SimpleFun_type__canonical__choice_SubChoice is not universe polymorphic
 Arguments SimpleFun_type__canonical__choice_SubChoice
-  {d}%measure_display_scope {aT rT}
+  {d}%_measure_display_scope {aT rT}
 SimpleFun_type__canonical__choice_SubChoice is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.SimpleFun_type__canonical__choice_SubChoice
@@ -788,7 +789,7 @@ subChoiceType (T:=aT -> rT) (in_mem^~ (mem sfun))
 
 SimpleFun_type__canonical__choice_SubChoice is not universe polymorphic
 Arguments SimpleFun_type__canonical__choice_SubChoice
-  {d}%measure_display_scope {aT rT}
+  {d}%_measure_display_scope {aT rT}
 SimpleFun_type__canonical__choice_SubChoice is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.SimpleFun_type__canonical__choice_SubChoice
@@ -800,7 +801,7 @@ subChoiceType (T:=aT -> rT) (in_mem^~ (mem sfun))
 
 SimpleFun_type__canonical__choice_SubChoice is not universe polymorphic
 Arguments SimpleFun_type__canonical__choice_SubChoice
-  {d}%measure_display_scope {aT rT}
+  {d}%_measure_display_scope {aT rT}
 SimpleFun_type__canonical__choice_SubChoice is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.SimpleFun_type__canonical__choice_SubChoice
@@ -814,7 +815,7 @@ rT -> {sfun aT >-> rT}
 
 functions_cst__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments functions_cst__canonical__HBSimple_SimpleFun
-  {d}%measure_display_scope {aT rT} x%ring_scope
+  {d}%_measure_display_scope {aT rT} x%_ring_scope
 functions_cst__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.functions_cst__canonical__HBSimple_SimpleFun
@@ -826,7 +827,7 @@ rT -> {sfun aT >-> rT}
 
 functions_cst__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments functions_cst__canonical__HBSimple_SimpleFun
-  {d}%measure_display_scope {aT rT} x%ring_scope
+  {d}%_measure_display_scope {aT rT} x%_ring_scope
 functions_cst__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.functions_cst__canonical__HBSimple_SimpleFun
@@ -838,7 +839,7 @@ rT -> {sfun aT >-> rT}
 
 functions_cst__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments functions_cst__canonical__HBSimple_SimpleFun
-  {d}%measure_display_scope {aT rT} x%ring_scope
+  {d}%_measure_display_scope {aT rT} x%_ring_scope
 functions_cst__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.functions_cst__canonical__HBSimple_SimpleFun
@@ -850,7 +851,7 @@ rT -> {sfun aT >-> rT}
 
 functions_cst__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments functions_cst__canonical__HBSimple_SimpleFun
-  {d}%measure_display_scope {aT rT} x%ring_scope
+  {d}%_measure_display_scope {aT rT} x%_ring_scope
 functions_cst__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.functions_cst__canonical__HBSimple_SimpleFun
@@ -862,7 +863,7 @@ rT -> {sfun aT >-> rT}
 
 functions_cst__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments functions_cst__canonical__HBSimple_SimpleFun
-  {d}%measure_display_scope {aT rT} x%ring_scope
+  {d}%_measure_display_scope {aT rT} x%_ring_scope
 functions_cst__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.functions_cst__canonical__HBSimple_SimpleFun
@@ -874,7 +875,7 @@ rT -> {sfun aT >-> rT}
 
 functions_cst__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments functions_cst__canonical__HBSimple_SimpleFun
-  {d}%measure_display_scope {aT rT} x%ring_scope
+  {d}%_measure_display_scope {aT rT} x%_ring_scope
 functions_cst__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.functions_cst__canonical__HBSimple_SimpleFun
@@ -887,7 +888,7 @@ forall {d : measure_display} {aT : measurableType d} {rT : realType},
 rT -> {sfun aT >-> rT}
 
 cst_sfun is not universe polymorphic
-Arguments cst_sfun {d}%measure_display_scope {aT rT} x%ring_scope
+Arguments cst_sfun {d}%_measure_display_scope {aT rT} x%_ring_scope
 cst_sfun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.cst_sfun
@@ -900,7 +901,7 @@ forall {d : measure_display} {aT : measurableType d} {rT : realType} (x : rT),
 cst_sfun x =1 cst x
 
 cst_sfunE is not universe polymorphic
-Arguments cst_sfunE {d}%measure_display_scope {aT rT} x%ring_scope x
+Arguments cst_sfunE {d}%_measure_display_scope {aT rT} x%_ring_scope x
 cst_sfunE is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.cst_sfunE
@@ -916,10 +917,10 @@ library mathcomp.analysis.lebesgue_integral_theory.simple_functions, line 148, c
 <br/>
 <span class="vernacular">Lemma</span><span class="id"> </span><span id="fctD" class="id"><a name="fctD" class="" title="fctD :
 forall [T : pointedType] [K : pzRingType] (f g : T -> K),
-(f + g)%E = (f \+ g)%R
+(f + g)%R = (f \+ g)%R
 
 fctD is not universe polymorphic
-Arguments fctD [T K] (f g)%function_scope
+Arguments fctD [T K] (f g)%_function_scope
 fctD is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.fctD
@@ -934,7 +935,7 @@ library mathcomp.analysis.lebesgue_integral_theory.simple_functions, line 153, c
 forall [T : pointedType] [K : pzRingType] (f : T -> K), (- f)%R = (\- f)%R
 
 fctN is not universe polymorphic
-Arguments fctN [T K] f%function_scope
+Arguments fctN [T K] f%_function_scope
 fctN is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.fctN
@@ -950,7 +951,7 @@ forall [T : pointedType] [K : pzRingType] (f g : T -> K),
 (f * g)%R = (f \* g)%R
 
 fctM is not universe polymorphic
-Arguments fctM [T K] (f g)%function_scope
+Arguments fctM [T K] (f g)%_function_scope
 fctM is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.fctM
@@ -967,7 +968,7 @@ forall [T : pointedType] [K : pzRingType] [L : lmodType K]
 (k *: f)%R = (k \*: f)%R
 
 fctZ is not universe polymorphic
-Arguments fctZ [T K L] k%ring_scope f%function_scope
+Arguments fctZ [T K L] k%_ring_scope f%_function_scope
 fctZ is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.fctZ
@@ -982,7 +983,7 @@ library mathcomp.analysis.lebesgue_integral_theory.simple_functions, line 159, c
 <span class="vernacular">Arguments</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.functions.html#cst">cst</a></span><span class="id"> _</span><span class="id"> _</span><span class="id"> _</span><span class="id"> _</span><span class="id"> /</span>.<br/>
 <span class="vernacular">Definition</span><span class="id"> </span><span id="fctWE" class="id"><a name="fctWE" class="" title="fctWE :
 (forall (T : pointedType) (K : pzRingType) (f g : T -> K),
- (f + g)%E = (f \+ g)%R) *
+ (f + g)%R = (f \+ g)%R) *
 (forall (T : pointedType) (K : pzRingType) (f : T -> K), (- f)%R = (\- f)%R) *
 (forall (T : pointedType) (K : pzRingType) (f g : T -> K),
  (f * g)%R = (f \* g)%R) *
@@ -1006,7 +1007,7 @@ forall [d : measure_display] (aT : measurableType d) (rT : realType),
 subring_closed (R:=prod__canonical__GRing_PzRing aT rT) sfun
 
 sfun_subring_closed is not universe polymorphic
-Arguments sfun_subring_closed [d]%measure_display_scope aT rT
+Arguments sfun_subring_closed [d]%_measure_display_scope aT rT
 sfun_subring_closed is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sfun_subring_closed
@@ -1026,7 +1027,7 @@ subringClosed (prod__canonical__GRing_PzRing aT rT)
 
 simple_functions_sfun__canonical__GRing_SubringClosed is not universe polymorphic
 Arguments simple_functions_sfun__canonical__GRing_SubringClosed
-  [d]%measure_display_scope aT rT
+  [d]%_measure_display_scope aT rT
 simple_functions_sfun__canonical__GRing_SubringClosed is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.simple_functions_sfun__canonical__GRing_SubringClosed
@@ -1038,7 +1039,7 @@ subringClosed (prod__canonical__GRing_PzRing aT rT)
 
 simple_functions_sfun__canonical__GRing_SubringClosed is not universe polymorphic
 Arguments simple_functions_sfun__canonical__GRing_SubringClosed
-  [d]%measure_display_scope aT rT
+  [d]%_measure_display_scope aT rT
 simple_functions_sfun__canonical__GRing_SubringClosed is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.simple_functions_sfun__canonical__GRing_SubringClosed
@@ -1050,7 +1051,7 @@ subringClosed (prod__canonical__GRing_PzRing aT rT)
 
 simple_functions_sfun__canonical__GRing_SubringClosed is not universe polymorphic
 Arguments simple_functions_sfun__canonical__GRing_SubringClosed
-  [d]%measure_display_scope aT rT
+  [d]%_measure_display_scope aT rT
 simple_functions_sfun__canonical__GRing_SubringClosed is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.simple_functions_sfun__canonical__GRing_SubringClosed
@@ -1062,7 +1063,7 @@ subringClosed (prod__canonical__GRing_PzRing aT rT)
 
 simple_functions_sfun__canonical__GRing_SubringClosed is not universe polymorphic
 Arguments simple_functions_sfun__canonical__GRing_SubringClosed
-  [d]%measure_display_scope aT rT
+  [d]%_measure_display_scope aT rT
 simple_functions_sfun__canonical__GRing_SubringClosed is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.simple_functions_sfun__canonical__GRing_SubringClosed
@@ -1074,7 +1075,7 @@ subringClosed (prod__canonical__GRing_PzRing aT rT)
 
 simple_functions_sfun__canonical__GRing_SubringClosed is not universe polymorphic
 Arguments simple_functions_sfun__canonical__GRing_SubringClosed
-  [d]%measure_display_scope aT rT
+  [d]%_measure_display_scope aT rT
 simple_functions_sfun__canonical__GRing_SubringClosed is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.simple_functions_sfun__canonical__GRing_SubringClosed
@@ -1089,7 +1090,7 @@ GRing.SubComNzRing.Exports.subComNzRingType
 
 SimpleFun_type__canonical__GRing_SubComNzRing is not universe polymorphic
 Arguments SimpleFun_type__canonical__GRing_SubComNzRing
-  [d]%measure_display_scope aT rT
+  [d]%_measure_display_scope aT rT
 SimpleFun_type__canonical__GRing_SubComNzRing is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.SimpleFun_type__canonical__GRing_SubComNzRing
@@ -1102,7 +1103,7 @@ GRing.SubComNzRing.Exports.subComNzRingType
 
 SimpleFun_type__canonical__GRing_SubComNzRing is not universe polymorphic
 Arguments SimpleFun_type__canonical__GRing_SubComNzRing
-  [d]%measure_display_scope aT rT
+  [d]%_measure_display_scope aT rT
 SimpleFun_type__canonical__GRing_SubComNzRing is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.SimpleFun_type__canonical__GRing_SubComNzRing
@@ -1115,7 +1116,7 @@ GRing.SubComNzRing.Exports.subComNzRingType
 
 SimpleFun_type__canonical__GRing_SubComNzRing is not universe polymorphic
 Arguments SimpleFun_type__canonical__GRing_SubComNzRing
-  [d]%measure_display_scope aT rT
+  [d]%_measure_display_scope aT rT
 SimpleFun_type__canonical__GRing_SubComNzRing is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.SimpleFun_type__canonical__GRing_SubComNzRing
@@ -1128,7 +1129,7 @@ GRing.SubComNzRing.Exports.subComNzRingType
 
 SimpleFun_type__canonical__GRing_SubComNzRing is not universe polymorphic
 Arguments SimpleFun_type__canonical__GRing_SubComNzRing
-  [d]%measure_display_scope aT rT
+  [d]%_measure_display_scope aT rT
 SimpleFun_type__canonical__GRing_SubComNzRing is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.SimpleFun_type__canonical__GRing_SubComNzRing
@@ -1141,7 +1142,7 @@ GRing.SubComNzRing.Exports.subComNzRingType
 
 SimpleFun_type__canonical__GRing_SubComNzRing is not universe polymorphic
 Arguments SimpleFun_type__canonical__GRing_SubComNzRing
-  [d]%measure_display_scope aT rT
+  [d]%_measure_display_scope aT rT
 SimpleFun_type__canonical__GRing_SubComNzRing is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.SimpleFun_type__canonical__GRing_SubComNzRing
@@ -1158,7 +1159,7 @@ forall [d : measure_display] [aT : measurableType d] (rT : realType),
 (0%R : {sfun aT >-> rT}) =1 cst 0%R
 
 sfun0 is not universe polymorphic
-Arguments sfun0 [d]%measure_display_scope [aT] rT x
+Arguments sfun0 [d]%_measure_display_scope [aT] rT x
 sfun0 is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sfun0
@@ -1174,7 +1175,7 @@ forall [d : measure_display] [aT : measurableType d] (rT : realType),
 (1%R : {sfun aT >-> rT}) =1 cst 1%R
 
 sfun1 is not universe polymorphic
-Arguments sfun1 [d]%measure_display_scope [aT] rT x
+Arguments sfun1 [d]%_measure_display_scope [aT] rT x
 sfun1 is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sfun1
@@ -1191,7 +1192,7 @@ forall [d : measure_display] [aT : measurableType d]
 (- f)%R =1 (\- f)%R
 
 sfunN is not universe polymorphic
-Arguments sfunN [d]%measure_display_scope [aT rT] f x
+Arguments sfunN [d]%_measure_display_scope [aT rT] f x
 sfunN is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sfunN
@@ -1205,10 +1206,10 @@ library mathcomp.analysis.lebesgue_integral_theory.simple_functions, line 184, c
 <span class="vernacular">Lemma</span><span class="id"> </span><span id="sfunD" class="id"><a name="sfunD" class="" title="sfunD :
 forall [d : measure_display] [aT : measurableType d] 
   [rT : realType] (f g : {sfun aT >-> rT}),
-(f + g)%E =1 (f \+ g)%R
+(f + g)%R =1 (f \+ g)%R
 
 sfunD is not universe polymorphic
-Arguments sfunD [d]%measure_display_scope [aT rT] f g x
+Arguments sfunD [d]%_measure_display_scope [aT rT] f g x
 sfunD is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sfunD
@@ -1225,7 +1226,7 @@ forall [d : measure_display] [aT : measurableType d]
 (f - g)%R =1 (f \- g)%R
 
 sfunB is not universe polymorphic
-Arguments sfunB [d]%measure_display_scope [aT rT] f g x
+Arguments sfunB [d]%_measure_display_scope [aT rT] f g x
 sfunB is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sfunB
@@ -1242,7 +1243,7 @@ forall [d : measure_display] [aT : measurableType d]
 (f * g)%R =1 (f \* g)%R
 
 sfunM is not universe polymorphic
-Arguments sfunM [d]%measure_display_scope [aT rT] f g x
+Arguments sfunM [d]%_measure_display_scope [aT rT] f g x
 sfunM is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sfunM
@@ -1260,8 +1261,9 @@ forall [d : measure_display] [aT : measurableType d]
 (\sum_(i <- r | P i) f i)%R x = (\sum_(i <- r | P i) f i x)%R
 
 sfun_sum is not universe polymorphic
-Arguments sfun_sum [d]%measure_display_scope [aT rT] 
-  [I]%type_scope r%seq_scope P f%function_scope x
+Arguments sfun_sum [d]%_measure_display_scope [aT rT] 
+  [I]%_type_scope r%_seq_scope P f%_function_scope 
+  x
 sfun_sum is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sfun_sum
@@ -1280,8 +1282,9 @@ forall [d : measure_display] [aT : measurableType d]
 (\sum_(i <- r | P i) f i)%R x = (\sum_(i <- r | P i) f i x)%R
 
 sfun_prod is not universe polymorphic
-Arguments sfun_prod [d]%measure_display_scope [aT rT] 
-  [I]%type_scope r%seq_scope P f%function_scope x
+Arguments sfun_prod [d]%_measure_display_scope [aT rT] 
+  [I]%_type_scope r%_seq_scope P f%_function_scope 
+  x
 sfun_prod is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sfun_prod
@@ -1299,7 +1302,7 @@ forall [d : measure_display] [aT : measurableType d]
 (f ^+ n)%R =1 (fun x : aT => (f x ^+ n)%R)
 
 sfunX is not universe polymorphic
-Arguments sfunX [d]%measure_display_scope [aT rT] f n%nat_scope x
+Arguments sfunX [d]%_measure_display_scope [aT rT] f n%_nat_scope x
 sfunX is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sfunX
@@ -1317,7 +1320,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Algebra_add_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Algebra_add_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 Algebra_add_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_add_fun__canonical__HBSimple_SimpleFun
@@ -1329,7 +1332,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Algebra_add_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Algebra_add_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 Algebra_add_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_add_fun__canonical__HBSimple_SimpleFun
@@ -1341,7 +1344,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Algebra_add_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Algebra_add_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 Algebra_add_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_add_fun__canonical__HBSimple_SimpleFun
@@ -1353,7 +1356,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Algebra_add_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Algebra_add_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 Algebra_add_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_add_fun__canonical__HBSimple_SimpleFun
@@ -1365,7 +1368,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Algebra_add_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Algebra_add_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 Algebra_add_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_add_fun__canonical__HBSimple_SimpleFun
@@ -1377,7 +1380,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Algebra_add_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Algebra_add_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 Algebra_add_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_add_fun__canonical__HBSimple_SimpleFun
@@ -1389,7 +1392,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Algebra_add_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Algebra_add_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 Algebra_add_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_add_fun__canonical__HBSimple_SimpleFun
@@ -1402,7 +1405,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Algebra_opp_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Algebra_opp_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f
+  [d]%_measure_display_scope [aT rT] f
 Algebra_opp_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_opp_fun__canonical__HBSimple_SimpleFun
@@ -1414,7 +1417,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Algebra_opp_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Algebra_opp_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f
+  [d]%_measure_display_scope [aT rT] f
 Algebra_opp_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_opp_fun__canonical__HBSimple_SimpleFun
@@ -1426,7 +1429,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Algebra_opp_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Algebra_opp_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f
+  [d]%_measure_display_scope [aT rT] f
 Algebra_opp_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_opp_fun__canonical__HBSimple_SimpleFun
@@ -1438,7 +1441,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Algebra_opp_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Algebra_opp_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f
+  [d]%_measure_display_scope [aT rT] f
 Algebra_opp_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_opp_fun__canonical__HBSimple_SimpleFun
@@ -1450,7 +1453,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Algebra_opp_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Algebra_opp_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f
+  [d]%_measure_display_scope [aT rT] f
 Algebra_opp_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_opp_fun__canonical__HBSimple_SimpleFun
@@ -1462,7 +1465,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Algebra_opp_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Algebra_opp_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f
+  [d]%_measure_display_scope [aT rT] f
 Algebra_opp_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_opp_fun__canonical__HBSimple_SimpleFun
@@ -1474,7 +1477,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Algebra_opp_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Algebra_opp_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f
+  [d]%_measure_display_scope [aT rT] f
 Algebra_opp_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_opp_fun__canonical__HBSimple_SimpleFun
@@ -1487,7 +1490,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Algebra_sub_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Algebra_sub_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 Algebra_sub_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_sub_fun__canonical__HBSimple_SimpleFun
@@ -1499,7 +1502,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Algebra_sub_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Algebra_sub_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 Algebra_sub_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_sub_fun__canonical__HBSimple_SimpleFun
@@ -1511,7 +1514,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Algebra_sub_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Algebra_sub_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 Algebra_sub_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_sub_fun__canonical__HBSimple_SimpleFun
@@ -1523,7 +1526,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Algebra_sub_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Algebra_sub_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 Algebra_sub_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_sub_fun__canonical__HBSimple_SimpleFun
@@ -1535,7 +1538,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Algebra_sub_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Algebra_sub_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 Algebra_sub_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_sub_fun__canonical__HBSimple_SimpleFun
@@ -1547,7 +1550,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Algebra_sub_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Algebra_sub_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 Algebra_sub_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_sub_fun__canonical__HBSimple_SimpleFun
@@ -1559,7 +1562,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Algebra_sub_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Algebra_sub_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 Algebra_sub_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_sub_fun__canonical__HBSimple_SimpleFun
@@ -1572,7 +1575,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 GRing_mul_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments GRing_mul_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 GRing_mul_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mul_fun__canonical__HBSimple_SimpleFun
@@ -1584,7 +1587,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 GRing_mul_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments GRing_mul_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 GRing_mul_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mul_fun__canonical__HBSimple_SimpleFun
@@ -1596,7 +1599,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 GRing_mul_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments GRing_mul_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 GRing_mul_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mul_fun__canonical__HBSimple_SimpleFun
@@ -1608,7 +1611,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 GRing_mul_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments GRing_mul_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 GRing_mul_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mul_fun__canonical__HBSimple_SimpleFun
@@ -1620,7 +1623,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 GRing_mul_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments GRing_mul_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 GRing_mul_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mul_fun__canonical__HBSimple_SimpleFun
@@ -1632,7 +1635,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 GRing_mul_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments GRing_mul_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 GRing_mul_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mul_fun__canonical__HBSimple_SimpleFun
@@ -1644,7 +1647,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 GRing_mul_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments GRing_mul_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 GRing_mul_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mul_fun__canonical__HBSimple_SimpleFun
@@ -1661,7 +1664,7 @@ d.-measurable%classic D -> {sfun aT >-> rT}
 
 measurable_realfun_mindic__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments measurable_realfun_mindic__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT] rT [D]%classical_set_scope 
+  [d]%_measure_display_scope [aT] rT [D]%_classical_set_scope 
   mD
 measurable_realfun_mindic__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
@@ -1675,7 +1678,7 @@ d.-measurable%classic D -> {sfun aT >-> rT}
 
 measurable_realfun_mindic__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments measurable_realfun_mindic__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT] rT [D]%classical_set_scope 
+  [d]%_measure_display_scope [aT] rT [D]%_classical_set_scope 
   mD
 measurable_realfun_mindic__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
@@ -1689,7 +1692,7 @@ d.-measurable%classic D -> {sfun aT >-> rT}
 
 measurable_realfun_mindic__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments measurable_realfun_mindic__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT] rT [D]%classical_set_scope 
+  [d]%_measure_display_scope [aT] rT [D]%_classical_set_scope 
   mD
 measurable_realfun_mindic__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
@@ -1703,7 +1706,7 @@ d.-measurable%classic D -> {sfun aT >-> rT}
 
 measurable_realfun_mindic__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments measurable_realfun_mindic__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT] rT [D]%classical_set_scope 
+  [d]%_measure_display_scope [aT] rT [D]%_classical_set_scope 
   mD
 measurable_realfun_mindic__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
@@ -1717,7 +1720,7 @@ d.-measurable%classic D -> {sfun aT >-> rT}
 
 measurable_realfun_mindic__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments measurable_realfun_mindic__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT] rT [D]%classical_set_scope 
+  [d]%_measure_display_scope [aT] rT [D]%_classical_set_scope 
   mD
 measurable_realfun_mindic__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
@@ -1731,7 +1734,7 @@ d.-measurable%classic D -> {sfun aT >-> rT}
 
 measurable_realfun_mindic__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments measurable_realfun_mindic__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT] rT [D]%classical_set_scope 
+  [d]%_measure_display_scope [aT] rT [D]%_classical_set_scope 
   mD
 measurable_realfun_mindic__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
@@ -1746,8 +1749,8 @@ forall {d : measure_display} {aT : measurableType d}
 d.-measurable%classic D -> {sfun aT >-> rT}
 
 indic_sfun is not universe polymorphic
-Arguments indic_sfun {d}%measure_display_scope {aT rT} 
-  D%classical_set_scope mD
+Arguments indic_sfun {d}%_measure_display_scope {aT rT}
+  D%_classical_set_scope mD
 indic_sfun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.indic_sfun
@@ -1762,7 +1765,8 @@ rT -> {sfun aT >-> rT} -> {sfun aT >-> rT}
 
 GRing_mulr_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments GRing_mulr_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] k%ring_scope f
+  [d]%_measure_display_scope [aT rT] k%_ring_scope 
+  f
 GRing_mulr_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mulr_fun__canonical__HBSimple_SimpleFun
@@ -1774,7 +1778,8 @@ rT -> {sfun aT >-> rT} -> {sfun aT >-> rT}
 
 GRing_mulr_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments GRing_mulr_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] k%ring_scope f
+  [d]%_measure_display_scope [aT rT] k%_ring_scope 
+  f
 GRing_mulr_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mulr_fun__canonical__HBSimple_SimpleFun
@@ -1786,7 +1791,8 @@ rT -> {sfun aT >-> rT} -> {sfun aT >-> rT}
 
 GRing_mulr_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments GRing_mulr_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] k%ring_scope f
+  [d]%_measure_display_scope [aT rT] k%_ring_scope 
+  f
 GRing_mulr_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mulr_fun__canonical__HBSimple_SimpleFun
@@ -1798,7 +1804,8 @@ rT -> {sfun aT >-> rT} -> {sfun aT >-> rT}
 
 GRing_mulr_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments GRing_mulr_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] k%ring_scope f
+  [d]%_measure_display_scope [aT rT] k%_ring_scope 
+  f
 GRing_mulr_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mulr_fun__canonical__HBSimple_SimpleFun
@@ -1810,7 +1817,8 @@ rT -> {sfun aT >-> rT} -> {sfun aT >-> rT}
 
 GRing_mulr_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments GRing_mulr_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] k%ring_scope f
+  [d]%_measure_display_scope [aT rT] k%_ring_scope 
+  f
 GRing_mulr_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mulr_fun__canonical__HBSimple_SimpleFun
@@ -1822,7 +1830,8 @@ rT -> {sfun aT >-> rT} -> {sfun aT >-> rT}
 
 GRing_mulr_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments GRing_mulr_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] k%ring_scope f
+  [d]%_measure_display_scope [aT rT] k%_ring_scope 
+  f
 GRing_mulr_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mulr_fun__canonical__HBSimple_SimpleFun
@@ -1834,7 +1843,8 @@ rT -> {sfun aT >-> rT} -> {sfun aT >-> rT}
 
 GRing_mulr_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments GRing_mulr_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] k%ring_scope f
+  [d]%_measure_display_scope [aT rT] k%_ring_scope 
+  f
 GRing_mulr_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mulr_fun__canonical__HBSimple_SimpleFun
@@ -1846,7 +1856,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 rT -> {sfun aT >-> rT} -> {sfun aT >-> rT}
 
 scale_sfun is not universe polymorphic
-Arguments scale_sfun [d]%measure_display_scope [aT rT] k%ring_scope f
+Arguments scale_sfun [d]%_measure_display_scope [aT rT] k%_ring_scope f
 scale_sfun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.scale_sfun
@@ -1860,7 +1870,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Order_max_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Order_max_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 Order_max_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Order_max_fun__canonical__HBSimple_SimpleFun
@@ -1872,7 +1882,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Order_max_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Order_max_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 Order_max_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Order_max_fun__canonical__HBSimple_SimpleFun
@@ -1884,7 +1894,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Order_max_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Order_max_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 Order_max_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Order_max_fun__canonical__HBSimple_SimpleFun
@@ -1896,7 +1906,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Order_max_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Order_max_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 Order_max_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Order_max_fun__canonical__HBSimple_SimpleFun
@@ -1908,7 +1918,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Order_max_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Order_max_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 Order_max_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Order_max_fun__canonical__HBSimple_SimpleFun
@@ -1920,7 +1930,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Order_max_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Order_max_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 Order_max_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Order_max_fun__canonical__HBSimple_SimpleFun
@@ -1932,7 +1942,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 
 Order_max_fun__canonical__HBSimple_SimpleFun is not universe polymorphic
 Arguments Order_max_fun__canonical__HBSimple_SimpleFun
-  [d]%measure_display_scope [aT rT] f g
+  [d]%_measure_display_scope [aT rT] f g
 Order_max_fun__canonical__HBSimple_SimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Order_max_fun__canonical__HBSimple_SimpleFun
@@ -1944,7 +1954,7 @@ forall [d : measure_display] [aT : measurableType d] [rT : realType],
 {sfun aT >-> rT} -> {sfun aT >-> rT} -> {sfun aT >-> rT}
 
 max_sfun is not universe polymorphic
-Arguments max_sfun [d]%measure_display_scope [aT rT] f g
+Arguments max_sfun [d]%_measure_display_scope [aT rT] f g
 max_sfun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.max_sfun
@@ -1962,7 +1972,7 @@ forall [T : Type] [R : realDomainType] (f : {nnfun T >-> R})
 (t < 0)%R -> (f @^-1` [set t])%classic = set0
 
 preimage_nnfun0 is not universe polymorphic
-Arguments preimage_nnfun0 [T]%type_scope [R] f [t] _
+Arguments preimage_nnfun0 [T]%_type_scope [R] f [t] _
 preimage_nnfun0 is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.preimage_nnfun0
@@ -1983,8 +1993,8 @@ x != 0%R ->
 ((cst x \* f)%R @^-1` [set y])%classic = (f @^-1` [set (y / x)%R])%classic
 
 preimage_cstM is not universe polymorphic
-Arguments preimage_cstM [T]%type_scope [R] [x]%ring_scope 
-  y%ring_scope f%function_scope _
+Arguments preimage_cstM [T]%_type_scope [R] [x]%_ring_scope 
+  y%_ring_scope f%_function_scope _
 preimage_cstM is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.preimage_cstM
@@ -2005,7 +2015,8 @@ forall [T : Type] [R : numDomainType] (f g : T -> R) (z : R),
 (\bigcup_(a in range f) (f @^-1` [set a] `&` g @^-1` [set (z - a)%R]))%classic
 
 preimage_add is not universe polymorphic
-Arguments preimage_add [T]%type_scope [R] (f g)%function_scope z%ring_scope
+Arguments preimage_add [T]%_type_scope [R] (f g)%_function_scope
+  z%_ring_scope
 preimage_add is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.preimage_add
@@ -2034,7 +2045,7 @@ forall [d : measure_display] [T : sigmaRingType d]
 bounded_fun f
 
 simple_bounded is not universe polymorphic
-Arguments simple_bounded [d]%measure_display_scope [T R] f
+Arguments simple_bounded [d]%_measure_display_scope [T R] f
 simple_bounded is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.simple_bounded
@@ -2068,7 +2079,7 @@ forall [d : measure_display] [T : measurableType d]
 (0 <= cst x%:num t)%R
 
 cst_nnfun_subproof is not universe polymorphic
-Arguments cst_nnfun_subproof [d]%measure_display_scope [T R] x t
+Arguments cst_nnfun_subproof [d]%_measure_display_scope [T R] x t
 cst_nnfun_subproof is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.cst_nnfun_subproof
@@ -2085,7 +2096,7 @@ forall [d : measure_display] (T : measurableType d) [R : realType],
 
 functions_cst__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments functions_cst__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope T [R] x
+  [d]%_measure_display_scope T [R] x
 functions_cst__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.functions_cst__canonical__HBNNSimple_NonNegSimpleFun
@@ -2097,7 +2108,7 @@ forall [d : measure_display] (T : measurableType d) [R : realType],
 
 functions_cst__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments functions_cst__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope T [R] x
+  [d]%_measure_display_scope T [R] x
 functions_cst__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.functions_cst__canonical__HBNNSimple_NonNegSimpleFun
@@ -2109,7 +2120,7 @@ forall [d : measure_display] (T : measurableType d) [R : realType],
 
 functions_cst__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments functions_cst__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope T [R] x
+  [d]%_measure_display_scope T [R] x
 functions_cst__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.functions_cst__canonical__HBNNSimple_NonNegSimpleFun
@@ -2121,7 +2132,7 @@ forall [d : measure_display] (T : measurableType d) [R : realType],
 
 functions_cst__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments functions_cst__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope T [R] x
+  [d]%_measure_display_scope T [R] x
 functions_cst__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.functions_cst__canonical__HBNNSimple_NonNegSimpleFun
@@ -2133,7 +2144,7 @@ forall [d : measure_display] (T : measurableType d) [R : realType],
 
 functions_cst__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments functions_cst__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope T [R] x
+  [d]%_measure_display_scope T [R] x
 functions_cst__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.functions_cst__canonical__HBNNSimple_NonNegSimpleFun
@@ -2145,7 +2156,7 @@ forall [d : measure_display] (T : measurableType d) [R : realType],
 
 functions_cst__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments functions_cst__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope T [R] x
+  [d]%_measure_display_scope T [R] x
 functions_cst__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.functions_cst__canonical__HBNNSimple_NonNegSimpleFun
@@ -2159,7 +2170,7 @@ forall [d : measure_display] (T : measurableType d) [R : realType],
 {nonneg R}%R -> {nnsfun T >-> R}
 
 cst_nnsfun is not universe polymorphic
-Arguments cst_nnsfun [d]%measure_display_scope T [R] r
+Arguments cst_nnsfun [d]%_measure_display_scope T [R] r
 cst_nnsfun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.cst_nnsfun
@@ -2172,7 +2183,7 @@ forall {d : measure_display} {T : measurableType d} {R : realType},
 {nnsfun T >-> R}
 
 nnsfun0 is not universe polymorphic
-Arguments nnsfun0 {d}%measure_display_scope {T R}
+Arguments nnsfun0 {d}%_measure_display_scope {T R}
 nnsfun0 is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.nnsfun0
@@ -2186,8 +2197,8 @@ forall [d : measure_display] [T : measurableType d]
 ((0 : R) <= (\1_D x : R))%R
 
 indic_nnfun_subproof is not universe polymorphic
-Arguments indic_nnfun_subproof [d]%measure_display_scope 
-  [T] R D%classical_set_scope x
+Arguments indic_nnfun_subproof [d]%_measure_display_scope 
+  [T] R D%_classical_set_scope x
 indic_nnfun_subproof is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.indic_nnfun_subproof
@@ -2204,8 +2215,8 @@ forall [d : measure_display] [T : measurableType d] (R : realType),
 set T -> {nnfun T >-> R}
 
 numfun_indic__canonical__numfun_NonNegFun is not universe polymorphic
-Arguments numfun_indic__canonical__numfun_NonNegFun 
-  [d]%measure_display_scope [T] R D%classical_set_scope
+Arguments numfun_indic__canonical__numfun_NonNegFun
+  [d]%_measure_display_scope [T] R D%_classical_set_scope
 numfun_indic__canonical__numfun_NonNegFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.numfun_indic__canonical__numfun_NonNegFun
@@ -2216,8 +2227,8 @@ forall [d : measure_display] [T : measurableType d] (R : realType),
 set T -> {nnfun T >-> R}
 
 numfun_indic__canonical__numfun_NonNegFun is not universe polymorphic
-Arguments numfun_indic__canonical__numfun_NonNegFun 
-  [d]%measure_display_scope [T] R D%classical_set_scope
+Arguments numfun_indic__canonical__numfun_NonNegFun
+  [d]%_measure_display_scope [T] R D%_classical_set_scope
 numfun_indic__canonical__numfun_NonNegFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.numfun_indic__canonical__numfun_NonNegFun
@@ -2228,8 +2239,8 @@ forall [d : measure_display] [T : measurableType d] (R : realType),
 set T -> {nnfun T >-> R}
 
 numfun_indic__canonical__numfun_NonNegFun is not universe polymorphic
-Arguments numfun_indic__canonical__numfun_NonNegFun 
-  [d]%measure_display_scope [T] R D%classical_set_scope
+Arguments numfun_indic__canonical__numfun_NonNegFun
+  [d]%_measure_display_scope [T] R D%_classical_set_scope
 numfun_indic__canonical__numfun_NonNegFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.numfun_indic__canonical__numfun_NonNegFun
@@ -2240,8 +2251,8 @@ forall [d : measure_display] [T : measurableType d] (R : realType),
 set T -> {nnfun T >-> R}
 
 numfun_indic__canonical__numfun_NonNegFun is not universe polymorphic
-Arguments numfun_indic__canonical__numfun_NonNegFun 
-  [d]%measure_display_scope [T] R D%classical_set_scope
+Arguments numfun_indic__canonical__numfun_NonNegFun
+  [d]%_measure_display_scope [T] R D%_classical_set_scope
 numfun_indic__canonical__numfun_NonNegFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.numfun_indic__canonical__numfun_NonNegFun
@@ -2252,8 +2263,8 @@ forall [d : measure_display] [T : measurableType d] (R : realType),
 set T -> {nnfun T >-> R}
 
 numfun_indic__canonical__numfun_NonNegFun is not universe polymorphic
-Arguments numfun_indic__canonical__numfun_NonNegFun 
-  [d]%measure_display_scope [T] R D%classical_set_scope
+Arguments numfun_indic__canonical__numfun_NonNegFun
+  [d]%_measure_display_scope [T] R D%_classical_set_scope
 numfun_indic__canonical__numfun_NonNegFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.numfun_indic__canonical__numfun_NonNegFun
@@ -2264,8 +2275,8 @@ forall [d : measure_display] [T : measurableType d] (R : realType),
 set T -> {nnfun T >-> R}
 
 numfun_indic__canonical__numfun_NonNegFun is not universe polymorphic
-Arguments numfun_indic__canonical__numfun_NonNegFun 
-  [d]%measure_display_scope [T] R D%classical_set_scope
+Arguments numfun_indic__canonical__numfun_NonNegFun
+  [d]%_measure_display_scope [T] R D%_classical_set_scope
 numfun_indic__canonical__numfun_NonNegFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.numfun_indic__canonical__numfun_NonNegFun
@@ -2281,7 +2292,7 @@ d.-measurable%classic D -> {nnsfun T >-> R}
 
 measurable_realfun_mindic__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments measurable_realfun_mindic__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope [T] R [D]%classical_set_scope 
+  [d]%_measure_display_scope [T] R [D]%_classical_set_scope 
   mD
 measurable_realfun_mindic__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
@@ -2295,7 +2306,7 @@ d.-measurable%classic D -> {nnsfun T >-> R}
 
 measurable_realfun_mindic__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments measurable_realfun_mindic__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope [T] R [D]%classical_set_scope 
+  [d]%_measure_display_scope [T] R [D]%_classical_set_scope 
   mD
 measurable_realfun_mindic__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
@@ -2309,7 +2320,7 @@ d.-measurable%classic D -> {nnsfun T >-> R}
 
 measurable_realfun_mindic__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments measurable_realfun_mindic__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope [T] R [D]%classical_set_scope 
+  [d]%_measure_display_scope [T] R [D]%_classical_set_scope 
   mD
 measurable_realfun_mindic__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
@@ -2323,7 +2334,7 @@ d.-measurable%classic D -> {nnsfun T >-> R}
 
 measurable_realfun_mindic__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments measurable_realfun_mindic__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope [T] R [D]%classical_set_scope 
+  [d]%_measure_display_scope [T] R [D]%_classical_set_scope 
   mD
 measurable_realfun_mindic__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
@@ -2337,7 +2348,7 @@ d.-measurable%classic D -> {nnsfun T >-> R}
 
 measurable_realfun_mindic__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments measurable_realfun_mindic__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope [T] R [D]%classical_set_scope 
+  [d]%_measure_display_scope [T] R [D]%_classical_set_scope 
   mD
 measurable_realfun_mindic__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
@@ -2351,7 +2362,7 @@ d.-measurable%classic D -> {nnsfun T >-> R}
 
 measurable_realfun_mindic__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments measurable_realfun_mindic__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope [T] R [D]%classical_set_scope 
+  [d]%_measure_display_scope [T] R [D]%_classical_set_scope 
   mD
 measurable_realfun_mindic__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
@@ -2365,7 +2376,7 @@ d.-measurable%classic D -> {nnsfun T >-> R}
 
 measurable_realfun_mindic__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments measurable_realfun_mindic__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope [T] R [D]%classical_set_scope 
+  [d]%_measure_display_scope [T] R [D]%_classical_set_scope 
   mD
 measurable_realfun_mindic__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
@@ -2386,7 +2397,7 @@ forall [T : Type] [R : numDomainType] (f g : {nnfun T >-> R}),
 isNonNegFun.phant_axioms (rT:=R) (f \+ g)%R
 
 add_nnfun_subproof is not universe polymorphic
-Arguments add_nnfun_subproof [T]%type_scope [R] f g
+Arguments add_nnfun_subproof [T]%_type_scope [R] f g
 add_nnfun_subproof is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.add_nnfun_subproof
@@ -2402,7 +2413,8 @@ forall [T : Type] [R : numDomainType],
 {nnfun T >-> R} -> {nnfun T >-> R} -> {nnfun T >-> R}
 
 Algebra_add_fun__canonical__numfun_NonNegFun is not universe polymorphic
-Arguments Algebra_add_fun__canonical__numfun_NonNegFun [T]%type_scope [R] f g
+Arguments Algebra_add_fun__canonical__numfun_NonNegFun 
+  [T]%_type_scope [R] f g
 Algebra_add_fun__canonical__numfun_NonNegFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_add_fun__canonical__numfun_NonNegFun
@@ -2413,7 +2425,8 @@ forall [T : Type] [R : numDomainType],
 {nnfun T >-> R} -> {nnfun T >-> R} -> {nnfun T >-> R}
 
 Algebra_add_fun__canonical__numfun_NonNegFun is not universe polymorphic
-Arguments Algebra_add_fun__canonical__numfun_NonNegFun [T]%type_scope [R] f g
+Arguments Algebra_add_fun__canonical__numfun_NonNegFun 
+  [T]%_type_scope [R] f g
 Algebra_add_fun__canonical__numfun_NonNegFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_add_fun__canonical__numfun_NonNegFun
@@ -2424,7 +2437,8 @@ forall [T : Type] [R : numDomainType],
 {nnfun T >-> R} -> {nnfun T >-> R} -> {nnfun T >-> R}
 
 Algebra_add_fun__canonical__numfun_NonNegFun is not universe polymorphic
-Arguments Algebra_add_fun__canonical__numfun_NonNegFun [T]%type_scope [R] f g
+Arguments Algebra_add_fun__canonical__numfun_NonNegFun 
+  [T]%_type_scope [R] f g
 Algebra_add_fun__canonical__numfun_NonNegFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_add_fun__canonical__numfun_NonNegFun
@@ -2435,7 +2449,8 @@ forall [T : Type] [R : numDomainType],
 {nnfun T >-> R} -> {nnfun T >-> R} -> {nnfun T >-> R}
 
 Algebra_add_fun__canonical__numfun_NonNegFun is not universe polymorphic
-Arguments Algebra_add_fun__canonical__numfun_NonNegFun [T]%type_scope [R] f g
+Arguments Algebra_add_fun__canonical__numfun_NonNegFun 
+  [T]%_type_scope [R] f g
 Algebra_add_fun__canonical__numfun_NonNegFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_add_fun__canonical__numfun_NonNegFun
@@ -2446,7 +2461,8 @@ forall [T : Type] [R : numDomainType],
 {nnfun T >-> R} -> {nnfun T >-> R} -> {nnfun T >-> R}
 
 Algebra_add_fun__canonical__numfun_NonNegFun is not universe polymorphic
-Arguments Algebra_add_fun__canonical__numfun_NonNegFun [T]%type_scope [R] f g
+Arguments Algebra_add_fun__canonical__numfun_NonNegFun 
+  [T]%_type_scope [R] f g
 Algebra_add_fun__canonical__numfun_NonNegFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_add_fun__canonical__numfun_NonNegFun
@@ -2459,7 +2475,7 @@ forall [T : Type] [R : numDomainType] (f g : {nnfun T >-> R}),
 isNonNegFun.phant_axioms (rT:=R) (f \* g)%R
 
 mul_nnfun_subproof is not universe polymorphic
-Arguments mul_nnfun_subproof [T]%type_scope [R] f g
+Arguments mul_nnfun_subproof [T]%_type_scope [R] f g
 mul_nnfun_subproof is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.mul_nnfun_subproof
@@ -2475,7 +2491,7 @@ forall [T : Type] [R : numDomainType],
 {nnfun T >-> R} -> {nnfun T >-> R} -> {nnfun T >-> R}
 
 GRing_mul_fun__canonical__numfun_NonNegFun is not universe polymorphic
-Arguments GRing_mul_fun__canonical__numfun_NonNegFun [T]%type_scope [R] f g
+Arguments GRing_mul_fun__canonical__numfun_NonNegFun [T]%_type_scope [R] f g
 GRing_mul_fun__canonical__numfun_NonNegFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mul_fun__canonical__numfun_NonNegFun
@@ -2486,7 +2502,7 @@ forall [T : Type] [R : numDomainType],
 {nnfun T >-> R} -> {nnfun T >-> R} -> {nnfun T >-> R}
 
 GRing_mul_fun__canonical__numfun_NonNegFun is not universe polymorphic
-Arguments GRing_mul_fun__canonical__numfun_NonNegFun [T]%type_scope [R] f g
+Arguments GRing_mul_fun__canonical__numfun_NonNegFun [T]%_type_scope [R] f g
 GRing_mul_fun__canonical__numfun_NonNegFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mul_fun__canonical__numfun_NonNegFun
@@ -2497,7 +2513,7 @@ forall [T : Type] [R : numDomainType],
 {nnfun T >-> R} -> {nnfun T >-> R} -> {nnfun T >-> R}
 
 GRing_mul_fun__canonical__numfun_NonNegFun is not universe polymorphic
-Arguments GRing_mul_fun__canonical__numfun_NonNegFun [T]%type_scope [R] f g
+Arguments GRing_mul_fun__canonical__numfun_NonNegFun [T]%_type_scope [R] f g
 GRing_mul_fun__canonical__numfun_NonNegFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mul_fun__canonical__numfun_NonNegFun
@@ -2508,7 +2524,7 @@ forall [T : Type] [R : numDomainType],
 {nnfun T >-> R} -> {nnfun T >-> R} -> {nnfun T >-> R}
 
 GRing_mul_fun__canonical__numfun_NonNegFun is not universe polymorphic
-Arguments GRing_mul_fun__canonical__numfun_NonNegFun [T]%type_scope [R] f g
+Arguments GRing_mul_fun__canonical__numfun_NonNegFun [T]%_type_scope [R] f g
 GRing_mul_fun__canonical__numfun_NonNegFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mul_fun__canonical__numfun_NonNegFun
@@ -2519,7 +2535,7 @@ forall [T : Type] [R : numDomainType],
 {nnfun T >-> R} -> {nnfun T >-> R} -> {nnfun T >-> R}
 
 GRing_mul_fun__canonical__numfun_NonNegFun is not universe polymorphic
-Arguments GRing_mul_fun__canonical__numfun_NonNegFun [T]%type_scope [R] f g
+Arguments GRing_mul_fun__canonical__numfun_NonNegFun [T]%_type_scope [R] f g
 GRing_mul_fun__canonical__numfun_NonNegFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mul_fun__canonical__numfun_NonNegFun
@@ -2532,7 +2548,7 @@ forall [T : Type] [R : numDomainType] (f g : {nnfun T >-> R}),
 isNonNegFun.phant_axioms (rT:=R) (f \max g)
 
 max_nnfun_subproof is not universe polymorphic
-Arguments max_nnfun_subproof [T]%type_scope [R] f g
+Arguments max_nnfun_subproof [T]%_type_scope [R] f g
 max_nnfun_subproof is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.max_nnfun_subproof
@@ -2548,7 +2564,7 @@ forall [T : Type] [R : numDomainType],
 {nnfun T >-> R} -> {nnfun T >-> R} -> {nnfun T >-> R}
 
 Order_max_fun__canonical__numfun_NonNegFun is not universe polymorphic
-Arguments Order_max_fun__canonical__numfun_NonNegFun [T]%type_scope [R] f g
+Arguments Order_max_fun__canonical__numfun_NonNegFun [T]%_type_scope [R] f g
 Order_max_fun__canonical__numfun_NonNegFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Order_max_fun__canonical__numfun_NonNegFun
@@ -2559,7 +2575,7 @@ forall [T : Type] [R : numDomainType],
 {nnfun T >-> R} -> {nnfun T >-> R} -> {nnfun T >-> R}
 
 Order_max_fun__canonical__numfun_NonNegFun is not universe polymorphic
-Arguments Order_max_fun__canonical__numfun_NonNegFun [T]%type_scope [R] f g
+Arguments Order_max_fun__canonical__numfun_NonNegFun [T]%_type_scope [R] f g
 Order_max_fun__canonical__numfun_NonNegFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Order_max_fun__canonical__numfun_NonNegFun
@@ -2570,7 +2586,7 @@ forall [T : Type] [R : numDomainType],
 {nnfun T >-> R} -> {nnfun T >-> R} -> {nnfun T >-> R}
 
 Order_max_fun__canonical__numfun_NonNegFun is not universe polymorphic
-Arguments Order_max_fun__canonical__numfun_NonNegFun [T]%type_scope [R] f g
+Arguments Order_max_fun__canonical__numfun_NonNegFun [T]%_type_scope [R] f g
 Order_max_fun__canonical__numfun_NonNegFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Order_max_fun__canonical__numfun_NonNegFun
@@ -2581,7 +2597,7 @@ forall [T : Type] [R : numDomainType],
 {nnfun T >-> R} -> {nnfun T >-> R} -> {nnfun T >-> R}
 
 Order_max_fun__canonical__numfun_NonNegFun is not universe polymorphic
-Arguments Order_max_fun__canonical__numfun_NonNegFun [T]%type_scope [R] f g
+Arguments Order_max_fun__canonical__numfun_NonNegFun [T]%_type_scope [R] f g
 Order_max_fun__canonical__numfun_NonNegFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Order_max_fun__canonical__numfun_NonNegFun
@@ -2592,7 +2608,7 @@ forall [T : Type] [R : numDomainType],
 {nnfun T >-> R} -> {nnfun T >-> R} -> {nnfun T >-> R}
 
 Order_max_fun__canonical__numfun_NonNegFun is not universe polymorphic
-Arguments Order_max_fun__canonical__numfun_NonNegFun [T]%type_scope [R] f g
+Arguments Order_max_fun__canonical__numfun_NonNegFun [T]%_type_scope [R] f g
 Order_max_fun__canonical__numfun_NonNegFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Order_max_fun__canonical__numfun_NonNegFun
@@ -2614,7 +2630,7 @@ forall [d : measure_display] [T : measurableType d] [R : realType],
 
 Algebra_add_fun__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments Algebra_add_fun__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope [T R] f g
+  [d]%_measure_display_scope [T R] f g
 Algebra_add_fun__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_add_fun__canonical__HBNNSimple_NonNegSimpleFun
@@ -2626,7 +2642,7 @@ forall [d : measure_display] [T : measurableType d] [R : realType],
 
 Algebra_add_fun__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments Algebra_add_fun__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope [T R] f g
+  [d]%_measure_display_scope [T R] f g
 Algebra_add_fun__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_add_fun__canonical__HBNNSimple_NonNegSimpleFun
@@ -2638,7 +2654,7 @@ forall [d : measure_display] [T : measurableType d] [R : realType],
 
 Algebra_add_fun__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments Algebra_add_fun__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope [T R] f g
+  [d]%_measure_display_scope [T R] f g
 Algebra_add_fun__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_add_fun__canonical__HBNNSimple_NonNegSimpleFun
@@ -2650,7 +2666,7 @@ forall [d : measure_display] [T : measurableType d] [R : realType],
 
 Algebra_add_fun__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments Algebra_add_fun__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope [T R] f g
+  [d]%_measure_display_scope [T R] f g
 Algebra_add_fun__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_add_fun__canonical__HBNNSimple_NonNegSimpleFun
@@ -2662,7 +2678,7 @@ forall [d : measure_display] [T : measurableType d] [R : realType],
 
 Algebra_add_fun__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments Algebra_add_fun__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope [T R] f g
+  [d]%_measure_display_scope [T R] f g
 Algebra_add_fun__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Algebra_add_fun__canonical__HBNNSimple_NonNegSimpleFun
@@ -2674,7 +2690,7 @@ forall {d : measure_display} {T : measurableType d} {R : realType},
 {nnsfun T >-> R} -> {nnsfun T >-> R} -> {nnsfun T >-> R}
 
 add_nnsfun is not universe polymorphic
-Arguments add_nnsfun {d}%measure_display_scope {T R} f g
+Arguments add_nnsfun {d}%_measure_display_scope {T R} f g
 add_nnsfun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.add_nnsfun
@@ -2688,7 +2704,7 @@ forall [d : measure_display] [T : measurableType d] [R : realType],
 
 GRing_mul_fun__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments GRing_mul_fun__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope [T R] f g
+  [d]%_measure_display_scope [T R] f g
 GRing_mul_fun__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mul_fun__canonical__HBNNSimple_NonNegSimpleFun
@@ -2700,7 +2716,7 @@ forall [d : measure_display] [T : measurableType d] [R : realType],
 
 GRing_mul_fun__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments GRing_mul_fun__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope [T R] f g
+  [d]%_measure_display_scope [T R] f g
 GRing_mul_fun__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mul_fun__canonical__HBNNSimple_NonNegSimpleFun
@@ -2712,7 +2728,7 @@ forall [d : measure_display] [T : measurableType d] [R : realType],
 
 GRing_mul_fun__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments GRing_mul_fun__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope [T R] f g
+  [d]%_measure_display_scope [T R] f g
 GRing_mul_fun__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mul_fun__canonical__HBNNSimple_NonNegSimpleFun
@@ -2724,7 +2740,7 @@ forall [d : measure_display] [T : measurableType d] [R : realType],
 
 GRing_mul_fun__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments GRing_mul_fun__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope [T R] f g
+  [d]%_measure_display_scope [T R] f g
 GRing_mul_fun__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mul_fun__canonical__HBNNSimple_NonNegSimpleFun
@@ -2736,7 +2752,7 @@ forall [d : measure_display] [T : measurableType d] [R : realType],
 
 GRing_mul_fun__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments GRing_mul_fun__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope [T R] f g
+  [d]%_measure_display_scope [T R] f g
 GRing_mul_fun__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.GRing_mul_fun__canonical__HBNNSimple_NonNegSimpleFun
@@ -2748,7 +2764,7 @@ forall {d : measure_display} {T : measurableType d} {R : realType},
 {nnsfun T >-> R} -> {nnsfun T >-> R} -> {nnsfun T >-> R}
 
 mul_nnsfun is not universe polymorphic
-Arguments mul_nnsfun {d}%measure_display_scope {T R} f g
+Arguments mul_nnsfun {d}%_measure_display_scope {T R} f g
 mul_nnsfun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.mul_nnsfun
@@ -2762,7 +2778,7 @@ forall [d : measure_display] [T : measurableType d] [R : realType],
 
 Order_max_fun__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments Order_max_fun__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope [T R] f g
+  [d]%_measure_display_scope [T R] f g
 Order_max_fun__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Order_max_fun__canonical__HBNNSimple_NonNegSimpleFun
@@ -2774,7 +2790,7 @@ forall [d : measure_display] [T : measurableType d] [R : realType],
 
 Order_max_fun__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments Order_max_fun__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope [T R] f g
+  [d]%_measure_display_scope [T R] f g
 Order_max_fun__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Order_max_fun__canonical__HBNNSimple_NonNegSimpleFun
@@ -2786,7 +2802,7 @@ forall [d : measure_display] [T : measurableType d] [R : realType],
 
 Order_max_fun__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments Order_max_fun__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope [T R] f g
+  [d]%_measure_display_scope [T R] f g
 Order_max_fun__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Order_max_fun__canonical__HBNNSimple_NonNegSimpleFun
@@ -2798,7 +2814,7 @@ forall [d : measure_display] [T : measurableType d] [R : realType],
 
 Order_max_fun__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments Order_max_fun__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope [T R] f g
+  [d]%_measure_display_scope [T R] f g
 Order_max_fun__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Order_max_fun__canonical__HBNNSimple_NonNegSimpleFun
@@ -2810,7 +2826,7 @@ forall [d : measure_display] [T : measurableType d] [R : realType],
 
 Order_max_fun__canonical__HBNNSimple_NonNegSimpleFun is not universe polymorphic
 Arguments Order_max_fun__canonical__HBNNSimple_NonNegSimpleFun
-  [d]%measure_display_scope [T R] f g
+  [d]%_measure_display_scope [T R] f g
 Order_max_fun__canonical__HBNNSimple_NonNegSimpleFun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.Order_max_fun__canonical__HBNNSimple_NonNegSimpleFun
@@ -2822,7 +2838,7 @@ forall {d : measure_display} {T : measurableType d} {R : realType},
 {nnsfun T >-> R} -> {nnsfun T >-> R} -> {nnsfun T >-> R}
 
 max_nnsfun is not universe polymorphic
-Arguments max_nnsfun {d}%measure_display_scope {T R} f g
+Arguments max_nnsfun {d}%_measure_display_scope {T R} f g
 max_nnsfun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.max_nnsfun
@@ -2836,8 +2852,8 @@ forall [d : measure_display] [T : measurableType d]
 d.-measurable%classic A -> {nnsfun T >-> R}
 
 indic_nnsfun is not universe polymorphic
-Arguments indic_nnsfun [d]%measure_display_scope [T] 
-  R [A]%classical_set_scope mA
+Arguments indic_nnsfun [d]%_measure_display_scope 
+  [T] R [A]%_classical_set_scope mA
 indic_nnsfun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.indic_nnsfun
@@ -2855,7 +2871,7 @@ forall [d : measure_display] [T : measurableType d] [R : realType],
 {nnsfun T >-> R} -> forall [k : R], (0 <= k)%R -> {nnsfun T >-> R}
 
 scale_nnsfun is not universe polymorphic
-Arguments scale_nnsfun [d]%measure_display_scope [T R] f [k]%ring_scope k0
+Arguments scale_nnsfun [d]%_measure_display_scope [T R] f [k]%_ring_scope k0
 scale_nnsfun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.scale_nnsfun
@@ -2871,8 +2887,8 @@ forall [d : measure_display] [T : measurableType d] [R : realType],
 forall [A : set T], d.-measurable%classic A -> {nnsfun T >-> R}
 
 proj_nnsfun is not universe polymorphic
-Arguments proj_nnsfun [d]%measure_display_scope [T R] 
-  f [A]%classical_set_scope mA
+Arguments proj_nnsfun [d]%_measure_display_scope [T R] 
+  f [A]%_classical_set_scope mA
 proj_nnsfun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.proj_nnsfun
@@ -2892,8 +2908,8 @@ forall [d : measure_display] [T : measurableType d]
 f \_ A = proj_nnsfun (T:=T) f (A:=A) mA
 
 mrestrict is not universe polymorphic
-Arguments mrestrict [d]%measure_display_scope [T R] 
-  f [A]%classical_set_scope mA
+Arguments mrestrict [d]%_measure_display_scope [T R] 
+  f [A]%_classical_set_scope mA
 mrestrict is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.mrestrict
@@ -2919,7 +2935,7 @@ forall [d : measure_display] [T : measurableType d] [R : realType],
 {nnsfun T >-> R} ^nat -> nat -> {nnsfun T >-> R}
 
 sum_nnsfun is not universe polymorphic
-Arguments sum_nnsfun [d]%measure_display_scope [T R] f n%nat_scope
+Arguments sum_nnsfun [d]%_measure_display_scope [T R] f n%_nat_scope
 sum_nnsfun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sum_nnsfun
@@ -2936,7 +2952,7 @@ forall [d : measure_display] [T : measurableType d]
 sum_nnsfun (T:=T) (R:=R) f n t = (\sum_(i < n) f i t)%R
 
 sum_nnsfunE is not universe polymorphic
-Arguments sum_nnsfunE [d]%measure_display_scope [T R] f n%nat_scope t
+Arguments sum_nnsfunE [d]%_measure_display_scope [T R] f n%_nat_scope t
 sum_nnsfunE is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.sum_nnsfunE
@@ -2953,7 +2969,7 @@ forall [d : measure_display] [T : measurableType d] [R : realType],
 {nnsfun T >-> R} ^nat -> nat -> {nnsfun T >-> R}
 
 bigmax_nnsfun is not universe polymorphic
-Arguments bigmax_nnsfun [d]%measure_display_scope [T R] f n%nat_scope
+Arguments bigmax_nnsfun [d]%_measure_display_scope [T R] f n%_nat_scope
 bigmax_nnsfun is transparent
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.bigmax_nnsfun
@@ -2968,7 +2984,7 @@ forall [d : measure_display] [T : measurableType d]
 bigmax_nnsfun (T:=T) (R:=R) f n t = \big[maxr/0%R]_(i < n) f i t
 
 bigmax_nnsfunE is not universe polymorphic
-Arguments bigmax_nnsfunE [d]%measure_display_scope [T R] f n%nat_scope t
+Arguments bigmax_nnsfunE [d]%_measure_display_scope [T R] f n%_nat_scope t
 bigmax_nnsfunE is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.bigmax_nnsfunE
@@ -2995,7 +3011,7 @@ forall [d : measure_display] [T : measurableType d]
 \big[setU/set0]_(i \in range f) (f @^-1` [set i])%classic = [set: T]%classic
 
 nnsfun_cover is not universe polymorphic
-Arguments nnsfun_cover [d]%measure_display_scope [T R] f
+Arguments nnsfun_cover [d]%_measure_display_scope [T R] f
 nnsfun_cover is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.nnsfun_cover
@@ -3013,7 +3029,7 @@ forall [d : measure_display] [T : measurableType d]
 \big[setU/set0]_(i \in [set: R]) (f @^-1` [set i])%classic = [set: T]%classic
 
 nnsfun_coverT is not universe polymorphic
-Arguments nnsfun_coverT [d]%measure_display_scope [T R] f
+Arguments nnsfun_coverT [d]%_measure_display_scope [T R] f
 nnsfun_coverT is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.nnsfun_coverT
@@ -3043,9 +3059,9 @@ trivIset (T:=T) A F ->
 m (\big[setU/set0]_(i \in A) F i) = (\sum_(i \in A) m (F i))%R
 
 measure_fsbig is not universe polymorphic
-Arguments measure_fsbig [d]%measure_display_scope 
-  [T R] m [I] [A]%classical_set_scope [F]%function_scope 
-  _ _%function_scope _
+Arguments measure_fsbig [d]%_measure_display_scope 
+  [T R] m [I] [A]%_classical_set_scope [F]%_function_scope 
+  _ _%_function_scope _
 measure_fsbig is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.measure_fsbig
@@ -3073,7 +3089,7 @@ m
   (f @^-1` [set x] `&` \big[setU/set0]_(i \in range g) g @^-1` [set i])%classic
 
 additive_nnsfunr is not universe polymorphic
-Arguments additive_nnsfunr [d]%measure_display_scope [T R] m g f x
+Arguments additive_nnsfunr [d]%_measure_display_scope [T R] m g f x
 additive_nnsfunr is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.additive_nnsfunr
@@ -3100,7 +3116,7 @@ m
   (\big[setU/set0]_(i \in range g) g @^-1` [set i] `&` f @^-1` [set x])%classic
 
 additive_nnsfunl is not universe polymorphic
-Arguments additive_nnsfunl [d]%measure_display_scope [T R] m g f x
+Arguments additive_nnsfunl [d]%_measure_display_scope [T R] m g f x
 additive_nnsfunl is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.additive_nnsfunl
@@ -3135,8 +3151,8 @@ forall [d : measure_display] [T : sigmaRingType d]
 (0%R <= r%:E * (\1_(f @^-1` [set r]) z)%:E)%E
 
 nnfun_muleindic_ge0 is not universe polymorphic
-Arguments nnfun_muleindic_ge0 [d]%measure_display_scope 
-  [T R] f r%ring_scope z
+Arguments nnfun_muleindic_ge0 [d]%_measure_display_scope 
+  [T R] f r%_ring_scope z
 nnfun_muleindic_ge0 is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.nnfun_muleindic_ge0
@@ -3161,8 +3177,8 @@ forall {d : measure_display} {T : sigmaRingType d}
 ((x < 0)%R -> A x = set0) -> (0%R <= x%:E * mu (A x))%E
 
 mulemu_ge0 is not universe polymorphic
-Arguments mulemu_ge0 {d}%measure_display_scope {T R mu x}
-  (A _)%function_scope
+Arguments mulemu_ge0 {d}%_measure_display_scope {T R mu x}
+  (A _)%_function_scope
 mulemu_ge0 is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.mulemu_ge0
@@ -3187,7 +3203,8 @@ forall [d : measure_display] [T : sigmaRingType d]
 (0%R <= x%:E * mu (f @^-1` [set x])%classic)%E
 
 nnsfun_mulemu_ge0 is not universe polymorphic
-Arguments nnsfun_mulemu_ge0 [d]%measure_display_scope [T R] mu f x%ring_scope
+Arguments nnsfun_mulemu_ge0 [d]%_measure_display_scope 
+  [T R] mu f x%_ring_scope
 nnsfun_mulemu_ge0 is opaque
 Expands to: Constant
             mathcomp.analysis.lebesgue_integral_theory.simple_functions.nnsfun_mulemu_ge0
