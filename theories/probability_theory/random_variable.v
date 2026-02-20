@@ -237,6 +237,123 @@ Qed.
 
 End lebesgue_integral_pmf.
 
+(* "generalized" cdf with a boolean parameter to choose between
+   (distribution P X `]-oo, r]) and (distribution P X `]-oo, r[) *)
+Definition gen_cdf d (T : measurableType d) (R : realType) (P : probability T R)
+  (X : {RV P >-> R}) b (r : R) := distribution P X [set` Interval -oo%O (BSide b r)].
+
+Section gen_cdf.
+Context d {T : measurableType d} {R : realType} (P : probability T R).
+Context (X : {RV P >-> R}) (b : bool).
+Local Open Scope ereal_scope.
+
+Lemma cdf_ge0 r : 0 <= gen_cdf X b r. Proof. by []. Qed.
+
+Lemma cdf_le1 r : gen_cdf X b r <= 1. Proof. exact: probability_le1. Qed.
+
+Lemma cdf_nondecreasing : nondecreasing_fun (gen_cdf X b).
+Proof.
+by move=> r s rs; rewrite le_measure ?inE//; apply: subitvPr; rewrite bnd_simp.
+Qed.
+
+Lemma cdf_measurable : measurable_fun setT (gen_cdf X b).
+Proof.
+suff : measurable_fun setT (fine \o (gen_cdf X b)) => [/measurable_EFinP |].
+  apply: eq_measurable_fun => r _.
+  by rewrite /comp fineK; last exact: fin_num_measure.
+apply: nondecreasing_measurable => // r s rs.
+by apply: fine_le; [rewrite fin_num_measure .. | exact: cdf_nondecreasing].
+Qed.
+
+Lemma cvg_cdfy1 : gen_cdf X b @ +oo%R --> 1.
+Proof.
+pose s : \bar R := ereal_sup (range (gen_cdf X b)).
+have cdf_s : gen_cdf X b r @[r --> +oo%R] --> s.
+  exact: nondecreasing_cvge cdf_nondecreasing.
+have cdf_ns : gen_cdf X b n%:R @[n --> \oo%R] --> s.
+  by move/cvge_pinftyP : cdf_s; apply; exact/cvgryPge/nbhs_infty_ger.
+have cdf_n1 : gen_cdf X b n%:R @[n --> \oo] --> 1.
+  rewrite -(probability_setT P).
+  pose F n := X @^-1` [set` Interval -oo%O (BSide b n%:R)].
+  have <- : \bigcup_n F n = setT.
+    rewrite -preimage_bigcup -subTset => t _/=.
+    exists (truncn (X t)).+1 => //=; rewrite in_itv/=.
+    exact/ltrW_lteif/truncnS_gt.
+  apply: nondecreasing_cvg_mu => //; first exact: bigcup_measurable.
+  move=> n m nm; apply/subsetPset => x/=; rewrite !in_itv/=.
+  move: nm; rewrite -(ler_nat R) -lteifT.
+  by move/[swap]/lteif_trans/[apply]; rewrite andbT.
+by rewrite -(cvg_unique _ cdf_ns cdf_n1).
+Qed.
+
+Lemma cvg_cdfNy0 : gen_cdf X b @ -oo%R --> 0.
+Proof.
+rewrite cvgNy_compNP.
+have cdf_opp_noninc : {homo gen_cdf X b \o -%R : q r / (q <= r)%R >-> q >= r}.
+  by move=> q r; rewrite -lterN2; exact: cdf_nondecreasing.
+pose s := ereal_inf (range (gen_cdf X b \o -%R)).
+have cdf_opp_s : (gen_cdf X b \o -%R) r @[r --> +oo%R] --> s.
+  exact: nonincreasing_cvge cdf_opp_noninc.
+have cdf_opp_ns : (gen_cdf X b \o -%R) n%:R @[n --> \oo] --> s.
+  by move/cvge_pinftyP : cdf_opp_s; apply; exact/cvgryPge/nbhs_infty_ger.
+have cdf_opp_n0 : (gen_cdf X b \o -%R) n%:R @[n --> \oo] --> 0.
+  rewrite -(measure0 P).
+  pose F n := X @^-1` [set` Interval -oo%O (BSide b (- n%:R)%R)].
+  have <- : \bigcap_n F n = set0.
+    rewrite -subset0 => t.
+    set m := (truncn `|X t|).+1.
+    move=> /(_ m I); rewrite /F/= in_itv/= => /lteifN /negP; apply.
+    rewrite lteifNl /m; have := ler_norm (-X t)%R; rewrite -lteifT.
+    move/lteif_trans; apply.
+    by rewrite normrN ltrW_lteif// truncnS_gt.
+  apply: nonincreasing_cvg_mu => //=.
+  + by rewrite (le_lt_trans (probability_le1 _ _)) ?ltry.
+  + exact: bigcap_measurable.
+  + move=> m n mn; apply/subsetPset => x/=; rewrite !in_itv/=.
+    move: mn; rewrite -(ler_nat R) -lerN2 -lteifT.
+    by move/(lteif_trans _)/[apply]; rewrite andbT.
+by rewrite (_ : 0%E = s)// (cvg_unique _ cdf_opp_ns cdf_opp_n0).
+Qed.
+
+Lemma cdf_right_continuous : right_continuous (gen_cdf X b).
+Proof.
+move=> a.
+pose s := fine (ereal_inf (gen_cdf X b @` `]a, a + 1%R]%classic)).
+have cdf_s : gen_cdf X b r @[r --> a^'+] --> s%:E.
+  rewrite /s fineK.
+  - apply: nondecreasing_at_right_cvge; first by rewrite ltBSide /= ?ltrDl.
+    by move=> *; exact: cdf_nondecreasing.
+  - apply/fin_numPlt/andP; split=>//.
+    + by rewrite (lt_le_trans (ltNyr 0%R)) ?le_ereal_inf_tmp//= => l[? _] <-.
+    + rewrite (le_lt_trans _ (ltry 1%R))// ge_ereal_inf//=.
+      exists (gen_cdf X b (a + 1)); last exact: cdf_le1.
+      by exists (a + 1%R) => //; rewrite in_itv /=; apply/andP; rewrite ltrDl.
+have cdf_ns : gen_cdf X b (a + n.+1%:R^-1) @[n --> \oo] --> s%:E.
+  move/cvge_at_rightP : cdf_s; apply; split=> [n|]; rewrite ?ltrDl //.
+  rewrite -[X in _ --> X]addr0; apply: (@cvgD _ R^o); first exact: cvg_cst.
+  by rewrite gtr0_cvgV0 ?cvg_shiftS; [exact: cvgr_idn | near=> n].
+have cdf_na : gen_cdf X b (a + n.+1%:R^-1) @[n --> \oo] --> gen_cdf X b a.
+  pose F n := X @^-1`[set` Interval -oo%O (BSide b (a + n.+1%:R^-1)%R)].
+
+  XXXXX
+
+  suff : P (F n) @[n --> \oo] --> P (\bigcap_n F n).
+    rewrite [in X in _ --> X -> _]/F -preimage_bigcap -itvNycEbigcap.
+    rewrite /gen_cdf/distribution/pushforward/F.
+  apply: nonincreasing_cvg_mu => [| | |m n mn].
+  - by rewrite -ge0_fin_numE// fin_num_measure//; exact: measurable_funPTI.
+  - by move=> ?; exact: measurable_funPTI.
+  - by apply: bigcap_measurable => // ? _; exact: measurable_funPTI.
+  - apply/subsetPset; apply: preimage_subset; apply: subset_itvl.
+    by rewrite bnd_simp lerD2l lef_pV2 ?posrE// ler_nat.
+by rewrite -(cvg_unique _ cdf_ns cdf_na).
+Unshelve. all: by end_near. Qed.
+
+HB.instance Definition _ := isCumulative.Build R _ (\bar R) (gen_cdf X)
+  cdf_nondecreasing cdf_right_continuous.
+
+End gen_cdf.
+
 Definition cdf d (T : measurableType d) (R : realType) (P : probability T R)
   (X : {RV P >-> R}) (r : R) := distribution P X `]-oo, r].
 
