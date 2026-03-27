@@ -700,7 +700,8 @@ Declared in library mathcomp.analysis.probability, line 183, characters 6-23
 <span class="vernacular">Lemma</span><span class="id"> </span><span id="cvg_cdfy1" class="id"><a name="cvg_cdfy1" class="" title="cvg_cdfy1 :
 forall [d : measure_display] {T : measurableType d} 
   {R : realType} [P : probability T R] (X : {RV P >-> R}),
-(cdf (P:=P) X x @[x --> +oo%R] --> 1%E)%classic
+filter.cvg_to (filter.nbhs (filter.fmap (cdf (P:=P) X) (filter.nbhs +oo%R)))
+  (filter.nbhs 1%E)
 
 cvg_cdfy1 is not universe polymorphic
 Expanded type for implicit arguments
@@ -708,7 +709,7 @@ cvg_cdfy1 :
 forall [d : measure_display] {T : measurableType d} 
   {R : realType} [P : probability T R] (X : {RV P >-> R}) 
   [t : set \bar R],
-nbhs 1%E t ->
+filter.nbhs 1%E t ->
 exists M : R,
   M \is Num.real /\
   (forall x : R, (M < x)%R -> (cdf (P:=P) X @^-1` t)%classic x)
@@ -741,7 +742,8 @@ Qed.</div></details>
 <span class="vernacular">Lemma</span><span class="id"> </span><span id="cvg_cdfNy0" class="id"><a name="cvg_cdfNy0" class="" title="cvg_cdfNy0 :
 forall [d : measure_display] {T : measurableType d} 
   {R : realType} [P : probability T R] (X : {RV P >-> R}),
-(cdf (P:=P) X x @[x --> -oo%R] --> 0%R)%classic
+filter.cvg_to (filter.nbhs (filter.fmap (cdf (P:=P) X) (filter.nbhs -oo%R)))
+  (filter.nbhs 0%R)
 
 cvg_cdfNy0 is not universe polymorphic
 Expanded type for implicit arguments
@@ -749,7 +751,7 @@ cvg_cdfNy0 :
 forall [d : measure_display] {T : measurableType d} 
   {R : realType} [P : probability T R] (X : {RV P >-> R}) 
   [t : set \bar R],
-nbhs 0%R t ->
+filter.nbhs 0%R t ->
 exists M : R,
   M \is Num.real /\
   (forall x : R, (x < M)%R -> (cdf (P:=P) X @^-1` t)%classic x)
@@ -797,7 +799,7 @@ cdf_right_continuous :
 forall [d : measure_display] {T : measurableType d} 
   {R : realType} [P : probability T R] [X : {RV P >-> R}] 
   [x : R] [t : set \bar R],
-nbhs (cdf (P:=P) X x) t ->
+filter.nbhs (cdf (P:=P) X x) t ->
 exists2 i : R,
   [set e | (0 < e)%R]%classic i &
   (ball_ [eta normr] x i
@@ -1360,7 +1362,7 @@ Declared in library mathcomp.analysis.probability, line 350, characters 11-15
 forall [d : measure_display] {T : measurableType d} 
   {R : realType} [P : probability T R] (X : {RV P >-> R}) 
   (r : R),
-(cdf (P:=P) X r + ccdf (P:=P) X r)%E = 1%E
+(cdf (P:=P) X r + ccdf (P:=P) X r)%R = 1%E
 
 cdf_ccdf_1 is not universe polymorphic
 Arguments cdf_ccdf_1 [d]%_measure_display_scope {T R} [P] X r%_ring_scope
@@ -1379,7 +1381,7 @@ Qed.</div></details>
 forall [d : measure_display] {T : measurableType d} 
   {R : realType} [P : probability T R] (X : {RV P >-> R}) 
   (r : R),
-(ccdf (P:=P) X r + cdf (P:=P) X r)%E = 1%E
+(ccdf (P:=P) X r + cdf (P:=P) X r)%R = 1%E
 
 ccdf_cdf_1 is not universe polymorphic
 Arguments ccdf_cdf_1 [d]%_measure_display_scope {T R} [P] X r%_ring_scope
@@ -1453,7 +1455,8 @@ Declared in library mathcomp.analysis.probability, line 373, characters 6-24
 <span class="vernacular">Lemma</span><span class="id"> </span><span id="cvg_ccdfy0" class="id"><a name="cvg_ccdfy0" class="" title="cvg_ccdfy0 :
 forall [d : measure_display] {T : measurableType d} 
   {R : realType} [P : probability T R] (X : {RV P >-> R}),
-(ccdf (P:=P) X x @[x --> +oo%R] --> 0%R)%classic
+filter.cvg_to (filter.nbhs (filter.fmap (ccdf (P:=P) X) (filter.nbhs +oo%R)))
+  (filter.nbhs 0%R)
 
 cvg_ccdfy0 is not universe polymorphic
 Expanded type for implicit arguments
@@ -1461,7 +1464,7 @@ cvg_ccdfy0 :
 forall [d : measure_display] {T : measurableType d} 
   {R : realType} [P : probability T R] (X : {RV P >-> R}) 
   [t : set \bar R],
-nbhs 0%R t ->
+filter.nbhs 0%R t ->
 exists M : R,
   M \is Num.real /\
   (forall x : R, (M < x)%R -> (ccdf (P:=P) X @^-1` t)%classic x)
@@ -1482,7 +1485,8 @@ Qed.</div></details>
 <span class="vernacular">Lemma</span><span class="id"> </span><span id="cvg_ccdfNy1" class="id"><a name="cvg_ccdfNy1" class="" title="cvg_ccdfNy1 :
 forall [d : measure_display] {T : measurableType d} 
   {R : realType} [P : probability T R] (X : {RV P >-> R}),
-(ccdf (P:=P) X x @[x --> -oo%R] --> 1%E)%classic
+filter.cvg_to (filter.nbhs (filter.fmap (ccdf (P:=P) X) (filter.nbhs -oo%R)))
+  (filter.nbhs 1%E)
 
 cvg_ccdfNy1 is not universe polymorphic
 Expanded type for implicit arguments
@@ -1490,7 +1494,7 @@ cvg_ccdfNy1 :
 forall [d : measure_display] {T : measurableType d} 
   {R : realType} [P : probability T R] (X : {RV P >-> R}) 
   [t : set \bar R],
-nbhs 1%E t ->
+filter.nbhs 1%E t ->
 exists M : R,
   M \is Num.real /\
   (forall x : R, (x < M)%R -> (ccdf (P:=P) X @^-1` t)%classic x)
@@ -1519,7 +1523,7 @@ ccdf_right_continuous :
 forall [d : measure_display] {T : measurableType d} 
   {R : realType} [P : probability T R] [X : {RV P >-> R}] 
   [x : R] [t : set \bar R],
-nbhs (ccdf (P:=P) X x) t ->
+filter.nbhs (ccdf (P:=P) X x) t ->
 exists2 i : R,
   [set e | (0 < e)%R]%classic i &
   (ball_ [eta normr] x i
@@ -1767,7 +1771,8 @@ Qed.</div></details>
 forall [d : measure_display] [T : measurableType d] 
   [R : realType] [P : probability T R] [X Y : T -> R],
 X \in Lfun (T:=T) (R:=R) P 1 ->
-Y \in Lfun (T:=T) (R:=R) P 1 -> ('E_P[(X \+ Y)])%E = ('E_P[X] + 'E_P[Y])%E
+Y \in Lfun (T:=T) (R:=R) P 1 ->
+('E_P[(X \+ Y)])%E = (('E_P[X])%E + ('E_P[Y])%E)%R
 
 expectationD is not universe polymorphic
 Arguments expectationD [d]%_measure_display_scope 
@@ -2226,7 +2231,7 @@ forall [d : measure_display] [T : measurableType d]
 X \in Lfun (T:=T) (R:=R) P 2 ->
 Y \in Lfun (T:=T) (R:=R) P 2 ->
 Z \in Lfun (T:=T) (R:=R) P 2 ->
-covariance P (X \+ Y) Z = (covariance P X Z + covariance P Y Z)%E
+covariance P (X \+ Y) Z = (covariance P X Z + covariance P Y Z)%R
 
 covarianceDl is not universe polymorphic
 Arguments covarianceDl [d]%_measure_display_scope 
@@ -2260,7 +2265,7 @@ forall [d : measure_display] [T : measurableType d]
 X \in Lfun (T:=T) (R:=R) P 2 ->
 Y \in Lfun (T:=T) (R:=R) P 2 ->
 Z \in Lfun (T:=T) (R:=R) P 2 ->
-covariance P X (Y \+ Z) = (covariance P X Y + covariance P X Z)%E
+covariance P X (Y \+ Z) = (covariance P X Y + covariance P X Z)%R
 
 covarianceDr is not universe polymorphic
 Arguments covarianceDr [d]%_measure_display_scope 
@@ -2477,7 +2482,7 @@ forall [d : measure_display] [T : measurableType d]
   [R : realType] [P : probability T R] [X Y : T -> R],
 X \in Lfun (T:=T) (R:=R) P 2 ->
 Y \in Lfun (T:=T) (R:=R) P 2 ->
-'V_P[(X \+ Y)%R] = ('V_P[X] + 'V_P[Y] + 2 * covariance P X Y)%E
+'V_P[(X \+ Y)%R] = ('V_P[X] + 'V_P[Y] + (2 * covariance P X Y)%E)%R
 
 varianceD is not universe polymorphic
 Arguments varianceD [d]%_measure_display_scope [T R P] 
@@ -2506,7 +2511,7 @@ forall [d : measure_display] [T : measurableType d]
   [R : realType] [P : probability T R] [X Y : T -> R],
 X \in Lfun (T:=T) (R:=R) P 2 ->
 Y \in Lfun (T:=T) (R:=R) P 2 ->
-'V_P[(X \- Y)%R] = ('V_P[X] + 'V_P[Y] - 2 * covariance P X Y)%E
+'V_P[(X \- Y)%R] = (('V_P[X] + 'V_P[Y])%R - 2 * covariance P X Y)%E
 
 varianceB is not universe polymorphic
 Arguments varianceB [d]%_measure_display_scope [T R P] 
@@ -2797,7 +2802,7 @@ forall [d : measure_display] [T : measurableType d]
 (X : T -> R) \in Lfun (T:=T) (R:=R) P 2 ->
 (0 < lambda)%R ->
 (P [set x | lambda%:E <= (X x)%:E - 'E_P[X]]%classic <=
- (fine 'V_P[X] / (fine 'V_P[X] + lambda ^ 2)%E)%:E)%E
+ (fine 'V_P[X] / (fine 'V_P[X] + lambda ^ 2))%:E)%E
 
 cantelli is not universe polymorphic
 Arguments cantelli [d]%_measure_display_scope [T R P X] 
@@ -2961,7 +2966,7 @@ library mathcomp.analysis.probability, line 1008, characters 11-19
 forall {d d' : measure_display} {T : measurableType d}
   {T' : measurableType d'} {R : realType} [P : probability T R],
 {dRV P >-> T'} ->
-nat -> constructive_ereal_extended__canonical__classical_sets_Pointed R
+nat -> ereal.constructive_ereal_extended__canonical__classical_sets_Pointed R
 
 enum_prob is not universe polymorphic
 Arguments enum_prob {d d'}%_measure_display_scope {T T' R} [P] X u%_nat_scope
@@ -3576,7 +3581,7 @@ forall {R : realType} [p : R],
 (0 <= p <= 1)%R ->
 forall A : set bool,
 bernoulli_prob p A =
-(p%:E * (\d_true)%R A + (unstable.onem p)%:E * (\d_false)%R A)%E
+((p%:E * \d_true A)%E + ((unstable.onem p)%:E * \d_false A)%E)%R
 
 bernoulli_probE is not universe polymorphic
 Arguments bernoulli_probE {R} [p]%_ring_scope p01 A%_classical_set_scope
@@ -3596,7 +3601,7 @@ forall {R : realType} [p : R],
 forall [f : bool -> \bar R],
 (forall x : bool, (0%R <= f x)%E) ->
 (\int[bernoulli_prob p]_y f y)%E =
-(p%:E * f true + (unstable.onem p)%:E * f false)%E
+((p%:E * f true)%E + ((unstable.onem p)%:E * f false)%E)%R
 
 integral_bernoulli_prob is not universe polymorphic
 Arguments integral_bernoulli_prob {R} [p]%_ring_scope 
@@ -5053,16 +5058,28 @@ Declared in library mathcomp.analysis.probability, line 1748, characters 6-20
 <span class="gallina-kwd"> by</span><span class="id"> rewrite</span><span class="id"> /</span><span class="id"><a href="mathcomp.analysis.probability.html#normal_pdf">normal_pdf</a></span><span class="id">;</span><span class="id"> case:</span><span class="id"> </span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.ssr.ssrbool.html#ifP">ifP</a></span>. Qed.</div></details>
 <br/>
 <span class="vernacular">Lemma</span><span class="id"> </span><span id="continuous_normal_pdf" class="id"><a name="continuous_normal_pdf" class="" title="continuous_normal_pdf :
-forall {R : realType} [m s : R], s != 0%R -> continuous (normal_pdf m s)
+forall {R : realType} [m s : R],
+s != 0%R ->
+forall
+  [x : filter.Nbhs.sort
+         (numFieldTopology.Real_sort__canonical__filter_Nbhs R)],
+filter.continuous_at
+  (T:=numFieldTopology.Real_sort__canonical__filter_Nbhs R)
+  (U:=numFieldTopology.Real_sort__canonical__filter_Nbhs R) x
+  (normal_pdf m s)
 
 continuous_normal_pdf is not universe polymorphic
 Expanded type for implicit arguments
 continuous_normal_pdf :
 forall {R : realType} [m s : R],
 s != 0%R ->
-forall [x : numFieldTopology.Real_sort__canonical__filter_Nbhs R]
-  [t : set (numFieldTopology.Real_sort__canonical__filter_Nbhs R)],
-nbhs (normal_pdf m s x) t ->
+forall
+  [x : filter.Nbhs.sort
+         (numFieldTopology.Real_sort__canonical__filter_Nbhs R)]
+  [t : set
+         (filter.Nbhs.sort
+            (numFieldTopology.Real_sort__canonical__filter_Nbhs R))],
+filter.nbhs (normal_pdf m s x) t ->
 exists2 i : R,
   [set e | (0 < e)%R]%classic i &
   (ball_ [eta normr] x i `<=` normal_pdf m s @^-1` t)%classic
@@ -5643,7 +5660,16 @@ Qed.</div></details>
 <br/>
 <span class="vernacular">Lemma</span><span class="id"> </span><span id="in_continuous_exponential_pdf" class="id"><a name="in_continuous_exponential_pdf" class="" title="in_continuous_exponential_pdf :
 forall {R : realType} [rate : R],
-{in `]0, +oo[%R, continuous (exponential_pdf rate)}
+{in `]0, +oo[%R,
+  forall
+    x : filter.Nbhs.sort
+          (join_tvs_NbhsNmodule_between_Algebra_BaseAddUMagma_and_filter_Nbhs
+             (Real_sort__canonical__tvs_NbhsNmodule R)),
+  filter.continuous_at
+    (T:=join_tvs_NbhsNmodule_between_Algebra_BaseAddUMagma_and_filter_Nbhs
+          (Real_sort__canonical__tvs_NbhsNmodule R))
+    (U:=numFieldTopology.Real_sort__canonical__filter_Nbhs R) x
+    (exponential_pdf rate)}
 
 in_continuous_exponential_pdf is not universe polymorphic
 Expanded type for implicit arguments
@@ -5652,8 +5678,11 @@ forall {R : realType} [rate : R]
   [x : join_Num_POrderedZmodule_between_Algebra_BaseAddUMagma_and_Order_POrder
          R],
 x \in `]0, +oo[%R ->
-forall [t : set (numFieldTopology.Real_sort__canonical__filter_Nbhs R)],
-nbhs (exponential_pdf rate x) t ->
+forall
+  [t : set
+         (filter.Nbhs.sort
+            (numFieldTopology.Real_sort__canonical__filter_Nbhs R))],
+filter.nbhs (exponential_pdf rate x) t ->
 exists2 i : R,
   [set e | (0 < e)%R]%classic i &
   (ball_ [eta normr] x i `<=` exponential_pdf rate @^-1` t)%classic
@@ -5683,15 +5712,18 @@ within_continuous_exponential_pdf is not universe polymorphic
 Expanded type for implicit arguments
 within_continuous_exponential_pdf :
 forall {R : realType} [rate : R]
-  [x : subspace_topology_subspace__canonical__filter_Nbhs `[0%R, +oo[]
-  [t : set (numFieldTopology.Real_sort__canonical__filter_Nbhs R)],
-nbhs (from_subspace `[0%R, +oo[ (exponential_pdf rate) x) t ->
+  [x : filter.Nbhs.sort
+         (subspace_topology_subspace__canonical__filter_Nbhs `[0%R, +oo[)]
+  [t : set
+         (filter.Nbhs.sort
+            (numFieldTopology.Real_sort__canonical__filter_Nbhs R))],
+filter.nbhs (from_subspace `[0%R, +oo[ (exponential_pdf rate) x) t ->
 (if
   if if pselect (`[0%R, +oo[%classic x) then true else false
   then true
   else false
- then within `[0%R, +oo[ (nbhs x)
- else globally [set x])
+ then filter.within `[0%R, +oo[ (filter.nbhs x)
+ else filter.globally [set x])
   (from_subspace `[0%R, +oo[ (exponential_pdf rate) @^-1` t)%classic
 
 Arguments within_continuous_exponential_pdf {R} [rate]%_ring_scope [x t] _
@@ -6472,14 +6504,23 @@ Qed.</div></details>
 <br/>
 <span class="vernacular">Lemma</span><span class="id"> </span><span id="continuous_onemXn" class="id"><a name="continuous_onemXn" class="" title="continuous_onemXn :
 forall {R : realType} [n : nat] [x : R],
-{for x, continuous (fun y : R => (unstable.onem y ^+ n)%R)}
+{for x,
+  forall
+    x0 : filter.Nbhs.sort
+           (numFieldTopology.Real_sort__canonical__filter_Nbhs R),
+  filter.continuous_at
+    (T:=numFieldTopology.Real_sort__canonical__filter_Nbhs R)
+    (U:=numFieldTopology.Real_sort__canonical__filter_Nbhs R) x0
+    (fun y : R => (unstable.onem y ^+ n)%R)}
 
 continuous_onemXn is not universe polymorphic
 Expanded type for implicit arguments
 continuous_onemXn :
 forall {R : realType} [n : nat] [x : R]
-  [t : set (numFieldTopology.Real_sort__canonical__filter_Nbhs R)],
-nbhs ((fun y : R => (unstable.onem y ^+ n)%R) x) t ->
+  [t : set
+         (filter.Nbhs.sort
+            (numFieldTopology.Real_sort__canonical__filter_Nbhs R))],
+filter.nbhs ((fun y : R => (unstable.onem y ^+ n)%R) x) t ->
 exists2 i : R,
   [set e | (0 < e)%R]%classic i &
   (ball_ [eta normr] x i `<=` (fun y : R => (unstable.onem y ^+ n)%R) @^-1` t)%classic
@@ -6506,24 +6547,28 @@ Expanded type for implicit arguments
 onemXn_derivable :
 forall {R : realType} [n : nat] [x : R]
   [t : set (Real_sort__canonical__normed_module_NormedModule R)],
-nbhs
-  (lim
-     ((h^-1 *:
-       (((fun y : R => unstable.onem y ^+ n) \o shift x) h%:A -
-        (fun y : R => unstable.onem y ^+ n) x))%R @[h --> 
-      (0%R)^'])%classic)
+filter.nbhs
+  (filter.lim
+     (filter.fmap
+        (fun h : R =>
+         (h^-1 *:
+          (((fun y : R => unstable.onem y ^+ n) \o shift x) h%:A -
+           (fun y : R => unstable.onem y ^+ n) x))%R)
+        (filter.nbhs (topology_structure.dnbhs 0%R))))
   t ->
 exists2 i : R,
   [set e | (0 < e)%R]%classic i &
   (ball_ [eta normr] 0%R i
    `<=` (fun
-           t0 : join_tvs_PreTopologicalNmodule_between_Algebra_BaseAddUMagma_and_topology_structure_Topological
-                  (numFieldNormedType.NumField_sort__canonical__tvs_PreTopologicalNmodule
-                     R) =>
+           t0 : topology_structure.Topological.Exports.topology_structure_Topological__to__eqtype_Equality
+                  (join_tvs_PreTopologicalNmodule_between_Algebra_BaseAddUMagma_and_topology_structure_Topological
+                     (numFieldNormedType.NumField_sort__canonical__tvs_PreTopologicalNmodule
+                        R)) =>
          (fun
-            y : join_tvs_PreTopologicalNmodule_between_Algebra_BaseAddUMagma_and_topology_structure_Topological
-                  (numFieldNormedType.NumField_sort__canonical__tvs_PreTopologicalNmodule
-                     R) =>
+            y : topology_structure.Topological.Exports.topology_structure_Topological__to__eqtype_Equality
+                  (join_tvs_PreTopologicalNmodule_between_Algebra_BaseAddUMagma_and_topology_structure_Topological
+                     (numFieldNormedType.NumField_sort__canonical__tvs_PreTopologicalNmodule
+                        R)) =>
           is_true (y != 0%R)) t0 ->
          ((fun h : R =>
            (h^-1 *:
@@ -6749,15 +6794,24 @@ Declared in library mathcomp.analysis.probability, line 2267, characters 6-14
 <span class="vernacular">Local</span><span class="vernacular"> Notation</span><span class="id"> </span><span id="XMonemX" class="id"><a name="XMonemX" class="">XMonemX</a></span><span class="id"> :=</span> (<span class="id">@</span><span class="id"><a href="mathcomp.analysis.probability.html#XMonemX">XMonemX</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.probability.html#XMonemX_realType.R">R</a></span>).<br/>
 <br/>
 <span class="vernacular">Lemma</span><span class="id"> </span><span id="continuous_XMonemX" class="id"><a name="continuous_XMonemX" class="" title="continuous_XMonemX :
-forall {R : realType} [a b : nat], continuous (XMonemX a b)
+forall {R : realType} [a b : nat]
+  [x : filter.Nbhs.sort
+         (numFieldTopology.Real_sort__canonical__filter_Nbhs R)],
+filter.continuous_at
+  (T:=numFieldTopology.Real_sort__canonical__filter_Nbhs R)
+  (U:=numFieldTopology.Real_sort__canonical__filter_Nbhs R) x 
+  (XMonemX a b)
 
 continuous_XMonemX is not universe polymorphic
 Expanded type for implicit arguments
 continuous_XMonemX :
 forall {R : realType} [a b : nat]
-  [x : numFieldTopology.Real_sort__canonical__filter_Nbhs R]
-  [t : set (numFieldTopology.Real_sort__canonical__filter_Nbhs R)],
-nbhs (XMonemX a b x) t ->
+  [x : filter.Nbhs.sort
+         (numFieldTopology.Real_sort__canonical__filter_Nbhs R)]
+  [t : set
+         (filter.Nbhs.sort
+            (numFieldTopology.Real_sort__canonical__filter_Nbhs R))],
+filter.nbhs (XMonemX a b x) t ->
 exists2 i : R,
   [set e | (0 < e)%R]%classic i &
   (ball_ [eta normr] x i `<=` XMonemX a b @^-1` t)%classic
@@ -6781,12 +6835,16 @@ within_continuous_XMonemX is not universe polymorphic
 Expanded type for implicit arguments
 within_continuous_XMonemX :
 forall {R : realType} [A : set R] [a b : nat]
-  [x : subspace_topology_subspace__canonical__filter_Nbhs A]
-  [t : set (numFieldTopology.Real_sort__canonical__filter_Nbhs R)],
-nbhs (from_subspace A (XMonemX a b) x) t ->
+  [x : filter.Nbhs.sort
+         (subspace_topology_subspace__canonical__filter_Nbhs A)]
+  [t : set
+         (filter.Nbhs.sort
+            (numFieldTopology.Real_sort__canonical__filter_Nbhs R))],
+filter.nbhs (from_subspace A (XMonemX a b) x) t ->
 (if if if pselect (A x) then true else false then true else false
- then within A (nbhs x)
- else globally [set x]) (from_subspace A (XMonemX a b) @^-1` t)%classic
+ then filter.within A (filter.nbhs x)
+ else filter.globally [set x])
+  (from_subspace A (XMonemX a b) @^-1` t)%classic
 
 Arguments within_continuous_XMonemX {R} [A]%_classical_set_scope
   [a b]%_nat_scope [x t] _
