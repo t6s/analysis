@@ -935,16 +935,7 @@ Qed.</div></details>
 <br/>
 <div class="doc">deleted neighborhood </div>
 <br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="dnbhs" class="id"><div name="dnbhs" class=" tooltip">dnbhs<span class='tooltip-area'><p>order_topology : Type -> Type
-
-order_topology is not universe polymorphic
-Arguments order_topology T%_type_scope
-order_topology is transparent
-Expands to: Constant
-            mathcomp.analysis.topology_theory.order_topology.order_topology
-Declared in
-library mathcomp.analysis.topology_theory.order_topology, line 198, characters 11-25
-</p></span></div></span><span class="id"> {</span><span id="T:304" class="id"><a name="T:304" class="">T</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#topologicalType">topologicalType</a></span><span class="id">}</span> (<span id="x:305" class="id"><a name="x:305" class="">x</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#T:304">T</a></span>)<span class="id"> :=</span><br/>
+<span class="vernacular">Definition</span><span class="id"> </span><span id="dnbhs" class="id"><div name="dnbhs" class=" tooltip">dnbhs<span class='tooltip-area'></span></div></span><span class="id"> {</span><span id="T:304" class="id"><a name="T:304" class="">T</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#topologicalType">topologicalType</a></span><span class="id">}</span> (<span id="x:305" class="id"><a name="x:305" class="">x</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#T:304">T</a></span>)<span class="id"> :=</span><br/>
 &nbsp;&nbsp;<span class="id"><a href="mathcomp.classical.filter.html#within">within</a></span> (<span class="gallina-kwd">fun</span><span class="id"> </span><span id="y:306" class="id"><a name="y:306" class="">y</a></span><span class="id"> =&gt;</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#y:306">y</a></span><span class="id"><a href="NOTFOUND the module url for mathcomp.boot.eqtype#c385a484ee9d1b4e0615924561a9b75e"> !=</a></span><span class="id"><a href="NOTFOUND the module url for mathcomp.boot.eqtype#c385a484ee9d1b4e0615924561a9b75e"> </a></span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#x:305">x</a></span>) (<span class="id"><a href="mathcomp.classical.filter.html#nbhs">nbhs</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#x:305">x</a></span>).<br/>
 <span class="vernacular">Notation</span> <span id="f8c5a58f3e97f5207acd97345df460ee" class="id"><a name="f8c5a58f3e97f5207acd97345df460ee" class="">&quot;x ^'&quot;</a></span><span class="id"> :=</span> (<span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#dnbhs">dnbhs</a></span><span class="id"> x</span>)<span class="id"> :</span><span class="id"> classical_set_scope</span>.<br/>
 <br/>
@@ -979,7 +970,16 @@ Qed.</div></details>
 <span class="id"> exact:</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#within_filter">within_filter</a></span>. Qed.</div></details>
 <span class="id">#[global]</span><span class="id"> Typeclasses</span><span class="vernacular"> Opaque</span><span class="id"> dnbhs</span>.<br/>
 <br/>
-<span class="vernacular">Canonical</span><span class="id"> </span><span id="dnbhs_filter_on" class="id"><div name="dnbhs_filter_on" class=" tooltip">dnbhs_filter_on<span class='tooltip-area'></span></div></span> (<span id="T:316" class="id"><a name="T:316" class="">T</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#topologicalType">topologicalType</a></span>)  (<span id="x:317" class="id"><a name="x:317" class="">x</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#T:316">T</a></span>)<span class="id"> :=</span><br/>
+<span class="vernacular">Canonical</span><span class="id"> </span><span id="dnbhs_filter_on" class="id"><div name="dnbhs_filter_on" class=" tooltip">dnbhs_filter_on<span class='tooltip-area'><p>order_topology : Type -> Type
+
+order_topology is not universe polymorphic
+Arguments order_topology T%_type_scope
+order_topology is transparent
+Expands to: Constant
+            mathcomp.analysis.topology_theory.order_topology.order_topology
+Declared in
+library mathcomp.analysis.topology_theory.order_topology, line 198, characters 11-25
+</p></span></div></span> (<span id="T:316" class="id"><a name="T:316" class="">T</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#topologicalType">topologicalType</a></span>)  (<span id="x:317" class="id"><a name="x:317" class="">x</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#T:316">T</a></span>)<span class="id"> :=</span><br/>
 &nbsp;&nbsp;<span class="id"><a href="mathcomp.classical.filter.html#FilterType">FilterType</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#x:317">x</a></span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#f8c5a58f3e97f5207acd97345df460ee">^'</a></span> (<span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#dnbhs_filter">dnbhs_filter</a></span><span class="id"> _</span>).<br/>
 <br/>
 <span class="vernacular">Lemma</span><span class="id"> </span><span id="cvg_fmap2" class="id"><a name="cvg_fmap2" class="">cvg_fmap2</a></span> (<span id="T:318" class="id"><a name="T:318" class="">T</a></span><span class="id"> </span><span id="U:319" class="id"><a name="U:319" class="">U</a></span><span class="id"> :</span><span class="gallina-kwd"> Type</span>) (<span id="f:320" class="id"><a name="f:320" class="">f</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#T:318">T</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> -&gt;</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> </a></span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#U:319">U</a></span>)<span class="id">:</span><br/>
