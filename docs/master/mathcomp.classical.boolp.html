@@ -686,13 +686,6 @@ Arguments principal_filter {X}%_type_scope x _
 principal_filter is transparent
 Expands to: Constant mathcomp.classical.filter.principal_filter
 Declared in library mathcomp.classical.filter, line 1320, characters 11-27
-principal_filter_type : Type -> Type
-
-principal_filter_type is not universe polymorphic
-Arguments principal_filter_type P%_type_scope
-principal_filter_type is transparent
-Expands to: Constant mathcomp.classical.filter.principal_filter_type
-Declared in library mathcomp.classical.filter, line 1324, characters 11-32
 </p></span></div></span> (<span id="P:292" class="id"><a name="P:292" class="">P</a></span><span class="id"> :</span><span class="gallina-kwd"> Prop</span>)<span class="id"> :=</span><span class="id"> </span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.ssr.ssreflect.html#::boolean_if_scope:'if'_x_'then'_x_'else'_x">if</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.ssr.ssreflect.html#::boolean_if_scope:'if'_x_'then'_x_'else'_x"> </a></span><span class="id"><a href="mathcomp.classical.boolp.html#pselect">pselect</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#P:292">P</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.ssr.ssreflect.html#::boolean_if_scope:'if'_x_'then'_x_'else'_x"> then</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.ssr.ssreflect.html#::boolean_if_scope:'if'_x_'then'_x_'else'_x"> </a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Datatypes.html#true">true</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.ssr.ssreflect.html#::boolean_if_scope:'if'_x_'then'_x_'else'_x"> else</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.ssr.ssreflect.html#::boolean_if_scope:'if'_x_'then'_x_'else'_x"> </a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Datatypes.html#false">false</a></span>.<br/>
 <br/>
 <span class="vernacular">Notation</span> <span id="cd531d9d29c2247dfa84f185bc7200e2" class="id"><a name="cd531d9d29c2247dfa84f185bc7200e2" class="">&quot;`[&lt; P &gt;]&quot;</a></span><span class="id"> :=</span> (<span class="id"><a href="mathcomp.classical.boolp.html#asbool">asbool</a></span><span class="id"> P</span>)<span class="id"> :</span><span class="id"> bool_scope</span>.<br/>
@@ -781,28 +774,26 @@ Qed.</div></details>
 <div class="proofscript">
 <span class="gallina-kwd"> by</span><span class="id"> move=&gt;</span><span class="id"> []</span><span class="id"> [];</span><span class="id"> rewrite</span><span class="id"> ?</span>(<span class="id"><a href="mathcomp.classical.boolp.html#trueE">trueE</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Datatypes.html#e6756e10c36f149b18b4a8741ed83079">,</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Datatypes.html#e6756e10c36f149b18b4a8741ed83079"> </a></span><span class="id"><a href="mathcomp.classical.boolp.html#falseE">falseE</a></span>)<span class="id"> ?</span><span class="id"><a href="mathcomp.classical.boolp.html#propeqE">propeqE</a></span><span class="id">;</span><span class="id"> tauto</span>. Qed.</div></details>
 <br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="gen_eq" class="id"><div name="gen_eq" class=" tooltip">gen_eq<span class='tooltip-area'><p>filterI_iter : forall {T : Type}, set (set T) -> nat -> set (set T)
+<span class="vernacular">Definition</span><span class="id"> </span><span id="gen_eq" class="id"><div name="gen_eq" class=" tooltip">gen_eq<span class='tooltip-area'><p>principal_filter_type : Type -> Type
 
-filterI_iter is not universe polymorphic
-Arguments filterI_iter {T}%_type_scope F%_classical_set_scope n%_nat_scope _
-filterI_iter is transparent
-Expands to: Constant mathcomp.classical.filter.filterI_iter
-Declared in library mathcomp.classical.filter, line 1472, characters 9-21
+principal_filter_type is not universe polymorphic
+Arguments principal_filter_type P%_type_scope
+principal_filter_type is transparent
+Expands to: Constant mathcomp.classical.filter.principal_filter_type
+Declared in library mathcomp.classical.filter, line 1324, characters 11-32
 </p></span></div></span> (<span id="T:312" class="id"><a name="T:312" class="">T</a></span><span class="id"> :</span><span class="gallina-kwd"> Type</span>) (<span id="u:313" class="id"><a name="u:313" class="">u</a></span><span class="id"> </span><span id="v:314" class="id"><a name="v:314" class="">v</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#T:312">T</a></span>)<span class="id"> :=</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#cd531d9d29c2247dfa84f185bc7200e2">`[&lt;</a></span><span class="id"><a href="mathcomp.classical.boolp.html#u:313">u</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"> =</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"> </a></span><span class="id"><a href="mathcomp.classical.boolp.html#v:314">v</a></span><span class="id"><a href="mathcomp.classical.boolp.html#cd531d9d29c2247dfa84f185bc7200e2">&gt;]</a></span>.<br/>
 <span class="vernacular">Lemma</span><span class="id"> </span><span id="gen_eqP" class="id"><a name="gen_eqP" class="">gen_eqP</a></span> (<span id="T:315" class="id"><a name="T:315" class="">T</a></span><span class="id"> :</span><span class="gallina-kwd"> Type</span>)<span class="id"> :</span><span class="id"> </span><span class="id"><a href="NOTFOUND the module url for mathcomp.boot.eqtype#MathCompCompatEquality.Equality.axiom">Equality</a></span>.<span class="id"><a href="NOTFOUND the module url for mathcomp.boot.eqtype#MathCompCompatEquality.Equality.axiom">axiom</a></span> (<span class="id">@</span><span class="id"><a href="mathcomp.classical.boolp.html#gen_eq">gen_eq</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#T:315">T</a></span>).<br/>
 <details>
 <summary class="toggleproof">Proof.</summary>
 <div class="proofscript">
 <span class="gallina-kwd"> by</span><span class="id"> move=&gt;</span><span class="id"> x</span><span class="id"> y;</span><span class="id"> apply:</span> (<span class="id"><a href="https://rocq-prover.org/corelib/Corelib.ssr.ssrbool.html#iffP">iffP</a></span> (<span class="id"><a href="mathcomp.classical.boolp.html#asboolP">asboolP</a></span><span class="id"> _</span>)). Qed.</div></details>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="gen_eqMixin" class="id"><div name="gen_eqMixin" class=" tooltip">gen_eqMixin<span class='tooltip-area'><p>finI_from :
-forall [I : choiceType] [T : Type], set I -> (I -> set T) -> set (set T)
+<span class="vernacular">Definition</span><span class="id"> </span><span id="gen_eqMixin" class="id"><div name="gen_eqMixin" class=" tooltip">gen_eqMixin<span class='tooltip-area'><p>filterI_iter : forall {T : Type}, set (set T) -> nat -> set (set T)
 
-finI_from is not universe polymorphic
-Arguments finI_from [I] [T]%_type_scope D%_classical_set_scope
-  f%_function_scope _
-finI_from is transparent
-Expands to: Constant mathcomp.classical.filter.finI_from
-Declared in library mathcomp.classical.filter, line 1504, characters 11-20
+filterI_iter is not universe polymorphic
+Arguments filterI_iter {T}%_type_scope F%_classical_set_scope n%_nat_scope _
+filterI_iter is transparent
+Expands to: Constant mathcomp.classical.filter.filterI_iter
+Declared in library mathcomp.classical.filter, line 1472, characters 9-21
 </p></span></div></span> (<span id="T:316" class="id"><a name="T:316" class="">T</a></span><span class="id"> :</span><span class="gallina-kwd"> Type</span>)<span class="id"> :</span><span class="id"> </span><span class="id"><a href="NOTFOUND the module url for mathcomp.boot.eqtype#hasDecEq">hasDecEq</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#T:316">T</a></span><span class="id"> :=</span><br/>
 &nbsp;&nbsp;<span class="id"><a href="NOTFOUND the module url for mathcomp.boot.eqtype#hasDecEq.Build">hasDecEq</a></span>.<span class="id"><a href="NOTFOUND the module url for mathcomp.boot.eqtype#hasDecEq.Build">Build</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#T:316">T</a></span> (<span class="id">@</span><span class="id"><a href="mathcomp.classical.boolp.html#gen_eqP">gen_eqP</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#T:316">T</a></span>).<br/>
 <br/>
@@ -817,13 +808,15 @@ Declared in library mathcomp.classical.filter, line 1504, characters 11-20
 <br/>
 <span class="vernacular">Section</span><span class="id"> classicType</span>.<br/>
 <span class="vernacular">Variable</span><span class="id"> </span><span id="classicType.T" class="id"><a name="classicType.T" class="">T</a></span><span class="id"> :</span><span class="gallina-kwd"> Type</span>.<br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="classicType" class="id"><div name="classicType" class=" tooltip">classicType<span class='tooltip-area'><p>finI : forall [I : choiceType] [T : Type], set I -> (I -> set T) -> Prop
+<span class="vernacular">Definition</span><span class="id"> </span><span id="classicType" class="id"><div name="classicType" class=" tooltip">classicType<span class='tooltip-area'><p>finI_from :
+forall [I : choiceType] [T : Type], set I -> (I -> set T) -> set (set T)
 
-finI is not universe polymorphic
-Arguments finI [I] [T]%_type_scope D%_classical_set_scope f%_function_scope
-finI is transparent
-Expands to: Constant mathcomp.classical.filter.finI
-Declared in library mathcomp.classical.filter, line 1566, characters 11-15
+finI_from is not universe polymorphic
+Arguments finI_from [I] [T]%_type_scope D%_classical_set_scope
+  f%_function_scope _
+finI_from is transparent
+Expands to: Constant mathcomp.classical.filter.finI_from
+Declared in library mathcomp.classical.filter, line 1504, characters 11-20
 </p></span></div></span><span class="id"> :=</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#classicType.T">T</a></span>.<br/>
 <span id="boolp_classicType__canonical__eqtype_Equality" class="id"><span id="HB_unnamed_factory_11" class="id"><a name="boolp_classicType__canonical__eqtype_Equality" class="">HB</a></span></span>.<span id="boolp_classicType__canonical__eqtype_Equality" class="id"><span id="HB_unnamed_factory_11" class="id"><a name="boolp_classicType__canonical__eqtype_Equality" class="">instance</a></span></span><span id="boolp_classicType__canonical__eqtype_Equality" class="id"><span id="HB_unnamed_factory_11" class="id"><a name="boolp_classicType__canonical__eqtype_Equality" class=""> Definition</a></span></span><span id="boolp_classicType__canonical__eqtype_Equality" class="id"><span id="HB_unnamed_factory_11" class="id"><a name="boolp_classicType__canonical__eqtype_Equality" class=""> _</a></span></span><span id="boolp_classicType__canonical__eqtype_Equality" class="id"><span id="HB_unnamed_factory_11" class="id"><a name="boolp_classicType__canonical__eqtype_Equality" class=""> :=</a></span></span><span id="boolp_classicType__canonical__eqtype_Equality" class="id"><span id="HB_unnamed_factory_11" class="id"><a name="boolp_classicType__canonical__eqtype_Equality" class=""> gen_eqMixin</a></span></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#classicType">classicType</a></span>.<br/>
 <span id="boolp_classicType__canonical__choice_Choice" class="id"><span id="HB_unnamed_factory_13" class="id"><a name="boolp_classicType__canonical__choice_Choice" class="">HB</a></span></span>.<span id="boolp_classicType__canonical__choice_Choice" class="id"><span id="HB_unnamed_factory_13" class="id"><a name="boolp_classicType__canonical__choice_Choice" class="">instance</a></span></span><span id="boolp_classicType__canonical__choice_Choice" class="id"><span id="HB_unnamed_factory_13" class="id"><a name="boolp_classicType__canonical__choice_Choice" class=""> Definition</a></span></span><span id="boolp_classicType__canonical__choice_Choice" class="id"><span id="HB_unnamed_factory_13" class="id"><a name="boolp_classicType__canonical__choice_Choice" class=""> _</a></span></span><span id="boolp_classicType__canonical__choice_Choice" class="id"><span id="HB_unnamed_factory_13" class="id"><a name="boolp_classicType__canonical__choice_Choice" class=""> :=</a></span></span><span id="boolp_classicType__canonical__choice_Choice" class="id"><span id="HB_unnamed_factory_13" class="id"><a name="boolp_classicType__canonical__choice_Choice" class=""> gen_choiceMixin</a></span></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#classicType">classicType</a></span>.<br/>
@@ -833,7 +826,14 @@ Declared in library mathcomp.classical.filter, line 1566, characters 11-15
 <br/>
 <span class="vernacular">Section</span><span class="id"> eclassicType</span>.<br/>
 <span class="vernacular">Variable</span><span class="id"> </span><span id="eclassicType.T" class="id"><a name="eclassicType.T" class="">T</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="NOTFOUND the module url for mathcomp.boot.eqtype#Equality.Exports.eqType">eqType</a></span>.<br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="eclassicType" class="id"><div name="eclassicType" class=" tooltip">eclassicType<span class='tooltip-area'></span></div></span><span class="id"> :</span><span class="gallina-kwd"> Type</span><span class="id"> :=</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#eclassicType.T">T</a></span>.<br/>
+<span class="vernacular">Definition</span><span class="id"> </span><span id="eclassicType" class="id"><div name="eclassicType" class=" tooltip">eclassicType<span class='tooltip-area'><p>finI : forall [I : choiceType] [T : Type], set I -> (I -> set T) -> Prop
+
+finI is not universe polymorphic
+Arguments finI [I] [T]%_type_scope D%_classical_set_scope f%_function_scope
+finI is transparent
+Expands to: Constant mathcomp.classical.filter.finI
+Declared in library mathcomp.classical.filter, line 1566, characters 11-15
+</p></span></div></span><span class="id"> :</span><span class="gallina-kwd"> Type</span><span class="id"> :=</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#eclassicType.T">T</a></span>.<br/>
 <span id="boolp_eclassicType__canonical__eqtype_Equality" class="id"><span id="HB_unnamed_mixin_17" class="id"><span id="eqtype_Equality__to__eqtype_hasDecEq" class="id"><span id="HB_unnamed_factory_15" class="id"><a name="boolp_eclassicType__canonical__eqtype_Equality" class="">HB</a></span></span></span></span>.<span id="boolp_eclassicType__canonical__eqtype_Equality" class="id"><span id="HB_unnamed_mixin_17" class="id"><span id="eqtype_Equality__to__eqtype_hasDecEq" class="id"><span id="HB_unnamed_factory_15" class="id"><a name="boolp_eclassicType__canonical__eqtype_Equality" class="">instance</a></span></span></span></span><span id="boolp_eclassicType__canonical__eqtype_Equality" class="id"><span id="HB_unnamed_mixin_17" class="id"><span id="eqtype_Equality__to__eqtype_hasDecEq" class="id"><span id="HB_unnamed_factory_15" class="id"><a name="boolp_eclassicType__canonical__eqtype_Equality" class=""> Definition</a></span></span></span></span><span id="boolp_eclassicType__canonical__eqtype_Equality" class="id"><span id="HB_unnamed_mixin_17" class="id"><span id="eqtype_Equality__to__eqtype_hasDecEq" class="id"><span id="HB_unnamed_factory_15" class="id"><a name="boolp_eclassicType__canonical__eqtype_Equality" class=""> _</a></span></span></span></span><span id="boolp_eclassicType__canonical__eqtype_Equality" class="id"><span id="HB_unnamed_mixin_17" class="id"><span id="eqtype_Equality__to__eqtype_hasDecEq" class="id"><span id="HB_unnamed_factory_15" class="id"><a name="boolp_eclassicType__canonical__eqtype_Equality" class=""> :=</a></span></span></span></span><span id="boolp_eclassicType__canonical__eqtype_Equality" class="id"><span id="HB_unnamed_mixin_17" class="id"><span id="eqtype_Equality__to__eqtype_hasDecEq" class="id"><span id="HB_unnamed_factory_15" class="id"><a name="boolp_eclassicType__canonical__eqtype_Equality" class=""> Equality</a></span></span></span></span>.<span class="id"><a href="NOTFOUND the module url for mathcomp.boot.eqtype#Equality.copy">copy</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#eclassicType">eclassicType</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#eclassicType.T">T</a></span>.<br/>
 <span id="boolp_eclassicType__canonical__choice_Choice" class="id"><span id="HB_unnamed_factory_18" class="id"><a name="boolp_eclassicType__canonical__choice_Choice" class="">HB</a></span></span>.<span id="boolp_eclassicType__canonical__choice_Choice" class="id"><span id="HB_unnamed_factory_18" class="id"><a name="boolp_eclassicType__canonical__choice_Choice" class="">instance</a></span></span><span id="boolp_eclassicType__canonical__choice_Choice" class="id"><span id="HB_unnamed_factory_18" class="id"><a name="boolp_eclassicType__canonical__choice_Choice" class=""> Definition</a></span></span><span id="boolp_eclassicType__canonical__choice_Choice" class="id"><span id="HB_unnamed_factory_18" class="id"><a name="boolp_eclassicType__canonical__choice_Choice" class=""> _</a></span></span><span id="boolp_eclassicType__canonical__choice_Choice" class="id"><span id="HB_unnamed_factory_18" class="id"><a name="boolp_eclassicType__canonical__choice_Choice" class=""> :=</a></span></span><span id="boolp_eclassicType__canonical__choice_Choice" class="id"><span id="HB_unnamed_factory_18" class="id"><a name="boolp_eclassicType__canonical__choice_Choice" class=""> gen_choiceMixin</a></span></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#eclassicType">eclassicType</a></span>.<br/>
 <span class="vernacular">End</span><span class="id"> eclassicType</span>.<br/>
