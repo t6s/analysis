@@ -565,11 +565,7 @@ instantiated during the proof process.
 <span class="vernacular">Definition</span><span class="id"> </span><span id="lim_in" class="id"><div name="lim_in" class=" tooltip">lim_in<span class='tooltip-area'></span></div></span><span class="id"> {</span><span id="U:106" class="id"><a name="U:106" class="">U</a></span><span class="id"> :</span><span class="id"> Type}</span> (<span id="T:107" class="id"><a name="T:107" class="">T</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#pfilteredType">pfilteredType</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#U:106">U</a></span>)<span class="id"> :=</span><br/>
 &nbsp;&nbsp;<span class="gallina-kwd">fun</span><span class="id"> </span><span id="F:108" class="id"><a name="F:108" class="">F</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.classical_sets.html#set_system">set_system</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#U:106">U</a></span><span class="id"> =&gt;</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.classical_sets.html#get">get</a></span> (<span class="gallina-kwd">fun</span><span class="id"> </span><span id="l:109" class="id"><a name="l:109" class="">l</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#T:107">T</a></span><span class="id"> =&gt;</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#F:108">F</a></span><span class="id"><a href="mathcomp.classical.filter.html#::classical_set_scope:x_'--&gt;'_x"> --&gt;</a></span><span class="id"><a href="mathcomp.classical.filter.html#::classical_set_scope:x_'--&gt;'_x"> </a></span><span class="id"><a href="mathcomp.classical.filter.html#l:109">l</a></span>).<br/>
 <span class="vernacular">Notation</span> <span id="17ada99128f44d4f9b98b4684c367015" class="id"><a name="17ada99128f44d4f9b98b4684c367015" class="">&quot;[ 'lim' F 'in' T ]&quot;</a></span><span class="id"> :=</span> (<span class="id">@</span><span class="id"><a href="mathcomp.classical.filter.html#lim_in">lim_in</a></span><span class="id"> _</span><span class="id"> T</span> (<span class="id"><a href="mathcomp.classical.filter.html#nbhs">nbhs</a></span><span class="id"> F</span>))<span class="id"> :</span><span class="id"> classical_set_scope</span>.<br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="lim" class="id"><div name="lim" class=" tooltip">lim<span class='tooltip-area'></span></div></span><span class="id"> {</span><span id="T:110" class="id"><a name="T:110" class="">T</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#pnbhsType">pnbhsType</a></span><span class="id">}</span> (<span id="F:111" class="id"><a name="F:111" class="">F</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.classical_sets.html#set_system">set_system</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#T:110">T</a></span>)<span class="id"> :=</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#17ada99128f44d4f9b98b4684c367015">[lim</a></span><span class="id"><a href="mathcomp.classical.filter.html#17ada99128f44d4f9b98b4684c367015"> </a></span><span class="id"><a href="mathcomp.classical.filter.html#F:111">F</a></span><span class="id"><a href="mathcomp.classical.filter.html#17ada99128f44d4f9b98b4684c367015"> in</a></span><span class="id"><a href="mathcomp.classical.filter.html#17ada99128f44d4f9b98b4684c367015"> </a></span><span class="id"><a href="mathcomp.classical.filter.html#T:110">T</a></span><span class="id"><a href="mathcomp.classical.filter.html#17ada99128f44d4f9b98b4684c367015">]</a></span>.<br/>
-<span class="vernacular">Notation</span> <span id="6aec98e3bb82b26e1327c07480d9aa11" class="id"><a name="6aec98e3bb82b26e1327c07480d9aa11" class="">&quot;[ 'cvg' F 'in' T ]&quot;</a></span><span class="id"> :=</span> (<span class="id">F</span><span class="id"><a href="mathcomp.classical.filter.html#::classical_set_scope:x_'--&gt;'_x"> --&gt;</a></span><span class="id"><a href="mathcomp.classical.filter.html#::classical_set_scope:x_'--&gt;'_x"> </a></span><span class="id"><a href="mathcomp.classical.filter.html#17ada99128f44d4f9b98b4684c367015">[lim</a></span><span class="id"><a href="mathcomp.classical.filter.html#17ada99128f44d4f9b98b4684c367015"> </a></span><span class="id">F</span><span class="id"><a href="mathcomp.classical.filter.html#17ada99128f44d4f9b98b4684c367015"> in</a></span><span class="id"><a href="mathcomp.classical.filter.html#17ada99128f44d4f9b98b4684c367015"> </a></span><span class="id">T</span><span class="id"><a href="mathcomp.classical.filter.html#17ada99128f44d4f9b98b4684c367015">]</a></span>)<span class="id"> :</span><span class="id"> classical_set_scope</span>.<br/>
-<span class="vernacular">Notation</span><span class="id"> </span><span id="cvg" class="id"><a name="cvg" class="">cvg</a></span><span class="id"> F</span><span class="id"> :=</span> (<span class="id">F</span><span class="id"><a href="mathcomp.classical.filter.html#::classical_set_scope:x_'--&gt;'_x"> --&gt;</a></span><span class="id"><a href="mathcomp.classical.filter.html#::classical_set_scope:x_'--&gt;'_x"> </a></span><span class="id"><a href="mathcomp.classical.filter.html#lim">lim</a></span><span class="id"> F</span>).<br/>
-<br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="eventually" class="id"><div name="eventually" class=" tooltip">eventually<span class='tooltip-area'><p>summable : forall [T : choiceType] [R : realType], (T -> R) -> Prop
+<span class="vernacular">Definition</span><span class="id"> </span><span id="lim" class="id"><div name="lim" class=" tooltip">lim<span class='tooltip-area'><p>summable : forall [T : choiceType] [R : realType], (T -> R) -> Prop
 
 summable is not universe polymorphic
 Arguments summable [T R] f%_function_scope
@@ -577,6 +573,44 @@ summable is transparent
 Expands to: Constant mathcomp.experimental_reals.realsum.summable
 Declared in
 library mathcomp.experimental_reals.realsum, line 31, characters 11-19
+</p></span></div></span><span class="id"> {</span><span id="T:110" class="id"><a name="T:110" class="">T</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#pnbhsType">pnbhsType</a></span><span class="id">}</span> (<span id="F:111" class="id"><a name="F:111" class="">F</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.classical_sets.html#set_system">set_system</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#T:110">T</a></span>)<span class="id"> :=</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#17ada99128f44d4f9b98b4684c367015">[lim</a></span><span class="id"><a href="mathcomp.classical.filter.html#17ada99128f44d4f9b98b4684c367015"> </a></span><span class="id"><a href="mathcomp.classical.filter.html#F:111">F</a></span><span class="id"><a href="mathcomp.classical.filter.html#17ada99128f44d4f9b98b4684c367015"> in</a></span><span class="id"><a href="mathcomp.classical.filter.html#17ada99128f44d4f9b98b4684c367015"> </a></span><span class="id"><a href="mathcomp.classical.filter.html#T:110">T</a></span><span class="id"><a href="mathcomp.classical.filter.html#17ada99128f44d4f9b98b4684c367015">]</a></span>.<br/>
+<span class="vernacular">Notation</span> <span id="6aec98e3bb82b26e1327c07480d9aa11" class="id"><a name="6aec98e3bb82b26e1327c07480d9aa11" class="">&quot;[ 'cvg' F 'in' T ]&quot;</a></span><span class="id"> :=</span> (<span class="id">F</span><span class="id"><a href="mathcomp.classical.filter.html#::classical_set_scope:x_'--&gt;'_x"> --&gt;</a></span><span class="id"><a href="mathcomp.classical.filter.html#::classical_set_scope:x_'--&gt;'_x"> </a></span><span class="id"><a href="mathcomp.classical.filter.html#17ada99128f44d4f9b98b4684c367015">[lim</a></span><span class="id"><a href="mathcomp.classical.filter.html#17ada99128f44d4f9b98b4684c367015"> </a></span><span class="id">F</span><span class="id"><a href="mathcomp.classical.filter.html#17ada99128f44d4f9b98b4684c367015"> in</a></span><span class="id"><a href="mathcomp.classical.filter.html#17ada99128f44d4f9b98b4684c367015"> </a></span><span class="id">T</span><span class="id"><a href="mathcomp.classical.filter.html#17ada99128f44d4f9b98b4684c367015">]</a></span>)<span class="id"> :</span><span class="id"> classical_set_scope</span>.<br/>
+<span class="vernacular">Notation</span><span class="id"> </span><span id="cvg" class="id"><a name="cvg" class="">cvg</a></span><span class="id"> F</span><span class="id"> :=</span> (<span class="id">F</span><span class="id"><a href="mathcomp.classical.filter.html#::classical_set_scope:x_'--&gt;'_x"> --&gt;</a></span><span class="id"><a href="mathcomp.classical.filter.html#::classical_set_scope:x_'--&gt;'_x"> </a></span><span class="id"><a href="mathcomp.classical.filter.html#lim">lim</a></span><span class="id"> F</span>).<br/>
+<br/>
+<span class="vernacular">Definition</span><span class="id"> </span><span id="eventually" class="id"><div name="eventually" class=" tooltip">eventually<span class='tooltip-area'><p>fpos :
+forall {R : realType} {T : choiceType},
+(T -> R) ->
+T ->
+{|
+  Num.POrderedZmodule.sort := R;
+  Num.POrderedZmodule.class :=
+    {|
+      Num.POrderedZmodule.Algebra_hasOpp_mixin := Num.NumDomain.class R;
+      Num.POrderedZmodule.Algebra_hasZero_mixin := Num.NumDomain.class R;
+      Num.POrderedZmodule.Algebra_hasAdd_mixin := Num.NumDomain.class R;
+      Num.POrderedZmodule.Algebra_BaseZmoduleNmodule_isZmodule_mixin :=
+        Num.NumDomain.class R;
+      Num.POrderedZmodule.Algebra_BaseAddUMagma_isAddUMagma_mixin :=
+        Num.NumDomain.class R;
+      Num.POrderedZmodule.Algebra_BaseAddMagma_isAddMagma_mixin :=
+        Num.NumDomain.class R;
+      Num.POrderedZmodule.choice_hasChoice_mixin := Num.NumDomain.class R;
+      Num.POrderedZmodule.eqtype_hasDecEq_mixin := Num.NumDomain.class R;
+      Num.POrderedZmodule.Order_isDuallyPreorder_mixin :=
+        Num.NumDomain.class R;
+      Num.POrderedZmodule.Order_Preorder_isDuallyPOrder_mixin :=
+        Num.NumDomain.class R;
+      Num.POrderedZmodule.Algebra_AddMagma_isAddSemigroup_mixin :=
+        Num.NumDomain.class R
+    |}
+|}
+
+fpos is not universe polymorphic
+Arguments fpos {R T} f%_function_scope x
+fpos is transparent
+Expands to: Constant mathcomp.experimental_reals.realsum.fpos
+Declared in
+library mathcomp.experimental_reals.realsum, line 49, characters 11-15
 </p></span></div></span><span class="id"> :=</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#filter_from">filter_from</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.classical_sets.html#setT">setT</a></span> (<span class="gallina-kwd">fun</span><span class="id"> </span><span id="N:112" class="id"><a name="N:112" class="">N</a></span><span class="id"> =&gt;</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.classical_sets.html#075f2dd209aa707f1415a58a026b96d9">[set</a></span><span class="id"><a href="mathcomp.classical.classical_sets.html#075f2dd209aa707f1415a58a026b96d9"> </a></span><span id="n:113" class="id"><a name="n:113" class="">n</a></span><span class="id"><a href="mathcomp.classical.classical_sets.html#075f2dd209aa707f1415a58a026b96d9"> |</a></span> (<span class="id"><a href="mathcomp.classical.filter.html#N:112">N</a></span><span class="id"><a href="NOTFOUND the module url for mathcomp.boot.ssrnat#cb53cf0ee22c036a03b4a9281c68b5a3"> &lt;=</a></span><span class="id"><a href="NOTFOUND the module url for mathcomp.boot.ssrnat#cb53cf0ee22c036a03b4a9281c68b5a3"> </a></span><span class="id"><a href="mathcomp.classical.filter.html#n:113">n</a></span>)<span class="id">%N</span><span class="id"><a href="mathcomp.classical.classical_sets.html#075f2dd209aa707f1415a58a026b96d9">]</a></span>).<br/>
 <span class="vernacular">Notation</span> <span id="228a5fbd8d7ef28f21231bccff88d0b0" class="id"><a name="228a5fbd8d7ef28f21231bccff88d0b0" class="">&quot;'\oo'&quot;</a></span><span class="id"> :=</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#eventually">eventually</a></span><span class="id"> :</span><span class="id"> classical_set_scope</span>.<br/>
 <br/>
@@ -699,52 +733,7 @@ Qed.</div></details>
 <div class="proofscript">
 <span class="gallina-kwd"> by</span><span class="id"> symmetry;</span><span class="id"> congr</span> (<span class="id"><a href="mathcomp.classical.filter.html#nbhs">nbhs</a></span><span class="id"> _</span>)<span class="id">;</span><span class="id"> rewrite</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#predeqE">predeqE</a></span><span class="id"> =&gt;</span><span class="id"> -[]</span>. Qed.</div></details>
 <br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="near2E" class="id"><div name="near2E" class=" tooltip">near2E<span class='tooltip-area'><p>fpos :
-forall {R : realType} {T : choiceType},
-(T -> R) ->
-T ->
-{|
-  Num.POrderedZmodule.sort := R;
-  Num.POrderedZmodule.class :=
-    {|
-      Num.POrderedZmodule.Algebra_hasOpp_mixin := Num.NumDomain.class R;
-      Num.POrderedZmodule.Algebra_hasZero_mixin := Num.NumDomain.class R;
-      Num.POrderedZmodule.Algebra_hasAdd_mixin := Num.NumDomain.class R;
-      Num.POrderedZmodule.Algebra_BaseZmoduleNmodule_isZmodule_mixin :=
-        Num.NumDomain.class R;
-      Num.POrderedZmodule.Algebra_BaseAddUMagma_isAddUMagma_mixin :=
-        Num.NumDomain.class R;
-      Num.POrderedZmodule.Algebra_BaseAddMagma_isAddMagma_mixin :=
-        Num.NumDomain.class R;
-      Num.POrderedZmodule.choice_hasChoice_mixin := Num.NumDomain.class R;
-      Num.POrderedZmodule.eqtype_hasDecEq_mixin := Num.NumDomain.class R;
-      Num.POrderedZmodule.Order_isDuallyPreorder_mixin :=
-        Num.NumDomain.class R;
-      Num.POrderedZmodule.Order_Preorder_isDuallyPOrder_mixin :=
-        Num.NumDomain.class R;
-      Num.POrderedZmodule.Algebra_AddMagma_isAddSemigroup_mixin :=
-        Num.NumDomain.class R
-    |}
-|}
-
-fpos is not universe polymorphic
-Arguments fpos {R T} f%_function_scope x
-fpos is transparent
-Expands to: Constant mathcomp.experimental_reals.realsum.fpos
-Declared in
-library mathcomp.experimental_reals.realsum, line 49, characters 11-15
-</p></span></div></span><span class="id"> :=</span> (<span class="id">@</span><span class="id"><a href="mathcomp.classical.filter.html#near2_curry">near2_curry</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Datatypes.html#e6756e10c36f149b18b4a8741ed83079">,</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Datatypes.html#e6756e10c36f149b18b4a8741ed83079"> </a></span><span class="id">@</span><span class="id"><a href="mathcomp.classical.filter.html#near2_pair">near2_pair</a></span>).<br/>
-<br/>
-<span class="vernacular">Lemma</span><span class="id"> </span><span id="filter_of_nearI" class="id"><a name="filter_of_nearI" class="">filter_of_nearI</a></span> (<span id="X:192" class="id"><a name="X:192" class="">X</a></span><span class="id"> :</span><span class="gallina-kwd"> Type</span>) (<span id="fX:193" class="id"><a name="fX:193" class="">fX</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#filteredType">filteredType</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#X:192">X</a></span>)<br/>
-&nbsp;&nbsp;(<span id="x:194" class="id"><a name="x:194" class="">x</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#fX:193">fX</a></span>)<span class="id"> :</span><span class="gallina-kwd"> forall</span><span class="id"> </span><span id="P:195" class="id"><a name="P:195" class="">P</a></span><span class="id">,</span><br/>
-&nbsp;&nbsp;<span class="id"><a href="mathcomp.classical.filter.html#nbhs">nbhs</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#x:194">x</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#P:195">P</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"> =</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"> </a></span><span class="id">@</span><span class="id"><a href="mathcomp.classical.filter.html#prop_near1">prop_near1</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#X:192">X</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#fX:193">fX</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#x:194">x</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#P:195">P</a></span> (<span class="id"><a href="https://rocq-prover.org/corelib/Corelib.ssr.ssrbool.html#inPhantom">inPhantom</a></span> (<span class="gallina-kwd">forall</span><span class="id"> </span><span id="x:196" class="id"><a name="x:196" class="">x</a></span><span class="id">,</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#P:195">P</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#x:196">x</a></span>)).<br/>
-<details>
-<summary class="toggleproof">Proof.</summary>
-<div class="proofscript">
-<span class="gallina-kwd"> by</span><span class="id"> []</span>. Qed.</div></details>
-<br/>
-<span class="vernacular">Module</span><span class="vernacular"> Export</span><span class="id"> </span><span id="NearNbhs" class="id"><a name="NearNbhs" class="">NearNbhs</a></span>.<br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="NearNbhs.near_simpl" class="id"><div name="NearNbhs.near_simpl" class=" tooltip">near_simpl<span class='tooltip-area'><p>fneg :
+<span class="vernacular">Definition</span><span class="id"> </span><span id="near2E" class="id"><div name="near2E" class=" tooltip">near2E<span class='tooltip-area'><p>fneg :
 forall {R : realType} {T : choiceType},
 (T -> R) ->
 T ->
@@ -778,6 +767,25 @@ fneg is transparent
 Expands to: Constant mathcomp.experimental_reals.realsum.fneg
 Declared in
 library mathcomp.experimental_reals.realsum, line 50, characters 11-15
+</p></span></div></span><span class="id"> :=</span> (<span class="id">@</span><span class="id"><a href="mathcomp.classical.filter.html#near2_curry">near2_curry</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Datatypes.html#e6756e10c36f149b18b4a8741ed83079">,</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Datatypes.html#e6756e10c36f149b18b4a8741ed83079"> </a></span><span class="id">@</span><span class="id"><a href="mathcomp.classical.filter.html#near2_pair">near2_pair</a></span>).<br/>
+<br/>
+<span class="vernacular">Lemma</span><span class="id"> </span><span id="filter_of_nearI" class="id"><a name="filter_of_nearI" class="">filter_of_nearI</a></span> (<span id="X:192" class="id"><a name="X:192" class="">X</a></span><span class="id"> :</span><span class="gallina-kwd"> Type</span>) (<span id="fX:193" class="id"><a name="fX:193" class="">fX</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#filteredType">filteredType</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#X:192">X</a></span>)<br/>
+&nbsp;&nbsp;(<span id="x:194" class="id"><a name="x:194" class="">x</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#fX:193">fX</a></span>)<span class="id"> :</span><span class="gallina-kwd"> forall</span><span class="id"> </span><span id="P:195" class="id"><a name="P:195" class="">P</a></span><span class="id">,</span><br/>
+&nbsp;&nbsp;<span class="id"><a href="mathcomp.classical.filter.html#nbhs">nbhs</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#x:194">x</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#P:195">P</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"> =</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"> </a></span><span class="id">@</span><span class="id"><a href="mathcomp.classical.filter.html#prop_near1">prop_near1</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#X:192">X</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#fX:193">fX</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#x:194">x</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#P:195">P</a></span> (<span class="id"><a href="https://rocq-prover.org/corelib/Corelib.ssr.ssrbool.html#inPhantom">inPhantom</a></span> (<span class="gallina-kwd">forall</span><span class="id"> </span><span id="x:196" class="id"><a name="x:196" class="">x</a></span><span class="id">,</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#P:195">P</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#x:196">x</a></span>)).<br/>
+<details>
+<summary class="toggleproof">Proof.</summary>
+<div class="proofscript">
+<span class="gallina-kwd"> by</span><span class="id"> []</span>. Qed.</div></details>
+<br/>
+<span class="vernacular">Module</span><span class="vernacular"> Export</span><span class="id"> </span><span id="NearNbhs" class="id"><a name="NearNbhs" class="">NearNbhs</a></span>.<br/>
+<span class="vernacular">Definition</span><span class="id"> </span><span id="NearNbhs.near_simpl" class="id"><div name="NearNbhs.near_simpl" class=" tooltip">near_simpl<span class='tooltip-area'><p>psum : forall {R : realType} {T : choiceType}, (T -> R) -> R
+
+psum is not universe polymorphic
+Arguments psum {R T} f%_function_scope
+psum is transparent
+Expands to: Constant mathcomp.experimental_reals.realsum.psum
+Declared in
+library mathcomp.experimental_reals.realsum, line 128, characters 11-15
 </p></span></div></span><span class="id"> :=</span> (<span class="id">@</span><span class="id"><a href="mathcomp.classical.filter.html#near_nbhs">near_nbhs</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Datatypes.html#e6756e10c36f149b18b4a8741ed83079">,</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Datatypes.html#e6756e10c36f149b18b4a8741ed83079"> </a></span><span class="id">@</span><span class="id"><a href="mathcomp.classical.filter.html#nbhs_nearE">nbhs_nearE</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Datatypes.html#e6756e10c36f149b18b4a8741ed83079">,</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Datatypes.html#e6756e10c36f149b18b4a8741ed83079"> </a></span><span class="id"><a href="mathcomp.classical.filter.html#filter_of_nearI">filter_of_nearI</a></span>).<br/>
 <span class="vernacular">Ltac</span><span class="id"> near_simpl</span><span class="id"> :=</span><span class="id"> rewrite</span><span class="id"> ?</span><span class="id"><a href="mathcomp.classical.filter.html#NearNbhs.near_simpl">near_simpl</a></span>.<br/>
 <span class="vernacular">End</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#NearNbhs">NearNbhs</a></span>.<br/>
@@ -828,14 +836,14 @@ Qed.</div></details>
 &nbsp;&nbsp;<span id="filter" class="id"><a name="filter" class="">filter</a></span><span class="id"> :&gt;</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.classical_sets.html#set_system">set_system</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#T:227">T</a></span><span class="id">;</span><br/>
 &nbsp;&nbsp;_<span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#Filter">Filter</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#filter:229">filter</a></span><br/>
 <span class="id">}</span>.<br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="filter_class" class="id"><div name="filter_class" class=" tooltip">filter_class<span class='tooltip-area'><p>psum : forall {R : realType} {T : choiceType}, (T -> R) -> R
+<span class="vernacular">Definition</span><span class="id"> </span><span id="filter_class" class="id"><div name="filter_class" class=" tooltip">filter_class<span class='tooltip-area'><p>sum : forall {R : realType} {T : choiceType}, (T -> R) -> R
 
-psum is not universe polymorphic
-Arguments psum {R T} f%_function_scope
-psum is transparent
-Expands to: Constant mathcomp.experimental_reals.realsum.psum
+sum is not universe polymorphic
+Arguments sum {R T} f%_function_scope
+sum is transparent
+Expands to: Constant mathcomp.experimental_reals.realsum.sum
 Declared in
-library mathcomp.experimental_reals.realsum, line 128, characters 11-15
+library mathcomp.experimental_reals.realsum, line 133, characters 11-14
 </p></span></div></span><span class="id"> </span><span id="T:230" class="id"><a name="T:230" class="">T</a></span> (<span id="F:231" class="id"><a name="F:231" class="">F</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#filter_on">filter_on</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#T:230">T</a></span>)<span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#Filter">Filter</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#F:231">F</a></span><span class="id"> :=</span><br/>
 &nbsp;&nbsp;<span class="id">let:</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#FilterType">FilterType</a></span><span class="id"> _</span><span class="id"> class</span><span class="id"> :=</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#F:231">F</a></span><span class="gallina-kwd"> in</span><span class="id"> class</span>.<br/>
 <span class="vernacular">Arguments</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#FilterType">FilterType</a></span><span class="id"> {T}</span><span class="id"> _</span><span class="id"> _</span>.<br/>
@@ -846,15 +854,7 @@ library mathcomp.experimental_reals.realsum, line 128, characters 11-15
 &nbsp;&nbsp;<span id="pfilter" class="id"><a name="pfilter" class="">pfilter</a></span><span class="id"> :&gt;</span> (<span class="id"><a href="mathcomp.classical.filter.html#T:233">T</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> -&gt;</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> </a></span><span class="id">Prop</span>)<span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> -&gt;</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> </a></span><span class="id">Prop;</span><br/>
 &nbsp;&nbsp;_<span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#ProperFilter">ProperFilter</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#pfilter:235">pfilter</a></span><br/>
 <span class="id">}</span>.<br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="pfilter_class" class="id"><div name="pfilter_class" class=" tooltip">pfilter_class<span class='tooltip-area'><p>sum : forall {R : realType} {T : choiceType}, (T -> R) -> R
-
-sum is not universe polymorphic
-Arguments sum {R T} f%_function_scope
-sum is transparent
-Expands to: Constant mathcomp.experimental_reals.realsum.sum
-Declared in
-library mathcomp.experimental_reals.realsum, line 133, characters 11-14
-</p></span></div></span><span class="id"> </span><span id="T:236" class="id"><a name="T:236" class="">T</a></span> (<span id="F:237" class="id"><a name="F:237" class="">F</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#pfilter_on">pfilter_on</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#T:236">T</a></span>)<span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#ProperFilter">ProperFilter</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#F:237">F</a></span><span class="id"> :=</span><br/>
+<span class="vernacular">Definition</span><span class="id"> </span><span id="pfilter_class" class="id"><div name="pfilter_class" class=" tooltip">pfilter_class<span class='tooltip-area'></span></div></span><span class="id"> </span><span id="T:236" class="id"><a name="T:236" class="">T</a></span> (<span id="F:237" class="id"><a name="F:237" class="">F</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#pfilter_on">pfilter_on</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#T:236">T</a></span>)<span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#ProperFilter">ProperFilter</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#F:237">F</a></span><span class="id"> :=</span><br/>
 &nbsp;&nbsp;<span class="id">let:</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#PFilterPack">PFilterPack</a></span><span class="id"> _</span><span class="id"> class</span><span class="id"> :=</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#F:237">F</a></span><span class="gallina-kwd"> in</span><span class="id"> class</span>.<br/>
 <span class="vernacular">Arguments</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#PFilterPack">PFilterPack</a></span><span class="id"> {T}</span><span class="id"> _</span><span class="id"> _</span>.<br/>
 <span class="id">#[global]</span><span class="id"> Existing</span><span class="vernacular"> Instance</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#pfilter_class">pfilter_class</a></span>.<br/>
