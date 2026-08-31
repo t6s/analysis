@@ -969,28 +969,7 @@ library mathcomp.analysis.pi_irrational, line 213, characters 11-18
 &nbsp;&nbsp;<span class="id">+</span><span class="gallina-kwd"> by</span><span class="id"> rewrite</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.exp.html#expR_lt1">expR_lt1</a></span><span class="id"> =&gt;</span><span class="id"> /</span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.order.order.html#Order.POrderTheory.le_lt_trans">le_lt_trans</a></span><span class="id">;</span><span class="id"> apply</span>.<br/>
 Qed.</div></details>
 <br/>
-<span class="vernacular">Canonical</span><span class="id"> </span><span id="expR_inum" class="id"><div name="expR_inum" class=" tooltip">expR_inum<span class='tooltip-area'><p>pi_irrational.Unnamed_thm :
-forall {R : realType} [p : {poly R}] [c : R],
-(p.[x]%R @[x --> c^'+] --> p.[c]%R)%classic
-
-pi_irrational.Unnamed_thm is not universe polymorphic
-Expanded type for implicit arguments
-pi_irrational.Unnamed_thm :
-forall {R : realType} [p : {poly R}] [c : R] [t : set R],
-nbhs p.[c]%R t ->
-exists2 i : R,
-  [set e | (0 < e)%R]%classic i &
-  (ball_ [eta normr] c i
-   `<=` (fun t0 : R =>
-         (fun u : R => is_true (c < u)%R) t0 -> ([eta horner p] @^-1` t) t0))%classic
-
-Arguments pi_irrational.Unnamed_thm {R} [p c]%_ring_scope [t] _
-pi_irrational.Unnamed_thm is opaque
-Expands to: Constant
-            mathcomp.analysis.pi_irrational.pi_irrational.Unnamed_thm
-Declared in
-library mathcomp.analysis.pi_irrational, line 223, characters 0-59
-</p></span></div></span> (<span id="i:209" class="id"><a name="i:209" class="">i</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.interval_inference.html#Itv.t">Itv</a></span>.<span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.interval_inference.html#Itv.t">t</a></span>) (<span id="x:210" class="id"><a name="x:210" class="">x</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.interval_inference.html#Itv.def">Itv</a></span>.<span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.interval_inference.html#Itv.def">def</a></span> (<span class="id">@</span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.interval_inference.html#Itv.num_sem">Itv</a></span>.<span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.interval_inference.html#Itv.num_sem">num_sem</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.exp.html#expR.R">R</a></span>)<span class="id"> </span><span class="id"><a href="mathcomp.analysis.exp.html#i:209">i</a></span>)<span class="id"> :=</span><br/>
+<span class="vernacular">Canonical</span><span class="id"> </span><span id="expR_inum" class="id"><div name="expR_inum" class=" tooltip">expR_inum<span class='tooltip-area'></span></div></span> (<span id="i:209" class="id"><a name="i:209" class="">i</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.interval_inference.html#Itv.t">Itv</a></span>.<span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.interval_inference.html#Itv.t">t</a></span>) (<span id="x:210" class="id"><a name="x:210" class="">x</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.interval_inference.html#Itv.def">Itv</a></span>.<span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.interval_inference.html#Itv.def">def</a></span> (<span class="id">@</span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.interval_inference.html#Itv.num_sem">Itv</a></span>.<span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.interval_inference.html#Itv.num_sem">num_sem</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.exp.html#expR.R">R</a></span>)<span class="id"> </span><span class="id"><a href="mathcomp.analysis.exp.html#i:209">i</a></span>)<span class="id"> :=</span><br/>
 &nbsp;&nbsp;<span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.interval_inference.html#Itv.mk">Itv</a></span>.<span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.interval_inference.html#Itv.mk">mk</a></span> (<span class="id"><a href="mathcomp.analysis.exp.html#num_spec_expR">num_spec_expR</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.exp.html#x:210">x</a></span>).<br/>
 <br/>
 <span class="vernacular">End</span><span class="id"> expR</span>.<br/>
@@ -1127,7 +1106,28 @@ Qed.</div></details>
 <br/>
 <span class="vernacular">Notation</span><span class="id"> </span><span id="exp" class="id"><a name="exp" class="">exp</a></span><span class="id"> :=</span> (<span class="id">@</span><span class="id"><a href="mathcomp.analysis.sequences.html#expR">expR</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.exp.html#Ln.R">R</a></span>).<br/>
 <br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="ln" class="id"><div name="ln" class=" tooltip">ln<span class='tooltip-area'></span></div></span><span class="id"> </span><span id="x:233" class="id"><a name="x:233" class="">x</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.exp.html#Ln.R">R</a></span><span class="id"> :=</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.classical_sets.html#e477842ee7959a2992c582e0ee2b070d">[get</a></span><span class="id"><a href="mathcomp.classical.classical_sets.html#e477842ee7959a2992c582e0ee2b070d"> </a></span><span id="y:234" class="id"><a name="y:234" class="">y</a></span><span class="id"><a href="mathcomp.classical.classical_sets.html#e477842ee7959a2992c582e0ee2b070d"> |</a></span><span class="id"><a href="mathcomp.classical.classical_sets.html#e477842ee7959a2992c582e0ee2b070d"> </a></span><span class="id"><a href="mathcomp.analysis.exp.html#exp">exp</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.exp.html#y:234">y</a></span><span class="id"><a href="NOTFOUND the module url for mathcomp.boot.eqtype#df45e8c2e8370fd4f0f7c4fdaf208180"> ==</a></span><span class="id"><a href="NOTFOUND the module url for mathcomp.boot.eqtype#df45e8c2e8370fd4f0f7c4fdaf208180"> </a></span><span class="id"><a href="mathcomp.analysis.exp.html#x:233">x</a></span><span class="id"><a href="mathcomp.classical.classical_sets.html#e477842ee7959a2992c582e0ee2b070d"> ]</a></span>.<br/>
+<span class="vernacular">Definition</span><span class="id"> </span><span id="ln" class="id"><div name="ln" class=" tooltip">ln<span class='tooltip-area'><p>pi_irrational.Unnamed_thm :
+forall {R : realType} [p : {poly R}] [c : R],
+(p.[x]%R @[x --> c^'+] --> p.[c]%R)%classic
+
+pi_irrational.Unnamed_thm is not universe polymorphic
+Expanded type for implicit arguments
+pi_irrational.Unnamed_thm :
+forall {R : realType} [p : {poly R}] [c : R] [t : set R],
+nbhs p.[c]%R t ->
+exists2 i : R,
+  [set e | (0 < e)%R]%classic i &
+  (ball_ [eta normr] c i
+   `<=` (fun t0 : R =>
+         (fun u : R => is_true (c < u)%R) t0 -> ([eta horner p] @^-1` t) t0))%classic
+
+Arguments pi_irrational.Unnamed_thm {R} [p c]%_ring_scope [t] _
+pi_irrational.Unnamed_thm is opaque
+Expands to: Constant
+            mathcomp.analysis.pi_irrational.pi_irrational.Unnamed_thm
+Declared in
+library mathcomp.analysis.pi_irrational, line 223, characters 0-59
+</p></span></div></span><span class="id"> </span><span id="x:233" class="id"><a name="x:233" class="">x</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.exp.html#Ln.R">R</a></span><span class="id"> :=</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.classical_sets.html#e477842ee7959a2992c582e0ee2b070d">[get</a></span><span class="id"><a href="mathcomp.classical.classical_sets.html#e477842ee7959a2992c582e0ee2b070d"> </a></span><span id="y:234" class="id"><a name="y:234" class="">y</a></span><span class="id"><a href="mathcomp.classical.classical_sets.html#e477842ee7959a2992c582e0ee2b070d"> |</a></span><span class="id"><a href="mathcomp.classical.classical_sets.html#e477842ee7959a2992c582e0ee2b070d"> </a></span><span class="id"><a href="mathcomp.analysis.exp.html#exp">exp</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.exp.html#y:234">y</a></span><span class="id"><a href="NOTFOUND the module url for mathcomp.boot.eqtype#df45e8c2e8370fd4f0f7c4fdaf208180"> ==</a></span><span class="id"><a href="NOTFOUND the module url for mathcomp.boot.eqtype#df45e8c2e8370fd4f0f7c4fdaf208180"> </a></span><span class="id"><a href="mathcomp.analysis.exp.html#x:233">x</a></span><span class="id"><a href="mathcomp.classical.classical_sets.html#e477842ee7959a2992c582e0ee2b070d"> ]</a></span>.<br/>
 <br/>
 <span class="vernacular">Fact</span><span class="id"> </span><span id="ln0" class="id"><a name="ln0" class="">ln0</a></span><span class="id"> </span><span id="x:235" class="id"><a name="x:235" class="">x</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.exp.html#x:235">x</a></span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.num_theory.orderedzmod.html#cb42ec59ad57b25928e1718b4e69e031"> &lt;=</a></span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.num_theory.orderedzmod.html#cb42ec59ad57b25928e1718b4e69e031"> </a></span><span class="id">0</span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> -&gt;</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> </a></span><span class="id"><a href="mathcomp.analysis.exp.html#ln">ln</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.exp.html#x:235">x</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"> =</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"> </a></span><span class="id">0</span>.<br/>
 <details>
