@@ -1538,6 +1538,7 @@ Declared in
 library mathcomp.analysis.topology_theory.separation_axioms, line 586, characters 11-27
 countable_uniform.g_ not a defined object.
 countable_uniform.distN not a defined object.
+countable_uniform.n_step_ball not a defined object.
 </p></span></div></span><span class="id"> :=</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#countable_uniform.type">countable_uniform</a></span>.<span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#countable_uniform.type">type</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#gauge.gauge_countable_uniformity">gauge_countable_uniformity</a></span>.<br/>
 <span class="vernacular">End</span><span class="id"> entourage_gauge</span>.<br/>
 <br/>
@@ -1568,7 +1569,16 @@ Qed.</div></details>
 <br/>
 <span class="vernacular">Implicit</span><span class="id"> Types</span> (<span class="id">T</span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#Topological.Exports.topologicalType">topologicalType</a></span>).<br/>
 <br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="perfect_set" class="id"><div name="perfect_set" class=" tooltip">perfect_set<span class='tooltip-area'><p>countable_uniform.step_ball not a defined object.
+<span class="vernacular">Definition</span><span class="id"> </span><span id="perfect_set" class="id"><div name="perfect_set" class=" tooltip">perfect_set<span class='tooltip-area'><p>countable_uniform.type :
+forall {T : uniformType}, countable_uniformity T -> Type
+
+countable_uniform.type is not universe polymorphic
+Arguments countable_uniform.type {T} cnt_unif
+countable_uniform.type is transparent
+Expands to: Constant
+            mathcomp.analysis.topology_theory.separation_axioms.countable_uniform.type
+Declared in
+library mathcomp.analysis.topology_theory.separation_axioms, line 959, characters 11-15
 </p></span></div></span><span class="id"> {</span><span id="T:310" class="id"><a name="T:310" class="">T</a></span><span class="id">}</span> (<span id="A:311" class="id"><a name="A:311" class="">A</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.classical_sets.html#set">set</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#T:310">T</a></span>)<span class="id"> :=</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#closed">closed</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#A:311">A</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#ba2b0e492d2b4675a0acf3ea92aabadd"> /\</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#ba2b0e492d2b4675a0acf3ea92aabadd"> </a></span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#limit_point">limit_point</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#A:311">A</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"> =</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"> </a></span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#A:311">A</a></span>.<br/>
 <br/>
 <span class="vernacular">Lemma</span><span class="id"> </span><span id="perfectP" class="id"><a name="perfectP" class="">perfectP</a></span><span class="id"> {</span><span id="T:312" class="id"><a name="T:312" class="">T</a></span><span class="id">}</span> (<span id="A:313" class="id"><a name="A:313" class="">A</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.classical_sets.html#set">set</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#T:312">T</a></span>)<span class="id"> :</span><br/>
