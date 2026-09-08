@@ -842,7 +842,26 @@ Declared in library mathcomp.classical.functions, line 2668, characters 19-32
 <span class="vernacular">Notation</span> <span id="997c1e7add8fdb22258e46473693fc24" class="id"><a name="997c1e7add8fdb22258e46473693fc24" class="">&quot;'{eclassic' T }&quot;</a></span><span class="id"> :=</span> (<span class="id"><a href="mathcomp.classical.boolp.html#eclassicType">eclassicType</a></span><span class="id"> T</span>)<br/>
 &nbsp;(<span class="id">format</span> <span class="id">&quot;'{eclassic'  T }&quot;</span>)<span class="id"> :</span><span class="id"> type_scope</span>.<br/>
 <br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="canonical_of" class="id"><div name="canonical_of" class=" tooltip">canonical_of<span class='tooltip-area'></span></div></span><span class="id"> </span><span id="T:327" class="id"><a name="T:327" class="">T</a></span><span class="id"> </span><span id="U:328" class="id"><a name="U:328" class="">U</a></span> (<span id="sort:329" class="id"><a name="sort:329" class="">sort</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#U:328">U</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> -&gt;</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> </a></span><span class="id"><a href="mathcomp.classical.boolp.html#T:327">T</a></span>)<span class="id"> :=</span><span class="gallina-kwd"> forall</span> (<span id="G:330" class="id"><a name="G:330" class="">G</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#T:327">T</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> -&gt;</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> </a></span><span class="gallina-kwd">Type</span>)<span class="id">,</span><br/>
+<span class="vernacular">Definition</span><span class="id"> </span><span id="canonical_of" class="id"><div name="canonical_of" class=" tooltip">canonical_of<span class='tooltip-area'><p>fctE :
+(forall (T T' : Type) (x : T), cst x = (fun=> x)) *
+(forall (T1 T2 T3 : Type) (f : T1 -> T2) (g : T2 -> T3),
+ g \o f = (fun x : T1 => g (f x))) *
+(forall (T : Type) (K : GRing.Zmodule.Exports.zmodType) (f : T -> K),
+ (- f)%R = (fun x : T => (- f x)%R)) *
+(forall (T : Type) (K : GRing.Nmodule.Exports.nmodType) (f g : T -> K),
+ (f + g)%R = (fun x : T => (f x + g x)%R)) *
+(forall (T : Type) (K : pzRingType) (f g : T -> K),
+ (f * g)%R = (fun x : T => (f x * g x)%R)) *
+(forall (T : Type) (K : pzRingType) (L : lmodType K) (k : K) (f : T -> L),
+ (k *: f)%R = (fun x : T => (k *: f x)%R)) *
+(forall (T : Type) (K : pzRingType) (f : T -> K) (n : nat),
+ (f ^+ n)%R = (fun x : T => (f x ^+ n)%R))
+
+fctE is not universe polymorphic
+fctE is transparent
+Expands to: Constant mathcomp.classical.functions.fctE
+Declared in library mathcomp.classical.functions, line 2759, characters 11-15
+</p></span></div></span><span class="id"> </span><span id="T:327" class="id"><a name="T:327" class="">T</a></span><span class="id"> </span><span id="U:328" class="id"><a name="U:328" class="">U</a></span> (<span id="sort:329" class="id"><a name="sort:329" class="">sort</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#U:328">U</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> -&gt;</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> </a></span><span class="id"><a href="mathcomp.classical.boolp.html#T:327">T</a></span>)<span class="id"> :=</span><span class="gallina-kwd"> forall</span> (<span id="G:330" class="id"><a name="G:330" class="">G</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#T:327">T</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> -&gt;</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> </a></span><span class="gallina-kwd">Type</span>)<span class="id">,</span><br/>
 &nbsp;&nbsp;(<span class="gallina-kwd">forall</span><span class="id"> </span><span id="x':331" class="id"><a name="x':331" class="">x'</a></span><span class="id">,</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#G:330">G</a></span> (<span class="id"><a href="mathcomp.classical.boolp.html#sort:329">sort</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#x':331">x'</a></span>))<span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> -&gt;</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> </a></span><span class="gallina-kwd">forall</span><span class="id"> </span><span id="x:332" class="id"><a name="x:332" class="">x</a></span><span class="id">,</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#G:330">G</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#x:332">x</a></span>.<br/>
 <span class="vernacular">Notation</span><span class="id"> </span><span id="canonical_" class="id"><a name="canonical_" class="">canonical_</a></span><span class="id"> sort</span><span class="id"> :=</span> (<span class="id">@</span><span class="id"><a href="mathcomp.classical.boolp.html#canonical_of">canonical_of</a></span><span class="id"> _</span><span class="id"> _</span><span class="id"> sort</span>).<br/>
 <span class="vernacular">Notation</span><span class="id"> </span><span id="canonical" class="id"><a name="canonical" class="">canonical</a></span><span class="id"> T</span><span class="id"> E</span><span class="id"> :=</span> (<span class="id">@</span><span class="id"><a href="mathcomp.classical.boolp.html#canonical_of">canonical_of</a></span><span class="id"> T</span><span class="id"> E</span><span class="id"> </span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.ssr.ssrfun.html#id">id</a></span>).<br/>
@@ -1178,30 +1197,7 @@ Qed.</div></details>
 <span class="gallina-kwd"> by</span><span class="id"> split=&gt;</span><span class="id"> [/</span><span class="id"><a href="mathcomp.classical.boolp.html#iff_notr">iff_notr</a></span><span class="id">|PQ];</span><span class="id"> [|apply/</span><span class="id"><a href="mathcomp.classical.boolp.html#iff_notr">iff_notr</a></span><span class="id">];</span><span class="id"> rewrite</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#notK">notK</a></span>. Qed.</div></details>
 <br/>
 <br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="predp" class="id"><div name="predp" class=" tooltip">predp<span class='tooltip-area'><p>fctE :
-(forall (T T' : Type) (x : T), cst x = (fun=> x)) *
-(forall (T1 T2 T3 : Type) (f : T1 -> T2) (g : T2 -> T3),
- g \o f = (fun x : T1 => g (f x))) *
-(forall (T : Type) (K : GRing.Zmodule.Exports.zmodType) (f : T -> K),
- (- f)%R = (fun x : T => (- f x)%R)) *
-(forall (T : Type) (K : GRing.Nmodule.Exports.nmodType) (f g : T -> K),
- (f + g)%R = (fun x : T => (f x + g x)%R)) *
-(forall (T : Type) (K : pzRingType) (f g : T -> K),
- (f * g)%R = (fun x : T => (f x * g x)%R)) *
-(forall (T : Type) (K : pzRingType) (L : lmodType K) (k : K) (f : T -> L),
- (k *: f)%R = (fun x : T => (k *: f x)%R)) *
-(forall (T : Type) (K : pzRingType) (f : T -> K) (n : nat),
- (f ^+ n)%R = (fun x : T => (f x ^+ n)%R))
-
-fctE is not universe polymorphic
-fctE is transparent
-Expands to: Constant mathcomp.classical.functions.fctE
-Declared in library mathcomp.classical.functions, line 2759, characters 11-15
-</p></span></div></span><span class="id"> </span><span id="T:427" class="id"><a name="T:427" class="">T</a></span><span class="id"> :=</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#T:427">T</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> -&gt;</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> </a></span><span class="gallina-kwd">Prop</span>.<br/>
-<br/>
-<span class="id">Identity</span><span class="vernacular"> Coercion</span><span class="id"> fun_of_pred</span><span class="id"> :</span><span class="id"> predp</span><span class="id"> &gt;-&gt;</span><span class="id"> Funclass</span>.<br/>
-<br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="relp" class="id"><div name="relp" class=" tooltip">relp<span class='tooltip-area'><p>linfun :
+<span class="vernacular">Definition</span><span class="id"> </span><span id="predp" class="id"><div name="predp" class=" tooltip">predp<span class='tooltip-area'><p>linfun :
 forall {K : numDomainType} {E F : lmodType K}, (K -> F -> F) -> {pred E -> F}
 
 linfun is not universe polymorphic
@@ -1209,6 +1205,19 @@ Arguments linfun {K E F} {s}%_function_scope _
 linfun is transparent
 Expands to: Constant mathcomp.classical.functions.linfun
 Declared in library mathcomp.classical.functions, line 2776, characters 11-17
+</p></span></div></span><span class="id"> </span><span id="T:427" class="id"><a name="T:427" class="">T</a></span><span class="id"> :=</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#T:427">T</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> -&gt;</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> </a></span><span class="gallina-kwd">Prop</span>.<br/>
+<br/>
+<span class="id">Identity</span><span class="vernacular"> Coercion</span><span class="id"> fun_of_pred</span><span class="id"> :</span><span class="id"> predp</span><span class="id"> &gt;-&gt;</span><span class="id"> Funclass</span>.<br/>
+<br/>
+<span class="vernacular">Definition</span><span class="id"> </span><span id="relp" class="id"><div name="relp" class=" tooltip">relp<span class='tooltip-area'><p>linfun_key :
+forall {K : numDomainType} {E F : lmodType K} {s : K -> F -> F},
+pred_key (T:=E -> F) linfun
+
+linfun_key is not universe polymorphic
+Arguments linfun_key {K E F} {s}%_function_scope
+linfun_key is opaque
+Expands to: Constant mathcomp.classical.functions.linfun_key
+Declared in library mathcomp.classical.functions, line 2778, characters 11-21
 </p></span></div></span><span class="id"> </span><span id="T:428" class="id"><a name="T:428" class="">T</a></span><span class="id"> :=</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#T:428">T</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> -&gt;</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> </a></span><span class="id"><a href="mathcomp.classical.boolp.html#predp">predp</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#T:428">T</a></span>.<br/>
 <br/>
 <span class="id">Identity</span><span class="vernacular"> Coercion</span><span class="id"> fun_of_rel</span><span class="id"> :</span><span class="id"> rel</span><span class="id"> &gt;-&gt;</span><span class="id"> Funclass</span>.<br/>
@@ -1222,15 +1231,15 @@ Declared in library mathcomp.classical.functions, line 2776, characters 11-17
 <span class="vernacular">Notation</span><span class="id"> </span><span id="xpreimp" class="id"><a name="xpreimp" class="">xpreimp</a></span><span class="id"> :=</span> (<span class="gallina-kwd">fun</span><span class="id"> </span><span id="f:440" class="id"><a name="f:440" class="">f</a></span> (<span id="p:441" class="id"><a name="p:441" class="">p</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#predp">predp</a></span><span class="id"> _</span>)<span class="id"> </span><span id="x:442" class="id"><a name="x:442" class="">x</a></span><span class="id"> =&gt;</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#p:441">p</a></span> (<span class="id"><a href="mathcomp.classical.boolp.html#f:440">f</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#x:442">x</a></span>)).<br/>
 <span class="vernacular">Notation</span><span class="id"> </span><span id="xrelpU" class="id"><a name="xrelpU" class="">xrelpU</a></span><span class="id"> :=</span> (<span class="gallina-kwd">fun</span> (<span id="r1:443" class="id"><a name="r1:443" class="">r1</a></span><span class="id"> </span><span id="r2:444" class="id"><a name="r2:444" class="">r2</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#relp">relp</a></span><span class="id"> _</span>)<span class="id"> </span><span id="x:445" class="id"><a name="x:445" class="">x</a></span><span class="id"> </span><span id="y:446" class="id"><a name="y:446" class="">y</a></span><span class="id"> =&gt;</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#r1:443">r1</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#x:445">x</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#y:446">y</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#f031fe1957c4a4a8e217aa46af2b4e25"> \/</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#f031fe1957c4a4a8e217aa46af2b4e25"> </a></span><span class="id"><a href="mathcomp.classical.boolp.html#r2:444">r2</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#x:445">x</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#y:446">y</a></span>).<br/>
 <br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="pred0p" class="id"><div name="pred0p" class=" tooltip">pred0p<span class='tooltip-area'><p>linfun_key :
+<span class="vernacular">Definition</span><span class="id"> </span><span id="pred0p" class="id"><div name="pred0p" class=" tooltip">pred0p<span class='tooltip-area'><p>linfun_keyed :
 forall {K : numDomainType} {E F : lmodType K} {s : K -> F -> F},
-pred_key (T:=E -> F) linfun
+keyed_pred linfun_key
 
-linfun_key is not universe polymorphic
-Arguments linfun_key {K E F} {s}%_function_scope
-linfun_key is opaque
-Expands to: Constant mathcomp.classical.functions.linfun_key
-Declared in library mathcomp.classical.functions, line 2778, characters 11-21
+linfun_keyed is not universe polymorphic
+Arguments linfun_keyed {K E F} {s}%_function_scope
+linfun_keyed is transparent
+Expands to: Constant mathcomp.classical.functions.linfun_keyed
+Declared in library mathcomp.classical.functions, line 2780, characters 10-22
 </p></span></div></span> (<span id="T:447" class="id"><a name="T:447" class="">T</a></span><span class="id"> :</span><span class="gallina-kwd"> Type</span>) (<span id="P:448" class="id"><a name="P:448" class="">P</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#predp">predp</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#T:447">T</a></span>)<span class="id"> :</span><span class="id"> </span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Datatypes.html#bool">bool</a></span><span class="id"> :=</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#cd531d9d29c2247dfa84f185bc7200e2">`[&lt;</a></span><span class="id"><a href="mathcomp.classical.boolp.html#P:448">P</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.ssr.ssrfun.html#44b19bd81f7a1388073ea8a65e6fa993"> =1</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.ssr.ssrfun.html#44b19bd81f7a1388073ea8a65e6fa993"> </a></span><span class="id"><a href="mathcomp.classical.boolp.html#xpredp0">xpredp0</a></span><span class="id"><a href="mathcomp.classical.boolp.html#cd531d9d29c2247dfa84f185bc7200e2">&gt;]</a></span>.<br/>
 <span class="id">Prenex</span><span class="vernacular"> Implicits</span><span class="id"> pred0p</span>.<br/>
 <br/>
@@ -1665,17 +1674,7 @@ Qed.</div></details>
 <div class="proofscript">
 <span class="id"> exact:</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.mathcomp_extra.html#Order.default_display">Order</a></span>.<span class="id"><a href="mathcomp.classical.mathcomp_extra.html#Order.default_display">default_display</a></span>. Qed.</div></details>
 <br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="FunOrder.lef" class="id"><div name="FunOrder.lef" class=" tooltip">lef<span class='tooltip-area'><p>linfun_Sub :
-forall {R : numDomainType} {E F : lmodType R} {s : GRing.Scale.law R F}
-  [f : E -> F],
-f \in linfun -> {linear E -> F | s}
-
-linfun_Sub is not universe polymorphic
-Arguments linfun_Sub {R E F s} [f]%_function_scope fP
-linfun_Sub is transparent
-Expands to: Constant mathcomp.classical.functions.linfun_Sub
-Declared in library mathcomp.classical.functions, line 2799, characters 11-21
-</p></span></div></span><span class="id"> </span><span id="f:621" class="id"><a name="f:621" class="">f</a></span><span class="id"> </span><span id="g:622" class="id"><a name="g:622" class="">g</a></span><span class="id"> :=</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#cd531d9d29c2247dfa84f185bc7200e2">`[&lt;</a></span><span class="id"><a href="mathcomp.classical.boolp.html#cd531d9d29c2247dfa84f185bc7200e2"> </a></span><span class="gallina-kwd">forall</span><span class="id"> </span><span id="x:623" class="id"><a name="x:623" class="">x</a></span><span class="id">,</span> (<span class="id"><a href="mathcomp.classical.boolp.html#f:621">f</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#x:623">x</a></span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.order.preorder.html#4a718365fe6d60a4322f996a7adbd575"> &lt;=</a></span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.order.preorder.html#4a718365fe6d60a4322f996a7adbd575"> </a></span><span class="id"><a href="mathcomp.classical.boolp.html#g:622">g</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#x:623">x</a></span>)<span class="id">%O</span><span class="id"><a href="mathcomp.classical.boolp.html#cd531d9d29c2247dfa84f185bc7200e2"> &gt;]</a></span>.<br/>
+<span class="vernacular">Definition</span><span class="id"> </span><span id="FunOrder.lef" class="id"><div name="FunOrder.lef" class=" tooltip">lef<span class='tooltip-area'></span></div></span><span class="id"> </span><span id="f:621" class="id"><a name="f:621" class="">f</a></span><span class="id"> </span><span id="g:622" class="id"><a name="g:622" class="">g</a></span><span class="id"> :=</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#cd531d9d29c2247dfa84f185bc7200e2">`[&lt;</a></span><span class="id"><a href="mathcomp.classical.boolp.html#cd531d9d29c2247dfa84f185bc7200e2"> </a></span><span class="gallina-kwd">forall</span><span class="id"> </span><span id="x:623" class="id"><a name="x:623" class="">x</a></span><span class="id">,</span> (<span class="id"><a href="mathcomp.classical.boolp.html#f:621">f</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#x:623">x</a></span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.order.preorder.html#4a718365fe6d60a4322f996a7adbd575"> &lt;=</a></span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.order.preorder.html#4a718365fe6d60a4322f996a7adbd575"> </a></span><span class="id"><a href="mathcomp.classical.boolp.html#g:622">g</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#x:623">x</a></span>)<span class="id">%O</span><span class="id"><a href="mathcomp.classical.boolp.html#cd531d9d29c2247dfa84f185bc7200e2"> &gt;]</a></span>.<br/>
 <span class="vernacular">Local</span><span class="vernacular"> Notation</span> <span id="f19451cbaa2069d404dd9bdd9c3b0464" class="id"><a name="f19451cbaa2069d404dd9bdd9c3b0464" class="">&quot;f &lt;= g&quot;</a></span><span class="id"> :=</span> (<span class="id"><a href="mathcomp.classical.boolp.html#FunOrder.lef">lef</a></span><span class="id"> f</span><span class="id"> g</span>).<br/>
 <br/>
 <span class="vernacular">Definition</span><span class="id"> </span><span id="FunOrder.ltf" class="id"><div name="FunOrder.ltf" class=" tooltip">ltf<span class='tooltip-area'></span></div></span><span class="id"> </span><span id="f:624" class="id"><a name="f:624" class="">f</a></span><span class="id"> </span><span id="g:625" class="id"><a name="g:625" class="">g</a></span><span class="id"> :=</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#cd531d9d29c2247dfa84f185bc7200e2">`[&lt;</a></span> (<span class="gallina-kwd">forall</span><span class="id"> </span><span id="x:626" class="id"><a name="x:626" class="">x</a></span><span class="id">,</span> (<span class="id"><a href="mathcomp.classical.boolp.html#f:624">f</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#x:626">x</a></span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.order.preorder.html#4a718365fe6d60a4322f996a7adbd575"> &lt;=</a></span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.order.preorder.html#4a718365fe6d60a4322f996a7adbd575"> </a></span><span class="id"><a href="mathcomp.classical.boolp.html#g:625">g</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#x:626">x</a></span>)<span class="id">%O</span>)<span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#ba2b0e492d2b4675a0acf3ea92aabadd"> /\</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#ba2b0e492d2b4675a0acf3ea92aabadd"> </a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#a883bdd010993579f99d60b3775bcf54">exists</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#a883bdd010993579f99d60b3775bcf54"> </a></span><span id="x:627" class="id"><a name="x:627" class="">x</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#a883bdd010993579f99d60b3775bcf54">,</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#a883bdd010993579f99d60b3775bcf54"> </a></span><span class="id"><a href="mathcomp.classical.boolp.html#f:624">f</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#x:627">x</a></span><span class="id"><a href="NOTFOUND the module url for mathcomp.boot.eqtype#c385a484ee9d1b4e0615924561a9b75e"> !=</a></span><span class="id"><a href="NOTFOUND the module url for mathcomp.boot.eqtype#c385a484ee9d1b4e0615924561a9b75e"> </a></span><span class="id"><a href="mathcomp.classical.boolp.html#g:625">g</a></span><span class="id"> </span><span class="id"><a href="mathcomp.classical.boolp.html#x:627">x</a></span><span class="id"><a href="mathcomp.classical.boolp.html#cd531d9d29c2247dfa84f185bc7200e2"> &gt;]</a></span>.<br/>
