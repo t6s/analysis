@@ -579,15 +579,15 @@ Qed.</div></details>
 <span class="vernacular">Implicit</span><span class="id"> Types</span><span class="id"> x</span><span class="id"> y</span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#hausdorff_topologicalType.T">T</a></span>.<br/>
 <br/>
 <span class="vernacular">Local</span><span class="vernacular"> Open</span><span class="vernacular"> Scope</span><span class="id"> classical_set_scope</span>.<br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="close" class="id"><div name="close" class=" tooltip">close<span class='tooltip-area'><p>kolmogorov_space : topologicalType -> Prop
+<span class="vernacular">Definition</span><span class="id"> </span><span id="close" class="id"><div name="close" class=" tooltip">close<span class='tooltip-area'><p>set_nbhs : forall {T : topologicalType}, set T -> set (set T)
 
-kolmogorov_space is not universe polymorphic
-Arguments kolmogorov_space T
-kolmogorov_space is transparent
+set_nbhs is not universe polymorphic
+Arguments set_nbhs {T} A%_classical_set_scope _
+set_nbhs is transparent
 Expands to: Constant
-            mathcomp.analysis.topology_theory.separation_axioms.kolmogorov_space
+            mathcomp.analysis.topology_theory.separation_axioms.set_nbhs
 Declared in
-library mathcomp.analysis.topology_theory.separation_axioms, line 103, characters 11-27
+library mathcomp.analysis.topology_theory.separation_axioms, line 69, characters 11-19
 </p></span></div></span><span class="id"> </span><span id="x:54" class="id"><a name="x:54" class="">x</a></span><span class="id"> </span><span id="y:55" class="id"><a name="y:55" class="">y</a></span><span class="id"> :</span><span class="gallina-kwd"> Prop</span><span class="id"> :=</span><span class="gallina-kwd"> forall</span><span class="id"> </span><span id="M:56" class="id"><a name="M:56" class="">M</a></span><span class="id">,</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#open_nbhs">open_nbhs</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#y:55">y</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#M:56">M</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> -&gt;</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> </a></span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#closure">closure</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#M:56">M</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#x:54">x</a></span>.<br/>
 <br/>
 <span class="vernacular">Lemma</span><span class="id"> </span><span id="closeEnbhs" class="id"><a name="closeEnbhs" class="">closeEnbhs</a></span><span class="id"> </span><span id="x:57" class="id"><a name="x:57" class="">x</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#close">close</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#x:57">x</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"> =</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"> </a></span><span class="id"><a href="mathcomp.analysis.topology_theory.compact.html#cluster">cluster</a></span> (<span class="id"><a href="mathcomp.classical.filter.html#nbhs">nbhs</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#x:57">x</a></span>).<br/>
@@ -810,7 +810,16 @@ Qed.</div></details>
 <span class="vernacular">Section</span><span class="id"> set_separations</span>.<br/>
 <span class="vernacular">Context</span><span class="id"> {</span><span id="set_separations.T" class="id"><a name="set_separations.T" class="">T</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#Topological.Exports.topologicalType">topologicalType</a></span><span class="id">}</span>.<br/>
 <br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="normal_space" class="id"><div name="normal_space" class=" tooltip">normal_space<span class='tooltip-area'><p>accessible_space : topologicalType -> Prop
+<span class="vernacular">Definition</span><span class="id"> </span><span id="normal_space" class="id"><div name="normal_space" class=" tooltip">normal_space<span class='tooltip-area'><p>kolmogorov_space : topologicalType -> Prop
+
+kolmogorov_space is not universe polymorphic
+Arguments kolmogorov_space T
+kolmogorov_space is transparent
+Expands to: Constant
+            mathcomp.analysis.topology_theory.separation_axioms.kolmogorov_space
+Declared in
+library mathcomp.analysis.topology_theory.separation_axioms, line 103, characters 11-27
+accessible_space : topologicalType -> Prop
 
 accessible_space is not universe polymorphic
 Arguments accessible_space T
@@ -828,7 +837,11 @@ Expands to: Constant
             mathcomp.analysis.topology_theory.separation_axioms.hausdorff_space
 Declared in
 library mathcomp.analysis.topology_theory.separation_axioms, line 109, characters 11-26
-close : forall [T : topologicalType], T -> T -> Prop
+</p></span></div></span><span class="id"> :=</span><br/>
+&nbsp;&nbsp;<span class="gallina-kwd">forall</span><span class="id"> </span><span id="A:140" class="id"><a name="A:140" class="">A</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.classical_sets.html#set">set</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#set_separations.T">T</a></span><span class="id">,</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#closed">closed</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#A:140">A</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> -&gt;</a></span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id"><a href="mathcomp.classical.filter.html#filter_from">filter_from</a></span> (<span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#set_nbhs">set_nbhs</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#A:140">A</a></span>)<span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#closure">closure</a></span><span class="id"><a href="mathcomp.classical.filter.html#36a632122426b13e019327a9d6576f70"> `=&gt;`</a></span><span class="id"><a href="mathcomp.classical.filter.html#36a632122426b13e019327a9d6576f70"> </a></span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#set_nbhs">set_nbhs</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#A:140">A</a></span>.<br/>
+<br/>
+<span class="vernacular">Definition</span><span class="id"> </span><span id="regular_space" class="id"><div name="regular_space" class=" tooltip">regular_space<span class='tooltip-area'><p>close : forall [T : topologicalType], T -> T -> Prop
 
 close is not universe polymorphic
 Arguments close [T] x y
@@ -837,19 +850,6 @@ Expands to: Constant
             mathcomp.analysis.topology_theory.separation_axioms.close
 Declared in
 library mathcomp.analysis.topology_theory.separation_axioms, line 315, characters 11-16
-</p></span></div></span><span class="id"> :=</span><br/>
-&nbsp;&nbsp;<span class="gallina-kwd">forall</span><span class="id"> </span><span id="A:140" class="id"><a name="A:140" class="">A</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.classical_sets.html#set">set</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#set_separations.T">T</a></span><span class="id">,</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#closed">closed</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#A:140">A</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> -&gt;</a></span><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="id"><a href="mathcomp.classical.filter.html#filter_from">filter_from</a></span> (<span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#set_nbhs">set_nbhs</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#A:140">A</a></span>)<span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#closure">closure</a></span><span class="id"><a href="mathcomp.classical.filter.html#36a632122426b13e019327a9d6576f70"> `=&gt;`</a></span><span class="id"><a href="mathcomp.classical.filter.html#36a632122426b13e019327a9d6576f70"> </a></span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#set_nbhs">set_nbhs</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#A:140">A</a></span>.<br/>
-<br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="regular_space" class="id"><div name="regular_space" class=" tooltip">regular_space<span class='tooltip-area'><p>normal_space : topologicalType -> Prop
-
-normal_space is not universe polymorphic
-Arguments normal_space T
-normal_space is transparent
-Expands to: Constant
-            mathcomp.analysis.topology_theory.separation_axioms.normal_space
-Declared in
-library mathcomp.analysis.topology_theory.separation_axioms, line 480, characters 11-23
 </p></span></div></span><span class="id"> :=</span><br/>
 &nbsp;&nbsp;<span class="gallina-kwd">forall</span><span class="id"> </span><span id="a:141" class="id"><a name="a:141" class="">a</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#set_separations.T">T</a></span><span class="id">,</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.filter.html#filter_from">filter_from</a></span> (<span class="id"><a href="mathcomp.classical.filter.html#nbhs">nbhs</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#a:141">a</a></span>)<span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#closure">closure</a></span><span class="id"><a href="mathcomp.classical.filter.html#::classical_set_scope:x_'--&gt;'_x"> --&gt;</a></span><span class="id"><a href="mathcomp.classical.filter.html#::classical_set_scope:x_'--&gt;'_x"> </a></span><span class="id"><a href="mathcomp.analysis.topology_theory.separation_axioms.html#a:141">a</a></span>.<br/>
 <br/>
@@ -957,7 +957,16 @@ Qed.</div></details>
 <span class="vernacular">Section</span><span class="id"> totally_disconnected</span>.<br/>
 <span class="vernacular">Implicit</span><span class="id"> Types</span><span class="id"> T</span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.topology_theory.topology_structure.html#Topological.Exports.topologicalType">topologicalType</a></span>.<br/>
 <br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="totally_disconnected" class="id"><div name="totally_disconnected" class=" tooltip">totally_disconnected<span class='tooltip-area'><p>regular_space : topologicalType -> Prop
+<span class="vernacular">Definition</span><span class="id"> </span><span id="totally_disconnected" class="id"><div name="totally_disconnected" class=" tooltip">totally_disconnected<span class='tooltip-area'><p>normal_space : topologicalType -> Prop
+
+normal_space is not universe polymorphic
+Arguments normal_space T
+normal_space is transparent
+Expands to: Constant
+            mathcomp.analysis.topology_theory.separation_axioms.normal_space
+Declared in
+library mathcomp.analysis.topology_theory.separation_axioms, line 480, characters 11-23
+regular_space : topologicalType -> Prop
 
 regular_space is not universe polymorphic
 Arguments regular_space T
