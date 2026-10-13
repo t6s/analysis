@@ -264,14 +264,26 @@ The contents is likely to be moved elsewhere.
 <span class="vernacular">Section</span><span class="id"> ProdNormedZmodule</span>.<br/>
 <span class="vernacular">Context</span><span class="id"> {</span><span id="ProdNormedZmodule.ProdNormedZmodule.R" class="id"><a name="ProdNormedZmodule.ProdNormedZmodule.R" class="">R</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.num_theory.numdomain.html#Num.NumDomain.Exports.numDomainType">numDomainType</a></span><span class="id">}</span><span class="id"> {</span><span id="ProdNormedZmodule.ProdNormedZmodule.U" class="id"><a name="ProdNormedZmodule.ProdNormedZmodule.U" class="">U</a></span><span class="id"> </span><span id="ProdNormedZmodule.ProdNormedZmodule.V" class="id"><a name="ProdNormedZmodule.ProdNormedZmodule.V" class="">V</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.num_theory.numdomain.html#Num.NormedZmodule.Exports.normedZmodType">normedZmodType</a></span><span class="id"> </span><span class="id"><a href="mathcomp.reals.prodnormedzmodule.html#R:9">R</a></span><span class="id">}</span>.<br/>
 <br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="ProdNormedZmodule.norm" class="id"><div name="ProdNormedZmodule.norm" class=" tooltip">norm<span class='tooltip-area'><p>ereal_ball : forall {R : realFieldType}, \bar R -> R -> \bar R -> bool
+<span class="vernacular">Definition</span><span class="id"> </span><span id="ProdNormedZmodule.norm" class="id"><div name="ProdNormedZmodule.norm" class=" tooltip">norm<span class='tooltip-area'><p>lt_expand :
+forall [R : realFieldType],
+{in [pred r | (`|r| <= 1)%R] &,
+  {mono expand (R:=R) : x y / (x < y)%R >-> (x < y)%E}}
 
-ereal_ball is not universe polymorphic
-Arguments ereal_ball {R} x%_ereal_scope r%_ring_scope y%_ereal_scope
-ereal_ball is transparent
-Expands to: Constant mathcomp.reals.constructive_ereal.ereal_ball
+lt_expand is not universe polymorphic
+Expanded type for implicit arguments
+lt_expand :
+forall [R : realFieldType] [x y : R],
+x \in [pred r | (`|r| <= 1)%R] ->
+y \in [pred r | (`|r| <= 1)%R] ->
+(fun x0 : constructive_ereal_extended__canonical__Order_Preorder =>
+ [eta (> x0)%O]) (expand (R:=R) x) (expand (R:=R) y) =
+(fun x0 : R => [eta (> x0)%R]) x y
+
+Arguments lt_expand [R x y] _ _
+lt_expand is transparent
+Expands to: Constant mathcomp.reals.constructive_ereal.lt_expand
 Declared in
-library mathcomp.reals.constructive_ereal, line 4679, characters 11-21
+library mathcomp.reals.constructive_ereal, line 4644, characters 11-20
 </p></span></div></span> (<span id="x:12" class="id"><a name="x:12" class="">x</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.reals.prodnormedzmodule.html#ProdNormedZmodule.ProdNormedZmodule.U">U</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Datatypes.html#11c698c8685bb8ab1cf725545c085ac4"> *</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Datatypes.html#11c698c8685bb8ab1cf725545c085ac4"> </a></span><span class="id"><a href="mathcomp.reals.prodnormedzmodule.html#ProdNormedZmodule.ProdNormedZmodule.V">V</a></span>)<span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.reals.prodnormedzmodule.html#ProdNormedZmodule.ProdNormedZmodule.R">R</a></span><span class="id"> :=</span><span class="id"> </span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.num_theory.orderedzmod.html#Num.max">Num</a></span>.<span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.num_theory.orderedzmod.html#Num.max">max</a></span><span class="id"> </span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.num_theory.numdomain.html#55297ec87c6b3f98c14c99daeafb55d3">`|</a></span><span class="id"><a href="mathcomp.reals.prodnormedzmodule.html#x:12">x</a></span>.<span class="id"><a href="https://rocq-prover.org/corelib/Corelib.ssr.ssrfun.html#::pair_scope:x_'.1'">1</a></span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.num_theory.numdomain.html#55297ec87c6b3f98c14c99daeafb55d3">|</a></span><span class="id"> </span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.num_theory.numdomain.html#55297ec87c6b3f98c14c99daeafb55d3">`|</a></span><span class="id"><a href="mathcomp.reals.prodnormedzmodule.html#x:12">x</a></span>.<span class="id"><a href="https://rocq-prover.org/corelib/Corelib.ssr.ssrfun.html#::pair_scope:x_'.2'">2</a></span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.num_theory.numdomain.html#55297ec87c6b3f98c14c99daeafb55d3">|</a></span>.<br/>
 <br/>
 <span class="vernacular">Lemma</span><span class="id"> </span><span id="ProdNormedZmodule.normD" class="id"><a name="ProdNormedZmodule.normD" class="">normD</a></span><span class="id"> </span><span id="x:13" class="id"><a name="x:13" class="">x</a></span><span class="id"> </span><span id="y:14" class="id"><a name="y:14" class="">y</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.reals.prodnormedzmodule.html#ProdNormedZmodule.norm">norm</a></span> (<span class="id"><a href="mathcomp.reals.prodnormedzmodule.html#x:13">x</a></span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.ssralg.html#c7f78cf1f6a5e4f664654f7d671ca752"> +</a></span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.ssralg.html#c7f78cf1f6a5e4f664654f7d671ca752"> </a></span><span class="id"><a href="mathcomp.reals.prodnormedzmodule.html#y:14">y</a></span>)<span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.num_theory.orderedzmod.html#cb42ec59ad57b25928e1718b4e69e031"> &lt;=</a></span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.num_theory.orderedzmod.html#cb42ec59ad57b25928e1718b4e69e031"> </a></span><span class="id"><a href="mathcomp.reals.prodnormedzmodule.html#ProdNormedZmodule.norm">norm</a></span><span class="id"> </span><span class="id"><a href="mathcomp.reals.prodnormedzmodule.html#x:13">x</a></span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.ssralg.html#c7f78cf1f6a5e4f664654f7d671ca752"> +</a></span><span class="id"><a href="https://math-comp.github.io/htmldoc_2_5_0/mathcomp.algebra.ssralg.html#c7f78cf1f6a5e4f664654f7d671ca752"> </a></span><span class="id"><a href="mathcomp.reals.prodnormedzmodule.html#ProdNormedZmodule.norm">norm</a></span><span class="id"> </span><span class="id"><a href="mathcomp.reals.prodnormedzmodule.html#y:14">y</a></span>.<br/>
@@ -316,7 +328,23 @@ Qed.</div></details>
 <br/>
 <span class="vernacular">Module</span><span class="id"> </span><span id="ProdNormedZmodule.Exports" class="id"><a name="ProdNormedZmodule.Exports" class="">Exports</a></span>.<br/>
 <span class="id">HB</span>.<span class="id">reexport</span>.<br/>
-<span class="vernacular">Definition</span><span class="id"> </span><span id="ProdNormedZmodule.Exports.prod_normE" class="id"><div name="ProdNormedZmodule.Exports.prod_normE" class=" tooltip">prod_normE<span class='tooltip-area'></span></div></span><span class="id"> :=</span><span class="id"> @</span><span class="id"><a href="mathcomp.reals.prodnormedzmodule.html#ProdNormedZmodule.prod_normE">prod_normE</a></span>.<br/>
+<span class="vernacular">Definition</span><span class="id"> </span><span id="ProdNormedZmodule.Exports.prod_normE" class="id"><div name="ProdNormedZmodule.Exports.prod_normE" class=" tooltip">prod_normE<span class='tooltip-area'><p>expand_inj :
+forall [R : realFieldType],
+{in [pred r | (`|r| <= 1)%R] &, injective (expand (R:=R))}
+
+expand_inj is not universe polymorphic
+Expanded type for implicit arguments
+expand_inj :
+forall [R : realFieldType] [x y : R],
+x \in [pred r | (`|r| <= 1)%R] ->
+y \in [pred r | (`|r| <= 1)%R] -> expand (R:=R) x = expand (R:=R) y -> x = y
+
+Arguments expand_inj [R x y] _ _ _
+expand_inj is transparent
+Expands to: Constant mathcomp.reals.constructive_ereal.expand_inj
+Declared in
+library mathcomp.reals.constructive_ereal, line 4645, characters 11-21
+</p></span></div></span><span class="id"> :=</span><span class="id"> @</span><span class="id"><a href="mathcomp.reals.prodnormedzmodule.html#ProdNormedZmodule.prod_normE">prod_normE</a></span>.<br/>
 <span class="vernacular">End</span><span class="id"> </span><span class="id"><a href="mathcomp.reals.prodnormedzmodule.html#ProdNormedZmodule.Exports">Exports</a></span>.<br/>
 <br/>
 <span class="vernacular">End</span><span class="id"> </span><span class="id"><a href="mathcomp.reals.prodnormedzmodule.html#ProdNormedZmodule">ProdNormedZmodule</a></span>.<br/>
