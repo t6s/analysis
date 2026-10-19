@@ -801,6 +801,18 @@ Expands to: Constant
             mathcomp.analysis.measure_theory.measurable_structure.g_sigma_algebra_preimageType
 Declared in
 library mathcomp.analysis.measure_theory.measurable_structure, line 1329, characters 11-39
+g_sigma_algebra_preimage :
+forall [d' : measure_display] [T : pointedType] [T' : measurableType d'],
+(T -> T') -> set (set T)
+
+g_sigma_algebra_preimage is not universe polymorphic
+Arguments g_sigma_algebra_preimage [d']%_measure_display_scope 
+  [T T'] f%_function_scope _
+g_sigma_algebra_preimage is transparent
+Expands to: Constant
+            mathcomp.analysis.measure_theory.measurable_structure.g_sigma_algebra_preimage
+Declared in
+library mathcomp.analysis.measure_theory.measurable_structure, line 1332, characters 11-35
 </p></span></div></span> (<span id="T:371" class="id"><a name="T:371" class="">T</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="NOTFOUND the module url for mathcomp.boot.choice#Choice.Exports.choiceType">choiceType</a></span>) (<span id="R:372" class="id"><a name="R:372" class="">R</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.reals.reals.html#Real.Exports.realType">realType</a></span>) (<span id="D:373" class="id"><a name="D:373" class="">D</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.classical.classical_sets.html#set">set</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.esum.html#T:371">T</a></span>)<br/>
 &nbsp;&nbsp;(<span id="f:374" class="id"><a name="f:374" class="">f</a></span><span class="id"> :</span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.esum.html#T:371">T</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> -&gt;</a></span><span class="id"><a href="https://rocq-prover.org/corelib/Corelib.Init.Logic.html#::type_scope:x_'-&gt;'_x"> </a></span><span class="id"><a href="mathcomp.reals.constructive_ereal.html#4c9ddfb63ff52527d9adecfde4a667c3">\bar</a></span><span class="id"><a href="mathcomp.reals.constructive_ereal.html#4c9ddfb63ff52527d9adecfde4a667c3"> </a></span><span class="id"><a href="mathcomp.analysis.esum.html#R:372">R</a></span>)<span class="id"> :=</span> (<span class="id"><a href="mathcomp.analysis.esum.html#bfafafade7d3e202dbbc3dbf50606eb1">\esum_</a></span>(<span id="x:375" class="id"><a name="x:375" class="">x</a></span><span class="id"><a href="mathcomp.analysis.esum.html#bfafafade7d3e202dbbc3dbf50606eb1"> in</a></span><span class="id"><a href="mathcomp.analysis.esum.html#bfafafade7d3e202dbbc3dbf50606eb1"> </a></span><span class="id"><a href="mathcomp.analysis.esum.html#D:373">D</a></span>)<span class="id"><a href="mathcomp.analysis.esum.html#bfafafade7d3e202dbbc3dbf50606eb1"> </a></span><span class="id"><a href="mathcomp.reals.constructive_ereal.html#baaea4d1d2e6cce26f49e2f830fd4e9f">`|</a></span><span class="id"><a href="mathcomp.reals.constructive_ereal.html#baaea4d1d2e6cce26f49e2f830fd4e9f"> </a></span><span class="id"><a href="mathcomp.analysis.esum.html#f:374">f</a></span><span class="id"> </span><span class="id"><a href="mathcomp.analysis.esum.html#x:375">x</a></span><span class="id"><a href="mathcomp.reals.constructive_ereal.html#baaea4d1d2e6cce26f49e2f830fd4e9f"> |</a></span><span class="id"><a href="mathcomp.reals.constructive_ereal.html#::ereal_scope:x_'&lt;'_x"> &lt;</a></span><span class="id"><a href="mathcomp.reals.constructive_ereal.html#::ereal_scope:x_'&lt;'_x"> </a></span><span class="id"><a href="mathcomp.reals.constructive_ereal.html#d5becfdd26043e7de5a21e6270f35a00">+oo</a></span>)<span class="id">%E</span>.<br/>
 <br/>
