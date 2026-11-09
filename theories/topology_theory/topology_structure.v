@@ -279,17 +279,6 @@ rewrite /interior predeqE => //= x; rewrite nbhsE; split => [[B0 ?] | []].
   [exact: open_nbhsI | rewrite subsetI; split; apply: subIset; [left|right]].
 Qed.
 
-Lemma open_bigcup_basis (F : set_system T) (A : set T) :
-  basis F -> open A ->
-  A = \bigcup_(i in [set i | F i /\ i `<=` A]) i.
-Proof.
-case=> Fo Ffilt oA; apply/seteqP; split => x.
-  move=> Ax.
-  have:= Ffilt x A (open_nbhs_nbhs (conj oA Ax)).
-  by case=> U /= [] FU Ux UA; exists U => //; split.
-by case=> U /= [] FU; exact.
-Qed.
-
 End Topological1.
 
 Lemma open_in_nearW {T : topologicalType} (P : T -> Prop) (S : set T) :
@@ -322,16 +311,6 @@ Proof.
 split=> fcont; first by rewrite !openE => A Aop ? /Aop /fcont.
 move=> s A; rewrite nbhs_simpl /= !nbhsE => - [B [Bop Bfs] sBA].
 by exists (f @^-1` B); [split=> //; apply/fcont|move=> ? /sBA].
-Qed.
-
-Lemma continuous_on_basis (S T : topologicalType)
-  (F : set_system T) (f : S -> T) :
-  basis F -> (forall A : set T, F A -> open (f @^-1` A)) -> continuous f.
-Proof.
-move=> bF bcf.
-apply/continuousP => A /(open_bigcup_basis bF) ->.
-rewrite preimage_bigcup; apply: bigcup_open.
-by move=> U /= [] FU UA; exact: bcf.
 Qed.
 
 Lemma open_comp {T U : topologicalType} (f : T -> U) (D : set U) :
@@ -1217,7 +1196,32 @@ rewrite bigcup_mkcond => nPsA; apply: bigcupT_separable => n.
 by case: ifPn => [/set_mem/nPsA//|_]; exact: separable_set0.
 Qed.
 
+Lemma open_bigcup_basis (F : set_system T) (A : set T) :
+  basis F -> open A ->
+  A = \bigcup_(i in [set i | F i /\ i `<=` A]) i.
+Proof.
+case=> Fo Ffilt oA; apply/seteqP; split => x.
+  move=> Ax.
+  have:= Ffilt x A (open_nbhs_nbhs (conj oA Ax)).
+  by case=> U /= [] FU Ux UA; exists U => //; split.
+by case=> U /= [] FU; exact.
+Qed.
+
 End basis.
+
+Section more_on_basis.
+
+Lemma continuous_on_basis (S T : topologicalType)
+  (F : set_system T) (f : S -> T) :
+  basis F -> (forall A : set T, F A -> open (f @^-1` A)) -> continuous f.
+Proof.
+move=> bF bcf.
+apply/continuousP => A /(open_bigcup_basis bF) ->.
+rewrite preimage_bigcup; apply: bigcup_open.
+by move=> U /= [] FU UA; exact: bcf.
+Qed.
+
+End more_on_basis.
 
 Section ClopenSets.
 Implicit Type T : topologicalType.
