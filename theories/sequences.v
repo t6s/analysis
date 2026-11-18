@@ -514,7 +514,7 @@ rewrite series_addn addrC.
 apply/eqP; congr +%R.
 have->: (u_ \o addn m) = (u_ \o addn^~ m) by apply: funext=> ? /=; rewrite addnC.
 rewrite /series/=.
-by rewrite big_nat_addnr add0n.
+by rewrite big_nat_addn add0n.
 Qed.
 
 Section partial_sum_numFieldType.

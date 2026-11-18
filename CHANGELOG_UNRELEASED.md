@@ -8,7 +8,7 @@
   + lemmas `eventually_addnl`, `eventually_addnr`, `cvgn_addn`, `limn_addn`
 
 + in `unstbale.v`"
-  + lemmas `big_nat_addnl`, `big_nat_addnr`
+  + lemma `big_nat_addn`
 
 + in `sequenses.v`
   + lemmas `series_comp_addn`, `cvgn_series_comp_addn`, `limn_series_split`

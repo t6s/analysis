@@ -1021,12 +1021,12 @@ End interval_realFieldType.
 
 Section big_nat_addn.
 
-Lemma big_nat_addnl
+Lemma big_nat_addn
   (R : Type) (idx : R) (op : R -> R -> R) (k m n : nat) (F : nat -> R) :
-  \big[op/idx]_(m <= i < n) F (k + i)%N = \big[op/idx]_(k + m <= i < k + n) F i.
+  \big[op/idx]_(m <= i < n) F (i + k)%N = \big[op/idx]_(m + k <= i < n + k) F i.
 Proof.
 move: m n; elim: k.
-  by move=> ? ?; rewrite !add0n; under [LHS]eq_bigr do rewrite add0n.
+  by move=> ? ?; rewrite !addn0; under [LHS]eq_bigr do rewrite addn0.
 move=> k IHk m n.
 have[|mn] := leqP n m.
   rewrite leqNgt=> /negPf mn.
@@ -1035,16 +1035,9 @@ have[|mn] := leqP n m.
     by rewrite mn.
   rewrite big_nat big_pred0//.
   move=> i; apply/negbTE/negP=> /andP [] /leq_ltn_trans /[apply].
-  by rewrite ltn_add2l mn.
-rewrite !addSn -!addnS -IHk big_nat_recl//-big_ltn//.
-by under eq_bigr do rewrite addSn -addnS.
-Qed.
-
-Lemma big_nat_addnr
-  (R : Type) (idx : R) (op : R -> R -> R) (k m n : nat) (F : nat -> R) :
-  \big[op/idx]_(m <= i < n) F (i + k)%N = \big[op/idx]_(m + k <= i < n + k) F i.
-Proof.
-by under eq_bigr do rewrite addnC; rewrite !(addnC _ k) big_nat_addnl.
+  by rewrite ltn_add2r mn.
+rewrite !addnS -!addSn -IHk big_nat_recl//-big_ltn//.
+by under eq_bigr do rewrite addnS -addSn.
 Qed.
 
 End big_nat_addn.
